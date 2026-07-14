@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panduan Lengkap Perawatan Cabai — Musim Kemarau & Hujan</title>
+  <meta name="description" content="Panduan lengkap perawatan tanaman cabai di musim kemarau dan hujan. Pupuk, hama, penyakit, penyiraman, dan tips budidaya cabai optimal.">
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Scripts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            g: { DEFAULT: '#2D6A4F', l: '#52B788', d: '#1B4332', 50: '#D8F3DC', 100: '#B7E4C7' },
+            e: { DEFAULT: '#A0785A', l: '#D4A574' },
+            w: { DEFAULT: '#168AAD', l: '#76C8D0', d: '#0E6377' }
+          },
+          fontFamily: { p: ['Poppins', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    :root { --bg: #F0F9F0; --fg: #1A1A1A; --mt: #5F6B6A; --ac: #2D6A4F; --cd: #FFFFFF; --bd: #D1E7DD }
+    .dark { --bg: #0C1F10; --fg: #E0F2E0; --mt: #8FA89A; --ac: #52B788; --cd: #132A17; --bd: #1E3D24 }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box }
+    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--fg); transition: background .35s, color .35s; overflow-x: hidden }
+    
+    .sec { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease }
+    .sec.v { opacity: 1; transform: translateY(0) }
+    
+    .ch { transition: transform .3s, box-shadow .3s }
+    .ch:hover { transform: translateY(-5px); box-shadow: 0 14px 32px rgba(45,106,79,.13) }
+    .dark .ch:hover { box-shadow: 0 14px 32px rgba(0,0,0,.4) }
+    
+    .btn { padding: .65rem 1.6rem; border-radius: 999px; font-weight: 600; border: none; cursor: pointer; transition: all .2s; display: inline-flex; align-items: center; gap: .5rem; font-family: 'Poppins'; font-size: .85rem }
+    .btn-p { background: linear-gradient(135deg, #2D6A4F, #40916C); color: #fff }
+    .btn-p:hover { transform: scale(1.04); box-shadow: 0 6px 20px rgba(45,106,79,.3) }
+    .btn-s { background: transparent; color: var(--ac); border: 2px solid var(--ac) }
+    .btn-s:hover { background: var(--ac); color: #fff }
+    
+    .tbl { border-collapse: separate; border-spacing: 0; width: 100% }
+    .tbl thead th { background: #2D6A4F; color: #fff; padding: .65rem .8rem; text-align: left; font-weight: 600; font-size: .75rem; position: sticky; top: 0; z-index: 2 }
+    .dark .tbl thead th { background: #1B4332 }
+    .tbl tbody td { padding: .55rem .8rem; border-bottom: 1px solid var(--bd); font-size: .78rem }
+    .tbl tbody tr:hover { background: rgba(82,183,136,.06) }
+    
+    .accordion-item { border: 1px solid var(--bd); border-radius: .65rem; overflow: hidden; margin-bottom: .5rem; transition: border-color .3s }
+    .accordion-item:hover { border-color: var(--ac) }
+    .accordion-q { padding: .85rem 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; background: var(--cd); font-size: .85rem; gap: .8rem; user-select: none }
+    .accordion-a { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .4s; padding: 0 1rem; background: var(--cd); font-size: .8rem; color: var(--mt); line-height: 1.75 }
+    .accordion-a.open { max-height: 800px; padding: 0 1rem .85rem }
+    
+    .tab-btn { padding: .5rem 1.2rem; border-radius: 999px; font-weight: 600; border: 2px solid var(--bd); cursor: pointer; transition: all .2s; font-family: 'Poppins'; font-size: .78rem; background: transparent; color: var(--mt) }
+    .tab-btn.on { background: var(--ac); color: #fff; border-color: var(--ac) }
+    .tab-btn:hover:not(.on) { border-color: var(--ac); color: var(--ac) }
+    
+    .hero-grad { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 40%, #40916C 100%); position: relative; overflow: hidden }
+    .hero-grad::before { content: ''; position: absolute; top: -35%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(82,183,136,.12) 0%, transparent 70%); border-radius: 50%; animation: fl 8s ease-in-out infinite }
+    .hero-grad::after { content: ''; position: absolute; bottom: -20%; left: -5%; width: 450px; height: 450px; background: radial-gradient(circle, rgba(212,165,116,.08) 0%, transparent 70%); border-radius: 50%; animation: fl 10s ease-in-out infinite reverse }
+    
+    @keyframes fl { 0%, 100% { transform: translate(0,0) } 50% { transform: translate(20px, -20px) } }
+    @keyframes su { from { opacity: 0; transform: translateY(30px) } to { opacity: 1; transform: translateY(0) } }
+    
+    .glass { background: rgba(255,255,255,.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.13) }
+    .dark .glass { background: rgba(0,0,0,.2); border-color: rgba(255,255,255,.07) }
+    
+    .badge { display: inline-block; padding: .15rem .5rem; border-radius: 999px; font-size: .65rem; font-weight: 600 }
+    .bg-gn { background: #D8F3DC; color: #1B4332 }
+    .bg-bl { background: #D4EDFC; color: #0E6377 }
+    .bg-am { background: #FEF3C7; color: #92400E }
+    .bg-rd { background: #FEE2E2; color: #991B1B }
+    .dark .bg-gn { background: #1B4332; color: #D8F3DC }
+    .dark .bg-bl { background: #0E3B4F; color: #76C8D0 }
+    .dark .bg-am { background: #3D2E05; color: #FDE68A }
+    .dark .bg-rd { background: #3B0D0D; color: #FCA5A5 }
+    
+    input, select, textarea { background: var(--cd); color: var(--fg); border: 1px solid var(--bd); border-radius: .5rem; padding: .55rem .85rem; width: 100%; font-family: 'Poppins'; font-size: .85rem }
+    ::-webkit-scrollbar { width: 6px }
+    ::-webkit-scrollbar-track { background: var(--bg) }
+    ::-webkit-scrollbar-thumb { background: #52B788; border-radius: 3px }
+    @media(max-width:768px) { .tbl { font-size: .7rem } .tbl thead th, .tbl tbody td { padding: .35rem .45rem } }
+    @media print { .no-print { display: none !important } .sec { opacity: 1 !important; transform: none !important } }
+  </style>
+</head>
+<body class="font-p">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(255,255,255,.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--bd)">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-14">
+        <a href="#beranda" class="flex items-center gap-2 text-lg font-bold" style="color:var(--ac)">
+          <i class="fas fa-pepper-hot text-xl"></i>CabaiKu
+        </a>
+        <div class="hidden md:flex items-center gap-5 text-xs font-medium">
+          <a href="#beranda" class="hover:opacity-70 transition">Beranda</a>
+          <a href="TENTANG CABAI.html" class="hover:opacity-70 transition">Tentang</a>
+          <a href="#visimisi" class="hover:opacity-70 transition">Visi &amp; Misi</a>
+          <a href="musim hujan.html" class="hover:opacity-70 transition">Musim Kemarau</a>
+          <a href="musim hujan.html" class="hover:opacity-70 transition">Musim Hujan</a>
+          <a href="pupuk cabai.html" class="hover:opacity-70 transition">Pupuk</a>
+          <a href="hama cabai.html" class="hover:opacity-70 transition">Hama</a>
+          <a href="penyakit cabai.html" class="hover:opacity-70 transition">Penyakit</a>
+          <a href="jadwal cabai.html" class="hover:opacity-70 transition">Jadwal</a>
+          <a href="#faq" class="hover:opacity-70 transition">FAQ</a>
+          <a href="BLOG CABAIKU.html" class="hover:opacity-70 transition">Blog</a>
+          <a href="#kontak" class="hover:opacity-70 transition">Kontak</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="navAuthBtn" onclick="openAuth()" class="btn btn-p !py-1.5 !px-3.5 !text-xs"><i class="fas fa-user"></i><span id="navAuthLabel">Masuk</span></button>
+          <button onclick="document.documentElement.classList.toggle('dark')" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-label="Dark mode">
+            <i class="fas fa-moon text-sm" style="color:var(--fg)"></i>
+          </button>
+          <button onclick="document.getElementById('mobNav').classList.toggle('hidden')" class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+            <i class="fas fa-bars text-sm" style="color:var(--fg)"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobNav" class="hidden md:hidden border-t" style="border-color:var(--bd); background:var(--cd)">
+      <div class="px-4 py-2 space-y-0.5 text-xs font-medium">
+        <a href="#beranda" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Beranda</a>
+        <a href="TENTANG CABAI.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Tentang</a>
+        <a href="#visimisi" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Visi &amp; Misi</a>
+        <a href="musim hujan.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Musim Kemarau</a>
+        <a href="musim hujan.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Musim Hujan</a>
+        <a href="pupuk cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Pupuk</a>
+        <a href="hama cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Hama</a>
+        <a href="penyakit cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Penyakit</a>
+        <a href="jadwal cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Jadwal</a>
+        <a href="#faq" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">FAQ</a>
+        <a href="#BLOG CABAIKU.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Blog</a>
+        <a href="#kontak" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Kontak</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO / BERANDA ===== -->
+  <section id="beranda" class="hero-grad min-h-screen flex items-center pt-14">
+    <div class="max-w-6xl mx-auto px-4 py-16 grid lg:grid-cols-2 gap-10 items-center relative z-10">
+      <div style="animation:su .7s ease-out">
+        <div class="inline-flex items-center gap-2 glass text-white text-xs px-3 py-1.5 rounded-full mb-5">
+          <i class="fas fa-pepper-hot"></i>Panduan Spesifik Tanaman Cabai
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-white leading-tight mb-5">
+          Perawatan Lengkap Tanaman Cabai di Musim <span class="text-green-300">Kemarau</span> & <span class="text-blue-300">Hujan</span>
+        </h1>
+        <p class="text-green-100 text-sm mb-7 leading-relaxed max-w-lg">
+          Dari penyiraman, pemupukan NPK & organik, hingga identifikasi 8 hama dan 10 penyakit utama cabai — lengkap dengan cara pengendalian terpadu berdasarkan musim.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#kemarau" class="btn btn-p"><i class="fas fa-sun"></i>Musim Kemarau</a>
+          <a href="#hujan" class="btn btn-s border-white text-white hover:bg-white hover:text-green-800"><i class="fas fa-cloud-rain"></i>Musim Hujan</a>
+        </div>
+        <div class="flex gap-8 mt-9">
+          <div class="text-center"><div class="text-3xl font-bold text-white">8</div><div class="text-green-200 text-xs">Hama Utama</div></div>
+          <div class="text-center"><div class="text-3xl font-bold text-white">10</div><div class="text-green-200 text-xs">Penyakit Utama</div></div>
+          <div class="text-center"><div class="text-3xl font-bold text-white">12+</div><div class="text-green-200 text-xs">Jenis Pupuk</div></div>
+        </div>
+      </div>
+      <div class="relative hidden lg:block" style="animation:su .9s ease-out">
+        <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+          <img src="./FOTO/1.jpeg" alt="Visual Utama Cabai Merah" class="w-full h-[400px] object-cover">
+        </div>
+        <div class="absolute -bottom-4 -left-4 glass rounded-xl p-3 flex items-center gap-3" style="animation:fl 6s ease-in-out infinite">
+          <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center"><i class="fas fa-pepper-hot text-white text-lg"></i></div>
+          <div><div class="text-white font-semibold text-sm">Capsicum annuum</div><div class="text-green-200 text-xs">Solanaceae</div></div>
+        </div>
+        <div class="absolute -top-3 -right-3 glass rounded-xl p-3 flex items-center gap-3" style="animation:fl 7s ease-in-out infinite reverse">
+          <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center"><i class="fas fa-chart-line text-white"></i></div>
+          <div><div class="text-white font-semibold text-sm">Produktivitas</div><div class="text-green-200 text-xs">1.5 - 3 ton/ha</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 90" fill="none"><path d="M0,45 C360,90 720,0 1080,45 C1260,67 1380,60 1440,45 L1440,90 L0,90Z" fill="var(--bg)"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== TENTANG ===== -->
+  <section id="tentang" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div class="sec">
+          <span class="badge bg-gn mb-3">Tentang Panduan</span>
+          <h2 class="text-2xl sm:text-3xl font-bold mb-4">Mengapa Cabai Butuh Perawatan Berbeda di Setiap Musim?</h2>
+          <p class="text-sm mb-3 leading-relaxed" style="color:var(--mt)">
+            Cabai (Capsicum annuum) merupakan tanaman yang sangat responsif terhadap perubahan lingkungan. Sistem perakarannya yang relatif dangkal (60-70% akar di lapisan 0-20 cm) membuatnya sangat rentan terhadap fluktuasi ketersediaan air.
+          </p>
+          <p class="text-sm mb-3 leading-relaxed" style="color:var(--mt)">
+            Di musim kemarau, cabai menghadapi stres kekeringan yang menyebabkan kerontokan bunga, buah kecil, dan kerusakan akibat hama penghisap. Di musim hujan, genangan dan kelembapan tinggi memicu ledakan penyakit jamur dan bakteri yang bisa menghancurkan seluruh tanaman dalam hitungan hari.
+          </p>
+          <p class="text-sm leading-relaxed" style="color:var(--mt)">
+            Panduan ini menyajikan strategi spesifik untuk kedua musim, mencakup 12+ jenis pupuk dengan dosis tepat, identifikasi 8 hama utama dan 10 penyakit utama beserta cara pengendalian terpadu (PHT) yang ramah lingkungan.
+          </p>
+        </div>
+        <div class="sec">
+          <img src="./FOTO/2 (beranda).jpg" alt="Buah cabai merah" class="rounded-2xl shadow-lg w-full object-cover" style="height:360px" loading="lazy">
+        </div>
+      </div>
+      
+      <!-- Syarat Tumbuh -->
+      <div class="mt-12 sec">
+        <h3 class="text-xl font-bold mb-5 text-center">Syarat Tumbuh Optimal Cabai</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div class="text-center rounded-xl p-4" style="background:var(--cd); border:1px solid var(--bd)"><i class="fas fa-temperature-half text-2xl mb-2 text-red-600"></i><div class="text-xs font-bold">Suhu</div><div class="text-xs" style="color:var(--mt)">25-30°C</div></div>
+          <div class="text-center rounded-xl p-4" style="background:var(--cd); border:1px solid var(--bd)"><i class="fas fa-droplet text-2xl mb-2 text-blue-500"></i><div class="text-xs font-bold">Kelembapan</div><div class="text-xs" style="color:var(--mt)">60-80%</div></div>
+          <div class="text-center rounded-xl p-4" style="background:var(--cd); border:1px solid var(--bd)"><i class="fas fa-sun text-2xl mb-2 text-amber-500"></i><div class="text-xs font-bold">Cahaya</div><div class="text-xs" style="color:var(--mt)">8-12 jam/hari</div></div>
+          <div class="text-center rounded-xl p-4" style="background:var(--cd); border:1px solid var(--bd)"><i class="fas fa-flask text-2xl mb-2 text-emerald-600"></i><div class="text-xs font-bold">pH Tanah</div><div class="text-xs" style="color:var(--mt)">5.5 - 6.5</div></div>
+          <div class="text-center rounded-xl p-4" style="background:var(--cd); border:1px solid var(--bd)"><i class="fas fa-mountain text-2xl mb-2" style="color:#A0785A"></i><div class="text-xs font-bold">Ketinggian</div><div class="text-xs" style="color:var(--mt)">300-1500 m dpl</div></div>
+          <div class="text-center rounded-xl p-4" style="background:var(--cd); border:1px solid var(--bd)"><i class="fas fa-water text-2xl mb-2 text-cyan-600"></i><div class="text-xs font-bold">Drainase</div><div class="text-xs" style="color:var(--mt)">Baik - sedang</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISI & MISI ===== -->
+  <section id="visimisi" class="py-16 px-4" style="background:linear-gradient(180deg, var(--bg), #D8F3DC 50%, var(--bg))">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 sec">
+        <span class="badge bg-gn mb-2"><i class="fas fa-bullseye mr-1"></i>Visi &amp; Misi</span>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">Arah dan Tujuan CabaiKu</h2>
+        <p class="text-sm max-w-2xl mx-auto" style="color:var(--mt)">Komitmen kami dalam mendukung petani cabai Indonesia melalui edukasi digital.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-7">
+        <div class="rounded-2xl p-6 sec ch" style="background:var(--cd); border:1px solid var(--bd)">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:#D8F3DC">
+            <i class="fas fa-eye text-xl" style="color:var(--ac)"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-3">Visi</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--mt)">
+            Menjadi platform digital terpercaya yang menyediakan informasi, edukasi, dan solusi budidaya tanaman cabai secara lengkap, mudah dipahami, serta mendukung peningkatan produktivitas dan kesejahteraan petani Indonesia.
+          </p>
+        </div>
+
+        <div class="rounded-2xl p-6 sec ch" style="background:var(--cd); border:1px solid var(--bd)">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:#D8F3DC">
+            <i class="fas fa-flag-checkered text-xl" style="color:var(--ac)"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-3">Misi</h3>
+          <ul class="space-y-2.5 text-sm" style="color:var(--mt)">
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle mt-1" style="color:var(--ac); font-size:.7rem"></i><span>Menyediakan informasi lengkap mengenai budidaya tanaman cabai mulai dari pemilihan benih, penanaman, pemeliharaan, hingga panen.</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle mt-1" style="color:var(--ac); font-size:.7rem"></i><span>Memberikan panduan pengendalian hama dan penyakit berdasarkan praktik budidaya yang baik.</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle mt-1" style="color:var(--ac); font-size:.7rem"></i><span>Menyediakan informasi rekomendasi varietas cabai sesuai kondisi lahan dan iklim.</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle mt-1" style="color:var(--ac); font-size:.7rem"></i><span>Menyajikan referensi pemupukan, penyiraman, dan perawatan tanaman yang tepat.</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle mt-1" style="color:var(--ac); font-size:.7rem"></i><span>Membantu petani dan masyarakat melalui artikel, panduan, serta template yang bermanfaat dalam pengelolaan budidaya dan usaha tani cabai.</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle mt-1" style="color:var(--ac); font-size:.7rem"></i><span>Mendorong pemanfaatan teknologi digital dalam penyebaran informasi pertanian agar lebih mudah diakses oleh semua kalangan.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MUSIM KEMARAU ===== -->
+  <section id="kemarau" class="py-16 px-4" style="background:linear-gradient(180deg, var(--bg), #FFF7ED 50%, var(--bg))">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 sec">
+        <span class="badge bg-am mb-2"><i class="fas fa-sun mr-1"></i>Musim Kemarau</span>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">Strategi Perawatan Cabai Saat Kemarau</h2>
+        <p class="text-sm max-w-2xl mx-auto" style="color:var(--mt)">Suhu 28-36°C, kelembapan 40-65%, curah hujan &lt;100mm/bulan. Tantangan utama: kekeringan, stres panas, rontok bunga, hama penghisap.</p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-7">
+        <div class="lg:col-span-2 space-y-6">
+          <!-- Foto Musim Kemarau -->
+          <div class="rounded-2xl overflow-hidden shadow-lg sec" style="border:1px solid var(--bd)">
+            <img src="./FOTO/mupuk (beranda).jpg" alt="Pemupukan tanaman cabai saat musim kemarau" class="w-full object-cover h-[360px]" loading="lazy">
+          </div>
+          <div class="rounded-xl p-4 sec" style="background:var(--cd); border:1px solid var(--bd)">
+            <p class="text-[.65rem] font-semibold" style="color:var(--ac)"><i class="fas fa-circle-info mr-1"></i>Penting</p>
+            <p class="text-xs mt-1" style="color:var(--mt)">Dosis pupuk perlu disesuaikan dengan analisis hara tanah dan kecukupan air tanah agar tidak overdosis.</p>
+          </div>
+
+          <!-- Penyiraman -->
+          <div class="rounded-2xl p-5 sec" style="background:var(--cd); border:1px solid var(--bd)">
+            <h3 class="font-bold text-lg mb-3"><i class="fas fa-tint mr-2 text-cyan-600"></i>Penyiraman</h3>
+            <div class="overflow-x-auto">
+              <table class="tbl">
+                <thead><tr><th>Parameter</th><th>Detail</th></tr></thead>
+                <tbody>
+                  <tr><td class="font-medium">Frekuensi</td><td>2x sehari (pagi & sore)</td></tr>
+                  <tr><td class="font-medium">Waktu Terbaik</td><td>06.00-07.00 dan 16.00-17.00</td></tr>
+                  <tr><td class="font-medium">Volume</td><td>8-12 liter/m² per kali</td></tr>
+                  <tr><td class="font-medium">Metode</td><td>Drip irrigation (paling efisien) atau gembor</td></tr>
+                  <tr><td class="font-medium">Cek Kelembapan</td><td>Tanah kering 2-3 cm dari permukaan = saatnya siram</td></tr>
+                  <tr><td class="font-medium">Hindari</td><td>Penyiraman siang hari (10.00-15.00) — penguapan 40-60%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- Mulsa -->
+          <div class="rounded-2xl p-5 sec" style="background:var(--cd); border:1px solid var(--bd)">
+            <h3 class="font-bold text-lg mb-3"><i class="fas fa-layer-group mr-2 text-amber-700"></i>Mulsa & Konservasi Air</h3>
+            <p class="text-sm mb-3" style="color:var(--mt)">Mulsa adalah teknik penutupan permukaan tanah untuk mengurangi penguapan dan menjaga kelembapan.</p>
+            <div class="grid sm:grid-cols-2 gap-3 text-xs">
+              <div class="rounded-lg p-3" style="background:var(--bg)"><strong>Jenis:</strong> Jerami padi, rumput kering, sekam padi, atau plastik hitam-perak</div>
+              <div class="rounded-lg p-3" style="background:var(--bg)"><strong>Ketebalan:</strong> 5-8 cm untuk bahan organik</div>
+              <div class="rounded-lg p-3" style="background:var(--bg)"><strong>Manfaat:</strong> Kurangi evaporasi 50-70%, turunkan suhu tanah 3-5°C</div>
+              <div class="rounded-lg p-3" style="background:var(--bg)"><strong>Tambahan:</strong> Supaya organik, mulsa jerami juga menyediakan hara lambat</div>
+            </div>
+          </div>
+
+          <!-- Hama Kemarau -->
+          <div class="rounded-2xl p-5 sec" style="background:var(--cd); border:1px solid var(--bd)">
+            <h3 class="font-bold text-lg mb-3"><i class="fas fa-bug mr-2 text-red-600"></i>Hama Dominan Kemarau</h3>
+            <div class="space-y-3 text-sm">
+              <div class="rounded-lg p-3" style="border-left:4px solid #DC2626; background:var(--bg)">
+                <strong>Kutu Daun (Aphis gossypii)</strong> — Berkumpul di pucuk muda, menghisap cairan, daun menggulung. <span style="color:var(--ac)">Pengendalian: predator ladybug, ekstrak nimba 3-5 ml/L, Imidakloprid jika pop. tinggi.</span>
+              </div>
+              <div class="rounded-lg p-3" style="border-left:4px solid #DC2626; background:var(--bg)">
+                <strong>Thrips (Thrips parvispinus)</strong> — Daun muda berwarna perak, kerdil, keriting. <span style="color:var(--ac)">Pengendalian: yellow sticky trap, Amblyseius spp., Abamektin.</span>
+              </div>
+              <div class="rounded-lg p-3" style="border-left:4px solid #DC2626; background:var(--bg)">
+                <strong>Tungau Merah (Tetranychus urticae)</strong> — Jaring halus bawah daun, bintik kuning, daun kering. <span style="color:var(--ac)">Pengendalian: Phytoseiulus persimilis, minyak neem 2%, Propargite.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <aside class="space-y-5">
+          <div class="rounded-xl p-4 sec sticky top-20" style="background:var(--cd); border:1px solid var(--bd)">
+            <h4 class="font-bold text-sm mb-3"><i class="fas fa-clipboard-check mr-1 text-amber-600"></i>Checklist Kemarau</h4>
+            <div class="space-y-2 text-xs" id="checkKemarau"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MUSIM HUJAN ===== -->
+  <section id="hujan" class="py-16 px-4" style="background:linear-gradient(180deg, var(--bg), #E0F2FE 50%, var(--bg))">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 sec">
+        <span class="badge bg-bl mb-2"><i class="fas fa-cloud-rain mr-1"></i>Musim Hujan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">Strategi Perawatan Cabai Saat Hujan</h2>
+        <p class="text-sm max-w-2xl mx-auto" style="color:var(--mt)">Curah hujan 200-400mm/bulan, kelembapan 80-95%. Tantangan: genangan, busuk akar, antraknosa, pencucian hara.</p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-7">
+        <div class="lg:col-span-2 space-y-6">
+          <!-- Foto Musim Hujan -->
+          <div class="rounded-2xl overflow-hidden shadow-lg sec" style="border:1px solid var(--bd)">
+            <img src="./FOTO/irigasi.jpg" alt="Petani mengelola irigasi dan saluran air di musim hujan" class="w-full object-cover h-[360px]" loading="lazy">
+          </div>
+          <div class="rounded-xl p-4 sec" style="background:var(--cd); border:1px solid var(--bd)">
+            <p class="text-[.65rem] font-semibold text-red-600"><i class="fas fa-triangle-exclamation mr-1"></i>Peringatan</p>
+            <p class="text-xs mt-1" style="color:var(--mt)">Jika air menggenang lebih dari 24 jam, segera lakukan penyedotan darurat untuk mencegah kerontokan massal.</p>
+          </div>
+
+          <!-- Drainase -->
+          <div class="rounded-2xl p-5 sec" style="background:var(--cd); border:1px solid var(--bd)">
+            <h3 class="font-bold text-lg mb-3"><i class="fas fa-water mr-2 text-cyan-600"></i>Drainase & Pengelolaan Air</h3>
+            <div class="grid sm:grid-cols-2 gap-3 text-xs">
+              <div class="rounded-lg p-3" style="background:var(--bg)"><strong>Tinggi Bedengan:</strong> 25-30 cm agar akar tidak tergenang</div>
+              <div class="rounded-lg p-3" style="background:var(--bg)"><strong>Lebar Bedengan:</strong> 80-120 cm, tergantung varietas</div>
+              <div class="rounded-lg p-3" style="background:var(--bg)"><strong>Saluran Drainase:</strong> 30-40 cm kedalaman di samping bedengan</div>
+              <div class="rounded-lg p-3" style="background:var(--bg)"><strong>Batas Genangan:</strong> Maksimal 4-6 jam, >24 jam = akar mulai membusuk</div>
+            </div>
+          </div>
+          
+          <!-- Penyakit Hujan -->
+          <div class="rounded-2xl p-5 sec" style="background:var(--cd); border:1px solid var(--bd)">
+            <h3 class="font-bold text-lg mb-3"><i class="fas fa-virus mr-2 text-red-600"></i>Penyakit Dominan Musim Hujan</h3>
+            <div class="space-y-3 text-sm">
+              <div class="rounded-lg p-3" style="border-left:4px solid #DC2626; background:var(--bg)">
+                <strong>Antraknosa (Colletotrichum spp.)</strong> — Bercak coklat kehitaman dengan cincin konsentris pada buah. <span style="color:var(--ac)">Pengendalian: Mankozeb, Azoksistrobin, pemangkasan berkala.</span>
+              </div>
+              <div class="rounded-lg p-3" style="border-left:4px solid #DC2626; background:var(--bg)">
+                <strong>Busuk Batang & Akar (Phytophthora capsici)</strong> — Batang menghitam di pangkal, layu mendadak. <span style="color:var(--ac)">Pengendalian: drainase sempurna, Metalaksil + Mancozeb.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <aside class="space-y-5">
+          <div class="rounded-xl p-4 sec sticky top-20" style="background:var(--cd); border:1px solid var(--bd)">
+            <h4 class="font-bold text-sm mb-3"><i class="fas fa-clipboard-check mr-1 text-cyan-600"></i>Checklist Hujan</h4>
+            <div class="space-y-2 text-xs" id="checkHujan"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PUPUK ===== -->
+  <section id="pupuk" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 sec">
+        <span class="badge bg-gn mb-2"><i class="fas fa-flask mr-1"></i>Pemupukan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">Panduan Pupuk Cabai Lengkap</h2>
+        <p class="text-sm max-w-2xl mx-auto" style="color:var(--mt)">Jenis pupuk, kandungan hara, dosis, dan jadwal aplikasi spesifik untuk tanaman cabai.</p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex flex-wrap gap-2 justify-center mb-8 sec">
+        <button class="tab-btn on" onclick="swTab('all',this)">Semua</button>
+        <button class="tab-btn" onclick="swTab('org',this)">Organik</button>
+        <button class="tab-btn" onclick="swTab('anorg',this)">Anorganik</button>
+        <button class="tab-btn" onclick="swTab('hayati',this)">Hayati</button>
+        <button class="tab-btn" onclick="swTab('cair',this)">Cair</button>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="pupukGrid"></div>
+
+      <!-- Tabel Dosis per Fase -->
+      <div class="mt-10 sec">
+        <h3 class="text-xl font-bold mb-5 text-center">Dosis Pupuk per Fase Pertumbuhan Cabai</h3>
+        <div class="overflow-x-auto rounded-2xl" style="background:var(--cd); border:1px solid var(--bd)">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>Fase</th><th>Umur (HST)</th><th>Urea (kg/ha)</th><th>SP-36 (kg/ha)</th><th>KCl (kg/ha)</th><th>NPK (kg/ha)</th><th>Organik</th><th>Catatan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="font-medium">Tanam</td><td>0</td><td>-</td><td>150</td><td>-</td><td>-</td><td>3-5 ton/ha</td><td>Dasar di lubang tanam</td></tr>
+              <tr><td class="font-medium">Vegetatif Awal</td><td>14</td><td>50</td><td>-</td><td>-</td><td>100</td><td>-</td><td>Susulan pertama</td></tr>
+              <tr><td class="font-medium">Vegetatif</td><td>28</td><td>75</td><td>-</td><td>50</td><td>150</td><td>-</td><td>Susulan kedua</td></tr>
+              <tr><td class="font-medium">Generatif Awal</td><td>42</td><td>75</td><td>-</td><td>75</td><td>150</td><td>-</td><td>Saat awal berbunga</td></tr>
+              <tr><td class="font-medium">Generatif</td><td>56</td><td>50</td><td>-</td><td>100</td><td>100</td><td>-</td><td>Saat pembuahan</td></tr>
+              <tr><td class="font-medium">Panen</td><td>70+</td><td>-</td><td>-</td><td>50</td><td>-</td><td>-</td><td>KCl untuk kualitas buah</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grafik -->
+      <div class="mt-10 grid md:grid-cols-2 gap-6 sec">
+        <div class="rounded-2xl p-5" style="background:var(--cd); border:1px solid var(--bd)">
+          <h4 class="font-bold text-sm mb-3">Kebutuhan Hara N-P-K per Fase</h4>
+          <div style="height:260px"><canvas id="cNP"></canvas></div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:var(--cd); border:1px solid var(--bd)">
+          <h4 class="font-bold text-sm mb-3">Perbandingan Dosis: Kemarau vs Hujan</h4>
+          <div style="height:260px"><canvas id="cKH"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HAMA ===== -->
+  <section id="hama" class="py-16 px-4" style="background:linear-gradient(180deg, var(--bg), #FEF2F2 50%, var(--bg))">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 sec">
+        <span class="badge bg-rd mb-2"><i class="fas fa-bug mr-1"></i>Hama</span>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">8 Hama Utama Tanaman Cabai</h2>
+        <p class="text-sm max-w-2xl mx-auto" style="color:var(--mt)">Identifikasi, gejala serangan, dan cara pengendalian terpadu untuk setiap hama.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5" id="hamaGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== PENYAKIT ===== -->
+  <section id="penyakit" class="py-16 px-4" style="background:linear-gradient(180deg, var(--bg), #FFF7ED 50%, var(--bg))">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 sec">
+        <span class="badge bg-am mb-2"><i class="fas fa-virus mr-1"></i>Penyakit</span>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">10 Penyakit Utama Tanaman Cabai</h2>
+        <p class="text-sm max-w-2xl mx-auto" style="color:var(--mt)">Gejala, penyebab, musim dominan, dan strategi pengendalian untuk setiap penyakit.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5" id="penyakitGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== JADWAL ===== -->
+  <section id="jadwal" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 sec">
+        <span class="badge bg-gn mb-2"><i class="fas fa-calendar-alt mr-1"></i>Jadwal</span>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">Jadwal Perawatan Cabai Mingguan</h2>
+        <p class="text-sm" style="color:var(--mt)">Klik item untuk menandai selesai. Data tersimpan di browser Anda.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="jadwalGrid"></div>
+      
+      <!-- Grafik Kebutuhan Air -->
+      <div class="mt-10 rounded-2xl p-5 sec" style="background:var(--cd); border:1px solid var(--bd)">
+        <h3 class="font-bold text-lg mb-3"><i class="fas fa-chart-area mr-2 text-cyan-600"></i>Kebutuhan Air Cabai per Fase Pertumbuhan (mm/hari)</h3>
+        <div style="height:280px"><canvas id="cAir"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="py-16 px-4" style="background:linear-gradient(180deg, var(--bg), #F0F9F0 50%, var(--bg))">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10 sec">
+        <span class="badge bg-gn mb-2"><i class="fas fa-question-circle mr-1"></i>FAQ</span>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">Pertanyaan Umum Seputar Cabai</h2>
+      </div>
+      <div id="faqGrid" class="sec"></div>
+    </div>
+  </section>
+
+  <!-- ===== TENTANG KAMI & KONTAK ===== -->
+  <section id="kontak" class="py-16 px-4" style="background:linear-gradient(180deg, var(--bg), #E0F2FE 50%, var(--bg))">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 sec">
+        <span class="badge bg-bl mb-2"><i class="fas fa-address-card mr-1"></i>Tentang Kami</span>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">Tentang CabaiKu & Kontak</h2>
+        <p class="text-sm max-w-2xl mx-auto" style="color:var(--mt)">Kenali kami lebih dekat dan hubungi tim CabaiKu untuk pertanyaan, kerja sama, atau masukan.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-7">
+        <div class="rounded-2xl p-6 sec" style="background:var(--cd); border:1px solid var(--bd)">
+          <h3 class="font-bold text-lg mb-3"><i class="fas fa-pepper-hot mr-2 text-red-500"></i>Tentang Us</h3>
+          <p class="text-sm leading-relaxed mb-3" style="color:var(--mt)">
+            CabaiKu adalah platform digital edukasi budidaya tanaman cabai yang hadir untuk membantu petani dan masyarakat Indonesia memahami cara merawat cabai secara tepat di setiap musim. Kami menyajikan panduan pemupukan, pengendalian hama & penyakit, jadwal perawatan, hingga artikel seputar dunia cabai — semuanya disusun agar mudah dipahami dan langsung dapat diterapkan di lahan.
+          </p>
+          <p class="text-sm leading-relaxed" style="color:var(--mt)">
+            Kami percaya bahwa akses informasi yang baik adalah kunci meningkatkan produktivitas dan kesejahteraan petani cabai di seluruh Indonesia.
+          </p>
+          <a href="https://lynk.id/prambos" target="_blank" rel="noopener" class="btn btn-p mt-5">
+            <i class="fas fa-store"></i>Kunjungi Toko Kami di Lynk.id
+          </a>
+        </div>
+
+        <div class="rounded-2xl p-6 sec" style="background:var(--cd); border:1px solid var(--bd)">
+          <h3 class="font-bold text-lg mb-4"><i class="fas fa-headset mr-2 text-cyan-600"></i>Contact Person</h3>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3 rounded-lg p-3" style="background:var(--bg)">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#D8F3DC"><i class="fas fa-user" style="color:var(--ac)"></i></div>
+              <div><div class="text-xs" style="color:var(--mt)">Narahubung</div><div class="text-sm font-semibold">Ardan</div></div>
+            </div>
+            <a href="https://wa.me/6282231671267" target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg p-3 hover:opacity-80 transition" style="background:var(--bg)">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#D8F3DC"><i class="fas fa-phone" style="color:var(--ac)"></i></div>
+              <div><div class="text-xs" style="color:var(--mt)">Telepon / WhatsApp</div><div class="text-sm font-semibold">0822-3167-1267</div></div>
+            </a>
+            <a href="mailto:putraardana293@gmail.com" class="flex items-center gap-3 rounded-lg p-3 hover:opacity-80 transition" style="background:var(--bg)">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#D8F3DC"><i class="fas fa-envelope" style="color:var(--ac)"></i></div>
+              <div><div class="text-xs" style="color:var(--mt)">Email</div><div class="text-sm font-semibold">putraardana293@gmail.com</div></div>
+            </a>
+            <a href="https://lynk.id/prambos" target="_blank" rel="noopener" class="flex items-center gap-3 rounded-lg p-3 hover:opacity-80 transition" style="background:var(--bg)">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#D8F3DC"><i class="fas fa-link" style="color:var(--ac)"></i></div>
+              <div><div class="text-xs" style="color:var(--mt)">Lynk.id</div><div class="text-sm font-semibold">lynk.id/prambos</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="no-print" style="background:#1B4332; color:#D8F3DC">
+    <div class="max-w-6xl mx-auto px-4 py-10">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7 mb-7">
+        <div>
+          <div class="flex items-center gap-2 text-lg font-bold text-white mb-3"><i class="fas fa-pepper-hot text-red-400"></i>CabaiKu</div>
+          <p class="text-xs text-green-200 leading-relaxed">Panduan lengkap perawatan tanaman cabai di musim kemarau dan hujan. Berbasis riset agronomi terpercaya.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-white text-sm mb-3">Navigasi</h4>
+          <ul class="space-y-1.5 text-xs text-green-200">
+            <li><a href="#beranda" class="hover:text-white transition">Beranda</a></li>
+            <li><a href="#tentang" class="hover:text-white transition">Tentang</a></li>
+            <li><a href="#visimisi" class="hover:text-white transition">Visi &amp; Misi</a></li>
+            <li><a href="#kemarau" class="hover:text-white transition">Musim Kemarau</a></li>
+            <li><a href="#hujan" class="hover:text-white transition">Musim Hujan</a></li>
+            <li><a href="#pupuk" class="hover:text-white transition">Pupuk</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white text-sm mb-3">Informasi</h4>
+          <ul class="space-y-1.5 text-xs text-green-200">
+            <li><a href="#hama" class="hover:text-white transition">Hama Utama</a></li>
+            <li><a href="#penyakit" class="hover:text-white transition">Penyakit Utama</a></li>
+            <li><a href="#jadwal" class="hover:text-white transition">Jadwal Perawatan</a></li>
+            <li><a href="BLOG CABAIKU.html" class="hover:text-white transition">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white text-sm mb-3">Kontak Kami</h4>
+          <ul class="space-y-1.5 text-xs text-green-200">
+            <li><a href="#kontak" class="hover:text-white transition">Ardan — 0822-3167-1267</a></li>
+            <li><a href="mailto:putraardana293@gmail.com" class="hover:text-white transition">putraardana293@gmail.com</a></li>
+            <li><a href="https://lynk.id/prambos" target="_blank" rel="noopener" class="hover:text-white transition"><i class="fas fa-store mr-1"></i>lynk.id/prambos</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-green-700 pt-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-green-300">
+        <p>&copy; 2026 CabaiKu. Panduan edukasi tanaman cabai.</p>
+        <div class="flex items-center gap-4">
+          <a href="BLOG CABAIKU.html" class="hover:text-white transition">Blog</a>
+          <a href="#kontak" class="hover:text-white transition">Kontak</a>
+          <a href="https://lynk.id/prambos" target="_blank" rel="noopener" class="hover:text-white transition">Lynk.id</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MODAL LOGIN / REGISTER ===== -->
+  <div id="authOverlay" class="no-print hidden fixed inset-0 z-[100] flex items-center justify-center p-4" style="background:rgba(0,0,0,.55)" onclick="if(event.target===this)closeAuth()">
+    <div class="w-full max-w-sm rounded-2xl p-6 relative" style="background:var(--cd)">
+      <button onclick="closeAuth()" class="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Tutup"><i class="fas fa-xmark" style="color:var(--mt)"></i></button>
+
+      <div class="flex items-center gap-2 text-lg font-bold mb-1" style="color:var(--ac)"><i class="fas fa-pepper-hot"></i>CabaiKu</div>
+      <p class="text-xs mb-5" style="color:var(--mt)">Masuk atau daftar untuk menyimpan progres checklist &amp; jadwal Anda di akun ini.</p>
+
+      <div class="flex gap-2 mb-5">
+        <button id="tabLoginBtn" class="tab-btn on flex-1" onclick="swAuthTab('login')">Masuk</button>
+        <button id="tabRegisterBtn" class="tab-btn flex-1" onclick="swAuthTab('register')">Daftar</button>
+      </div>
+
+      <div id="authMsg" class="hidden text-xs rounded-lg p-2.5 mb-3"></div>
+
+      <!-- FORM LOGIN -->
+      <form id="loginForm" class="space-y-3" onsubmit="return doLogin(event)">
+        <div>
+          <label class="text-xs font-semibold mb-1 block">Email</label>
+          <input type="email" id="loginEmail" required placeholder="nama@email.com">
+        </div>
+        <div>
+          <label class="text-xs font-semibold mb-1 block">Kata Sandi</label>
+          <input type="password" id="loginPass" required placeholder="Kata sandi">
+        </div>
+        <button type="submit" class="btn btn-p w-full justify-center mt-1"><i class="fas fa-right-to-bracket"></i>Masuk</button>
+      </form>
+
+      <!-- FORM REGISTER -->
+      <form id="registerForm" class="space-y-3 hidden" onsubmit="return doRegister(event)">
+        <div>
+          <label class="text-xs font-semibold mb-1 block">Nama Lengkap</label>
+          <input type="text" id="regName" required placeholder="Nama Anda">
+        </div>
+        <div>
+          <label class="text-xs font-semibold mb-1 block">Email</label>
+          <input type="email" id="regEmail" required placeholder="nama@email.com">
+        </div>
+        <div>
+          <label class="text-xs font-semibold mb-1 block">Kata Sandi</label>
+          <input type="password" id="regPass" required minlength="4" placeholder="Minimal 4 karakter">
+        </div>
+        <button type="submit" class="btn btn-p w-full justify-center mt-1"><i class="fas fa-user-plus"></i>Daftar Akun</button>
+      </form>
+
+      <p class="text-[.65rem] text-center mt-4" style="color:var(--mt)">Akun disimpan secara lokal di perangkat/browser Anda.</p>
+    </div>
+  </div>
+
+  <script>
+    // ===== DATA SCRIPT UTAMA =====
+    var PUPUK=[
+      {t:'org',nm:'Kompos',hr:'N 1-2%, P 0.5-1%, K 1-2%, Ca, Mg, S, mikro',ds:'3-5 ton/ha saat persiapan lahan',ms:'Kemarau & Hujan',kn:'Memperbaiki struktur tanah, meningkatkan kapasitas tahan air 30%, melepas hara lambat. Sangat penting di musim kemarau.',ic:'fa-leaf',cl:'#2D6A4F'},
+      {t:'org',nm:'Pupuk Kandang Sapi Matang',hr:'N 1.5%, P 1%, K 1.5%',ds:'2-4 ton/ha saat pengolahan tanah',ms:'Kemarau & Hujan',kn:'Kaya humus, meningkatkan C-organik tanah, memperbaiki aerasi dan drainase. Wajib matang (>3 bulan).',ic:'fa-cow',cl:'#6B4E31'},
+      {t:'org',nm:'Vermikompos',hr:'N 1.5-2.5%, P 1-1.5%, K 1-1.5%',ds:'1-2 ton/ha saat tanam',ms:'Kemarau & Hujan',kn:'Kandungan hara seimbang, diperkaya enzim dan hormon pertumbuhan dari cacing tanah. Respons cepat dibanding kompos biasa.',ic:'fa-worm',cl:'#4338CA'},
+      {t:'anorg',nm:'Urea',hr:'46% N (Nitrogen)',ds:'250 kg/ha (split 4-5x)',ms:'Kemarau (prioritas)',kn:'Mendorong pertumbuhan vegetatif (daun, batang). Di kemarau, masukkan ke dalam tanah untuk kurangi volatilisasi. Di hujan, split kecil-kecilan karena mudah tercuci.',ic:'fa-flask',cl:'#92400E'},
+      {t:'anorg',nm:'SP-36',hr:'36% P₂O₅, 12% S, 24% Ca',ds:'150 kg/ha saat tanam',ms:'Hujan (prioritas)',kn:'Memperkuat sistem perakaran, meningkatkan pembungaan, membentuk batang kokoh. Ca membantu mencegah blossom-end rot.',ic:'fa-flask',cl:'#92400E'},
+      {t:'anorg',nm:'KCl (Kalium Klorida)',hr:'60% K₂O',ds:'100-200 kg/ha (split)',ms:'Kemarau (prioritas)',kn:'Meningkatkan regulasi stomata → kurangi transpirasi → hemat air. Memperkuat dinding sel, meningkatkan kualitas & warna buah.',ic:'fa-flask',cl:'#92400E'},
+      {t:'anorg',nm:'SOP (Sulfat Kalium)',hr:'50% K₂O, 18% S',ds:'150-250 kg/ha (split)',ms:'Kemarau & Hujan',kn:'Sama seperti KCl tapi TANPA klorida. Lebih baik untuk cabai (sensitif Cl berlebih). Sulfur membantu ketahanan penyakit.',ic:'fa-flask',cl:'#92400E'},
+      {t:'anorg',nm:'NPK 16-16-16',hr:'16% N, 16% P₂O₅, 16% K₂O',ds:'200-300 kg/ha (split 3-4x)',ms:'Kemarau & Hujan',kn:'Pupuk seimbang untuk fase vegetatif. Mudah diaplikasikan, cocok untuk susulan rutin setiap 15-20 hari.',ic:'fa-cubes',cl:'#4338CA'},
+      {t:'anorg',nm:'NPK 12-12-17',hr:'12% N, 12% P₂O₅, 17% K₂O',ds:'200-300 kg/ha (split)',ms:'Hujan (prioritas)',kn:'K lebih tinggi untuk memperkuat batang saat hujan. Mencegah tanaman rebah dan meningkatkan ketahanan terhadap patogen.',ic:'fa-cubes',cl:'#4338CA'},
+      {t:'anorg',nm:'ZA (Amonium Sulfat)',hr:'21% N, 24% S',ds:'150-200 kg/ha',ms:'Hujan (prioritas)',kn:'Sulfur tinggi membentuk protein dan meningkatkan ketahanan penyakit. Asamnya membantu menurunkan pH tanah alkali.',ic:'fa-flask',cl:'#92400E'},
+      {t:'hayati',nm:'Trichoderma spp.',hr:'Jamur antagonis (10⁸ cfu/g)',ds:'5-10 g/tanaman saat tanam',ms:'Hujan (sangat penting)',kn:'Mikoparasitisme terhadap Phytophthora, Rhizoctonia, Fusarium. Menghasilkan enzim kitinase. Wajib di musim hujan.',ic:'fa-bacterium',cl:'#0E6377'},
+      {t:'hayati',nm:'Mikoriza (Glomus spp.)',hr:'Jamur simbion akar (10⁴ spora/g)',ds:'5-10 g/tanaman saat tanam',ms:'Kemarau (sangat penting)',kn:'Memperluas jangkauan akar 100x. Meningkatkan penyerapan P & air secara dramatis. Kunci ketahanan kekeringan.',ic:'fa-bacterium',cl:'#0E6377'},
+      {t:'hayati',nm:'PGPR (Pseudomonas fluorescens)',hr:'Bakteri menguntungkan (10⁸ cfu/ml)',ds:'10-20 ml/liter air, semprot/siram',ms:'Kemarau & Hujan',kn:'Produksi hormon IAA (pertumbuhan), melarutkan P, menginduksi resistensi sistemik, antagonis terhadap patogen.',ic:'fa-bacterium',cl:'#0E6377'},
+      {t:'cair',nm:'Pupuk Daun NPK Cair',hr:'N 12%, P₂O₅ 12%, K₂O 36% + mikro',ds:'2-3 ml/liter, semprot 7-10 hari sekali',ms:'Kemarau (saat stres)',kn:'Diserap cepat melalui daun. Sangat efektif saat akar sulit menyerap hara (kekerengan tanah, stres kekeringan).',ic:'fa-droplet',cl:'#9D174D'},
+      {t:'cair',nm:'CaNO₃ (Kalsium Nitrat)',hr:'Ca 19%, N 15.5%',ds:'3-5 g/liter, foliar saat pembuahan',ms:'Kemarau (prioritas)',kn:'Mencegah blossom-end rot (busuk ujung buah) yang meningkat drastis saat kemarau. Kalsium tidak mobile di tanaman, harus foliar.',ic:'fa-droplet',cl:'#9D174D'},
+      {t:'anorg',nm:'Dolomit',hr:'CaCO₃·MgCO₃ (Ca 20-30%, Mg 10-20%)',ds:'500-1500 kg/ha, 2-4 minggu sebelum hujan',ms:'Hujan (wajib)',kn:'Menstabilkan pH tanah (naikkan 0.5-1 unit). Menyediakan Ca & Mg. Mengurangi toksisitas Al & Mn pada tanah asam.',ic:'fa-gem',cl:'#A0785A'}
+      ];
+
+    var HAMA=[
+      {nm:'Kutu Daun (Aphis gossypii)',ms:'Kemarau',ic:'fa-bug',
+      gs:'Berkumpul di pucuk muda dan bawah daun. Menghisap cairan tanaman → daun menggulung, kerdil, kuning. Menghasilkan honeydew → jelaga hitam.',
+      ct:['Hayati: Ladybug (Coccinella septempunctata), lacewing','Mekanis: Semprotan air bertekanan pada koloni','Nabati: Ekstrak nimba 3-5 ml/L + sabun 1%','Kimia: Imidakloprid 0.3 ml/L (jika >50% tanaman terserang)']},
+      {nm:'Thrips (Thrips parvispinus)',ms:'Kemarau',ic:'fa-bug',
+      gs:'Daun muda berwarna perak/kekuningan, menggulung ke atas. Bunga rusak → tidak menghasilkan buah. Serangan berat → tanaman kerdil.',
+      ct:['Hayati: Amblyseius cucumeris (predator mite)','Mekanis: Yellow sticky trap 20 unit/1000 m²','Nabati: Ekstrak tembakau + daun sirsak','Kimia: Abamektin 0.5 ml/L atau Spinosad 0.3 ml/L']},
+      {nm:'Tungau Merah (Tetranychus urticae)',ms:'Kemarau',ic:'fa-spider',
+      gs:'Jaring halus (webbing) di bawah daun. Bintik-bintik kuning (stippling) pada daun. Daun mengering dan rontok dari bawah ke atas.',
+      ct:['Hayati: Phytoseiulus persimilis (rasio 1:10 predator:mangsa)','Mekanis: Pangkas daun terinfeksi berat','Nabati: Minyak neem 2% atau minyak mineral 1%','Kimia: Propargite 1.5 ml/L atau Fenazaquin 0.5 ml/L']},
+      {nm:'Ulat Grayak (Spodoptera litura)',ms:'Kemarau & Hujan',ic:'fa-caterpillar',
+      gs:'Ulat aktif malam hari, memakan daun dari tepi. Bisa menghabiskan seluruh daun dalam semalam. Pada buah, membuat lubang besar.',
+      ct:['Hayati: Virus NPV (Nuclear Polyhedrosis Virus) 500 LE/ha','Mekanis: Koleksi telur (massa putih berbulu) & ulat manual','Fisik: Light trap untuk ngengat dewasa','Kimia: Klorfenapir 1 ml/L atau Indoksakarb 0.3 ml/L']},
+      {nm:'Lalat Buah (Bactrocera spp.)',ms:'Kemarau & Hujan',ic:'fa-fly',
+      gs:'Telur diletakkan di dalam buah. Larva (belatung) memakan daging buah dari dalam. Buah menjadi lunak, berwarna coklat, busuk, dan jatuh.',
+      ct:['Mekanis: Perangkap methyl eugenol 40 unit/ha','Sanitasi: Kumpulkan & musnahkan buah terinfeksi (dikubur/bakar)','Nabati: Perangkap berisi umpan protein + insektisida nabati','Kimia: Fipronil 0.5 ml/L pada umpan (bukan semprot tanaman)']},
+      {nm:'Keong Mas (Pomacea canaliculata)',ms:'Hujan',ic:'fa-shells',
+      gs:'Memakan daun muda dan batang pada malam hari. Bekas gigitan berupa lubang besar bergerigi pada tepi daun. Populasi meledak saat musim hujan.',
+      ct:['Mekanis: Kumpulkan manual sore/malam, gunakan perangkap daun talas','Biologis: Bebek itik (8-10 ekor/100 m²) dimasukkan ke lahan','Sanitasi: Bersihkan gulma di pematang dan saluran air','Kimia: Metaldehida 2-3 butir/m² (jika populasi sangat tinggi)']},
+      {nm:'Kutu Putih (Bemisia tabaci)',ms:'Kemarau',ic:'fa-bug',
+      gs:'Serangga kecil putih bersayap di bawah daun. Menghisap cairan → daun menguning, layu. Vektor virus Gemini (kuning kerdil) pada cabai.',
+      ct:['Hayati: Encarsia formosa (parasitoid)','Mekanis: Yellow sticky trap','Nabati: Ekstrak nimba + ekstrak bawang putih','Kimia: Piriproksifen 0.5 ml/L (khusus nimfa)']},
+      {nm:'Ulat Penggulung Daun (Helicoverpa armigera)',ms:'Kemarau & Hujan',ic:'fa-caterpillar',
+      gs:'Larva menggulung daun dengan jaringnya dan memakan dari dalam. Juga menyerang buah langsung — membuat lubang besar dan memakan biji.',
+      ct:['Hayati: Trichogramma spp. (telur parasitoid)','Mekanis: Pemangkasan bagian tergulung + koleksi ulat','Fisik: Pheromone trap untuk ngengat','Kimia: Emamektin benzoat 0.5 ml/L atau Spinosad 0.3 ml/L']}
+      ];
+
+    var PENYAKIT = [
+      {nm:'Antraknosa (Colletotrichum spp.)',ms:'Hujan',pn:'Jamur',
+      gs:'Bercak coklat kehitam dengan cincin konsentris pada buah. Bercak meluas, buah menjadi lunak dan busuk. Juga menyerang daun dan batang.',
+      ct:['Fungisida: Mankozeb 2 g/L, Azoksistrobin 0.5 ml/L, Difenokonazol 1 ml/L','Pencegahan: Pangkas untuk ventilasi, jangan sentuh buah saat basah','Sanitasi: Buang dan musnahkan bagian terinfeksi','Hayati: Bacillus subtilis sebagai biofungisida']},
+      {nm:'Busuk Batang & Akar (Phytophthora capsici)',ms:'Hujan',pn:'Jamur (Oomycete)',
+      gs:'Batang menghitam di pangkal tanaman, layu mendadak dari atas. Akar berwarna coklat kehitaman, berbau busuk. Tanaman rebah dan mati cepat.',
+      ct:['Drainase: WAJIB sempurna, genangan <4 jam','Fungisida: Metalaksil + Mankozeb 2 g/L, disiram ke pangkal batang','Hayati: Trichoderma 5-10 g/tanaman saat tanam (preventif)','Koreksi pH: Dolomit untuk jaga pH 6.0-6.5']},
+      {nm:'Layu Bakteri (Ralstonia solanacearum)',ms:'Hujan',pn:'Bakteri',
+      gs:'Layu pada satu sisi atau seluruh tanaman. Pembuluh kayu berwarna coklat saat dipotong. Akar masih utuh tapi tanaman layu. Disebar melalui tanah, air, alat.',
+      ct:['Pencegahan: Gunakan varietas tahan, rotasi tanaman 2-3 tahun','Sterilisasi: Solarisasi tanah atau Formalin 2%','Bakterisida: Streptomisin sulfat 1 g/L + Tembaga hidroksida 2 g/L','Sanitasi: Cabut & musnahkan tanaman terinfeksi, sterilkan alat']},
+      {nm:'Bercak Daun (Cercospora capsici)',ms:'Hujan & Kemarau',pn:'Jamur',
+      gs:'Bercak bulat/oval coklat dengan halo kuning pada daun. Pusat bercak berwarna abu-abu dengan titik-titik hitam (pycnidia). Daun tua terserang lebih berat.',
+      ct:['Fungisida: Klorotalonil 2 g/L, Mancozeb 2 g/L','Mekanis: Pangkas daun tua yang terserang berat','Ventilasi: Jaga jarak tanam dan kepadatan tidak terlalu rapat','Rotasi: Jangan tanam solanaceae berturut-turut di lahan sama']},
+      {nm:'Busuk Buah (Phytophthora & Colletotrichum)',ms:'Hujan',pn:'Jamur',
+      gs:'Buah menjadi lunak, berair, bercak coklat atau hitam menyebar. Cenderung mulai dari ujung buah atau sisi yang bersentuhan dengan tanah.',
+      ct:['Fungisida preventif: Mankozeb sejak awal pembentukan buah','Mulsa: Plastik silver black agar buah tidak menyentuh tanah basah','Sanitasi: Buah terinfeksi segera dipisahkan dan dimusnahkan','Hindari: Penyiraman overhead yang membasahi buah']},
+      {nm:'Embun Tepung (Leveillula taurica)',ms:'Kemarau',pn:'Jamur',
+      gs:'Lapisan putih seperti tepung pada permukaan atas daun. Daun menguning, keriting, dan rontok. Berbeda dari Oidium — menyerang bawah daun juga.',
+      ct:['Fungisida: Sulfur 2 g/L, Triadimefon 0.5 ml/L, Difenokonazol 1 ml/L','Hayati: Bacillus subtilis','Mekanis: Pangkas daun terinfeksi untuk kurangi penyebaran','Ventilasi: Jaga jarak tanam cukup untuk sirkulasi udara']},
+      {nm:'Layu Fusarium (Fusarium spp.)',ms:'Kemarau & Hujan',pn:'Jamur',
+      gs:'Layu unilateral (satu sisi dulu), kemudian seluruh tanaman. Pembuluh kayu coklat saat dipotong. Akar busuk coklat. Menyebar melalui tanah.',
+      ct:['Pencegahan: Gunakan varietas toleran, benih sehat','Hayati: Trichoderma 10 g/tanaman saat tanam','Kimia: Benomil 1 g/L atau Tiabendazol sebagai seed treatment','Sterilisasi: Solarisasi tanah sebelum tanam']},
+      {nm:'Bercak Bakteri (Xanthomonas campestris)',ms:'Hujan',pn:'Bakteri',
+      gs:'Bercak berair kecil pada daun, kemudian menjadi coklat dengan tepi kuning. Bercak bersudut (dibatasi oleh tulang daun). Disseminasi melalui percikan air.',
+      ct:['Bakterisida: Streptomisin sulfat + Tembaga hidroksida (bergantian)','Hindari: Kerja di kebun saat tanaman basah (percikan air = penyebaran)','Sanitasi: Gunakan alat bersih, cuci tangan sebelum bekerja','Rotasi: Jangan tanam solanaceae di lahan yang sama 2-3 tahun']},
+      {nm:'Mosaik/Tungro (CMV & TMV)',ms:'Kemarau & Hujan',pn:'Virus',
+      gs:'Daun bercorak mosaik (hijau terang & gelap bergantian), mengkerut, kerdil. Pertumbuhan terhambat, buah sedikit dan tidak normal.',
+      ct:['Pencegahan: Gunakan benih bersih/bebas virus','Vektor: Kendalikan kutu daun & kutu putih (vektor virus)','Mekanis: Singkirkan tanaman terserang segera (tidak ada obat virus)','Higienitas: Sterilkan tangan & alat, jangan merokok saat merawat cabai (TMV dari tembakau)']},
+      {nm:'Blight / Hawar Daun (Phytophthora infestans)',ms:'Hujan',pn:'Jamur (Oomycete)',
+      gs:'Bercak coklat basah yang membesar cepat, tepi tidak beraturan. Pada kelembapan tinggi, bercak ditutup bulu putih halus di bawah daun.',
+      ct:['Monitoring: Harian saat kelembapan >90% dan suhu 20-25°C','Fungisida preventif: Metalaksil + Mancozeb bergantian dengan Difenoconazol','Hindari: Kelembapan berlebih, penyiraman overhead','Pangkas: Daun terinfeksi segera dipangkas dan dibakar']}
+      ];
+
+    var CL_K = ['Siram pagi (06.00-07.00)', 'Siram sore (16.00-17.00)', 'Cek kelembapan tanah 2-3 cm', 'Cek hama di bawah daun', 'Periksa yellow sticky trap', 'Semprot pestisida nabati jika perlu', 'Cek mulsa masih cukup tebal', 'Pupuk susulan jika jadwal', 'Pupuk daun CaNO₃ saat buah', 'Periksa tanda flower drop'];
+    var CL_H = ['Cek drainase setelah hujan', 'Buang genangan maks 4 jam', 'Monitoring bercak pada buah & daun', 'Semprot fungisida preventif', 'Cek kelembapan kanopi', 'Pangkas daun bawah untuk ventilasi', 'Periksa batang pangkal (busuk?)', 'Pupuk susulan setelah hujan deras', 'Periksa perangkap lalat buah', 'Kumpulkan buah busuk jatuh'];
+    var DAYS = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+    var TASKS = ['Penyiraman', 'Pemupukan susulan', 'Penyiangan gulma', 'Monitoring hama', 'Panen buah matang'];
+
+    var FAQ = [
+      {q:'Mengapa cabai sering layu saat kemarau?',a:'Cabai memiliki akar dangkal (60-70% di 0-20 cm). Saat kemarau, lapisan atas tanah kering cepat sehingga akar kekurangan air. Stomatanya menutup untuk mengurangi transpirasi, tapi ini juga menghentikan fotosintesis. Solusi: mulsa 5-8 cm, drip irrigation, dan mikoriza untuk memperdalam penyerapan air.'},
+      {q:'Bagaimana mencegah flower drop pada cabai saat kemarau?',a:'Flower drop disebabkan suhu >35°C dan kekurangan air. Solusi: (1) Siram konsisten 2x/hari, (2) naungan shade net 25-30% saat siang, (3) pupuk K tinggi (KCl/SOP) untuk memperkuat jaringan tanaman, (4) hindari stres nitrogen berlebih yang membuat tanaman terlalu vegetatif.'},
+      {q:'Pupuk apa yang paling penting untuk cabai saat kemarau?',a:'Tiga pupuk kunci: (1) KCl atau SOP — meningkatkan regulasi stomata dan ketahanan kekeringan, (2) Kompos/organik — meningkatkan kapasitas tahan air tanah, (3) Mikoriza — memperluas jangkauan akar hingga 100x untuk menjangkau air lebih dalam.'},
+      {q:'Mengapa pupuk mudah hilang saat musim hujan?',a:'Hujan menyebabkan leaching — hara nitrogen (urea) dan kalium (KCl) larut dalam air dan tercuci turun melewati zona perakaran. Solusi: split application (dibagi kecil-kecilan setiap 10-14 hari), gunakan NPK granul, aplikasikan saat cuaca cerah, dan tambahkan pupuk organik yang melepas hara lambat.'},
+      {q:'Apa pupuk terbaik untuk cabai saat musim hujan?',a:'Prioritas: (1) Dolomit 500-1500 kg/ha — stabilisasi pH, (2) NPK 12-12-17 — K lebih tinggi untuk memperkuat batang, (3) Trichoderma — cegah busuk akar, (4) SP-36 — perkuat akar, (5) SOP lebih baik dari KCl karena kandungan sulfur membantu ketahanan penyakit.'},
+      {q:'Bagaimana cara mengatasi busuk akar pada cabai?',a:'Busuk akar (Phytophthora capsici) hampir selalu disebabkan genangan. Langkah: (1) Buat saluran darurat segera, (2) siram Metalaksil + Mancozeb ke pangkal batang, (3) pangkas akar busuk jika memungkinkan, (4) kurangi penyiraman drastis, (5) ke depan: Trichoderma saat tanam + drainase sempurna.'},
+      {q:'Berapa dosis NPK untuk cabai per hektar?',a:'Total kebutuhan per musim (90-120 hari): Urea 250 kg/ha, SP-36 150 kg/ha, KCl 200-275 kg/ha, atau NPK 16-16-16 sebanyak 400-600 kg/ha (dibagi 4-5x aplikasi). Dosis ini BUKAN sekali aplikasi tapi di-split sesuai fase pertumbuhan.'},
+      {q:'Kapan waktu terbaik memupuk cabai?',a:'Fase tanam (HST 0): SP-36 + organik di lubang tanam. HST 14: NPK susulan pertama. HST 28: NPK + KCl susulan kedua. HST 42: NPK + KCl saat berbunga. HST 56: KCl saat pembuahan. HST 70+: KCl untuk kualitas buah. Aplikasi pagi atau sore, tidak saat hujan.'},
+      {q:'Apa perbedaan KCl dan SOP untuk cabai?',a:'KCl mengandung 60% K₂O + klorida (Cl). SOP mengandung 50% K₂O + sulfur (S) tanpa klorida. Cabai termasuk sensitif terhadap klorida berlebih, sehingga SOP lebih direkomendasikan meskipun harganya lebih mahal 30-40%. Sulfur dalam SOP juga membantu ketahanan penyakit.'},
+      {q:'Bagaimana mengenal antraknosa pada cabai?',a:'Ciri khas: bercak coklat kehitam BERKENCING (concentric rings) pada buah. Bercak meluas perlahan, buah menjadi lunak dan busuk. Sering mulai dari ujung buah atau sisi yang terluka. Saat kelembapan tinggi, muncull massa spora berwarna pink/oranye di tengah bercak.'},
+      {q:'Cara mengendalikan kutu daun pada cabai tanpa bahan kimia?',a:'(1) Ladybug (Coccinella) — 1 ekor bisa memakan 50-100 kutu/hari, (2) Semprotan air sabun 1% — melapisi tubuh kutu sehingga sesak napas, (3) Ekstrak nimba 5 ml/L + 1% sabun, (4) Ekstrak tembakau 50 g/L + sabun, (5) Tanam tanaman penarik predator: bunga marigold, santan, dll di sekitar kebun.'},
+      {q:'Mengapa buah cabai busuk dari ujung (blossom-end rot)?',a:'Blossom-end rot disebabkan defisiensi kalsium (Ca) di ujung buah. Kalsium tidak mobile di tanaman — harus tersedia terus-menerus saat buah tumbuh. Pemicu: kekeringan (Ca sulit diangkut), pH terlalu asam, K/Ca ratio terlalu tinggi. Solusi: foliar CaNO₃ 3-5 g/L saat pembentukan buah, jaga kelembapan tanah stabil.'},
+      {q:'Berapa kebutuhan air cabai per hari?',a:'Tergantung fase: Semai (0.1-0.2 L/tanaman/hari), Vegetatif (0.5-1 L), Generatif (1-2 L), Penuh buah (1.5-2.5 L). Untuk 1 ha (10.000 tanaman) fase generatif = 10.000-20.000 liter/hari. Saat kemarau puncak bisa naik 30-50% lagi.'},
+      {q:'Apakah cabai bisa ditanam di musim hujan?',a:'Bisa, tapi dengan persiapan khusus: (1) Bedengan tinggi 25-30 cm, (2) Saluran drainase dalam, (3) Naungan plastik UV, (4) Dolomit sebelum tanam, (5) Trichoderma di lubang tanam, (6) Varietas toleran (Lado F1, TM999, dll), (7) Fungisida preventif sejak awal.'},
+      {q:'Bagaimana cara membuat pestisida nabati untuk cabai?',a:'(1) Nimba: 50 g biji nimba direndam 12 jam, blender, peras, tambah air 1 L + 1% sabun. (2) Bawang putih: 100 g bawang putih blender + 1 L air + sabun. (3) Tembakau: 50 g tembakau kering + 1 L air panas, rendam 24 jam, filter + sabun. Semprot pagi/sore, ulangi 3-7 hari.'}
+      ];
+
+    // ===== RENDERING LOGIC =====
+  function renderPupuk(filter) {
+    var g = document.getElementById('pupukGrid');
+    var html = '';
+    var items = filter === 'all' ? PUPUK : PUPUK.filter(function(p){return p.t===filter});
+    for (var i = 0; i < items.length; i++) {
+      var p = items[i];
+      var msBadge = p.ms.indexOf('Kemarau')>=0 && p.ms.indexOf('Hujan')>=0 ? '<span class="badge bg-gn">Kedua Musim</span>' :
+                  p.ms.indexOf('Kemarau')>=0 ? '<span class="badge bg-am">Kemarau</span>' : '<span class="badge bg-bl">Hujan</span>';
+      html += '<div class="ch rounded-xl p-5 sec" style="background:var(--cd);border:1px solid var(--bd)">' +
+        '<div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:' + p.cl + '20"><i class="fas ' + p.ic + '" style="color:' + p.cl + '"></i></div><div><h4 class="font-bold text-sm">' + p.nm + '</h4>' + msBadge + '</div></div>' +
+        '<div class="text-xs mb-2" style="color:var(--mt)"><strong>Kandungan:</strong> ' + p.hr + '</div>' +
+        '<div class="text-xs mb-2" style="color:var(--mt)"><strong>Dosis:</strong> ' + p.ds + '</div>' +
+        '<div class="text-xs leading-relaxed" style="color:var(--mt)">' + p.kn + '</div></div>';
+    }
+    g.innerHTML = html;
+    initObs();
+  }
+
+  function renderHama() {
+    var g = document.getElementById('hamaGrid');
+    var html = '';
+    for (var i = 0; i < HAMA.length; i++) {
+      var h = HAMA[i];
+      var msB = h.ms.indexOf('Kemarau')>=0 && h.ms.indexOf('Hujan')>=0 ? '<span class="badge bg-gn">Kedua</span>' :
+                h.ms.indexOf('Kemarau')>=0 ? '<span class="badge bg-am">Kemarau</span>' : '<span class="badge bg-bl">Hujan</span>';
+      var ctrl = '';
+      for (var j = 0; j < h.ct.length; j++) {
+        ctrl += '<li class="flex items-start gap-2"><i class="fas fa-check-circle mt-0.5" style="color:var(--ac);font-size:.65rem"></i>' + h.ct[j] + '</li>';
+      }
+      html += '<div class="ch rounded-xl p-5 sec" style="background:var(--cd);border:1px solid var(--bd)">' +
+        '<div class="flex items-center justify-between mb-2"><h4 class="font-bold text-sm">' + h.nm + '</h4>' + msB + '</div>' +
+        '<div class="text-xs mb-3 leading-relaxed" style="color:var(--mt)"><strong>Gejala:</strong> ' + h.gs + '</div>' +
+        '<div class="text-xs font-semibold mb-1.5" style="color:var(--ac)">Pengendalian:</div>' +
+        '<ul class="space-y-1.5 text-xs" style="color:var(--mt)">' + ctrl + '</ul></div>';
+    }
+    g.innerHTML = html;
+    initObs();
+  }
+
+  function renderPenyakit() {
+    var g = document.getElementById('penyakitGrid');
+    var html = '';
+    for (var i = 0; i < PENYAKIT.length; i++) {
+      var p = PENYAKIT[i];
+      var msB = p.ms.indexOf('Kemarau')>=0 && p.ms.indexOf('Hujan')>=0 ? '<span class="badge bg-gn">Kedua</span>' :
+                p.ms.indexOf('Kemarau')>=0 ? '<span class="badge bg-am">Kemarau</span>' : '<span class="badge bg-bl">Hujan</span>';
+      var ctrl = '';
+      for (var j = 0; j < p.ct.length; j++) {
+        ctrl += '<li class="flex items-start gap-2"><i class="fas fa-check-circle mt-0.5" style="color:var(--ac);font-size:.65rem"></i>' + p.ct[j] + '</li>';
+      }
+      html += '<div class="ch rounded-xl p-5 sec" style="background:var(--cd);border:1px solid var(--bd)">' +
+        '<div class="flex items-center justify-between mb-2"><h4 class="font-bold text-sm">' + p.nm + '</h4>' + msB + '</div>' +
+        '<div class="text-xs mb-1" style="color:var(--mt)"><strong>Patogen:</strong> ' + p.pn + '</div>' +
+        '<div class="text-xs mb-3 leading-relaxed" style="color:var(--mt)"><strong>Gejala:</strong> ' + p.gs + '</div>' +
+        '<div class="text-xs font-semibold mb-1.5" style="color:var(--ac)">Pengendalian:</div>' +
+        '<ul class="space-y-1.5 text-xs" style="color:var(--mt)">' + ctrl + '</ul></div>';
+    }
+    g.innerHTML = html;
+    initObs();
+  }
+
+  function renderChecklist(arr, containerId, prefix) {
+    var c = document.getElementById(containerId);
+    var html = '';
+    for (var i = 0; i < arr.length; i++) {
+      var key = prefix + i;
+      var saved = localStorage.getItem(key);
+      var done = saved === '1' ? ' style="text-decoration:line-through;opacity:.5"' : '';
+      var chk = saved === '1' ? ' checked' : '';
+      html += '<label class="flex items-start gap-2 cursor-pointer py-1"' + done + '><input type="checkbox"' + chk + ' onchange="toggleCL(\'' + key + '\',this)" class="mt-0.5 accent-green-600"><span>' + arr[i] + '</span></label>';
+    }
+    c.innerHTML = html;
+  }
+
+  function toggleCL(key, el) {
+    var label = el.parentElement;
+    if (el.checked) {
+      localStorage.setItem(key, '1');
+      label.style.textDecoration = 'line-through';
+      label.style.opacity = '.5';
+    } else {
+      localStorage.removeItem(key);
+      label.style.textDecoration = 'none';
+      label.style.opacity = '1';
+    }
+  }
+
+  function renderJadwal() {
+    var g = document.getElementById('jadwalGrid');
+    var html = '';
+    for (var d = 0; d < DAYS.length; d++) {
+      var dayTasks = [];
+      for (var t = 0; t < TASKS.length; t++) {
+        var idx = (d + t) % TASKS.length;
+        if (dayTasks.indexOf(TASKS[idx]) === -1) dayTasks.push(TASKS[idx]);
+        if (dayTasks.length >= 4) break;
+      }
+      var items = '';
+      for (var k = 0; k < dayTasks.length; k++) {
+        var key = 'jd_' + d + '_' + k;
+        var saved = localStorage.getItem(key);
+        var done = saved === '1' ? ' style="text-decoration:line-through;opacity:.5"' : '';
+        var chk = saved === '1' ? ' checked' : '';
+        items += '<label class="flex items-center gap-2 py-1 cursor-pointer text-xs"' + done + '><input type="checkbox"' + chk + ' onchange="toggleCL(\'' + key + '\',this)" class="accent-green-600"><span>' + dayTasks[k] + '</span></label>';
+      }
+      html += '<div class="rounded-xl p-4 sec" style="background:var(--cd);border:1px solid var(--bd)"><h4 class="font-bold text-sm mb-3" style="color:var(--ac)">' + DAYS[d] + '</h4><div class="space-y-0.5">' + items + '</div></div>';
+    }
+    g.innerHTML = html;
+    initObs();
+  }
+
+  function renderFAQ() {
+    var g = document.getElementById('faqGrid');
+    var html = '';
+    for (var i = 0; i < FAQ.length; i++) {
+      html += '<div class="accordion-item"><div class="accordion-q" onclick="togAcc(this)"><span>' + FAQ[i].q + '</span><i class="fas fa-chevron-down text-xs" style="color:var(--mt);flex-shrink:0"></i></div><div class="accordion-a">' + FAQ[i].a + '</div></div>';
+    }
+    g.innerHTML = html;
+  }
+
+  function togAcc(el) {
+    var ans = el.nextElementSibling;
+    var icon = el.querySelector('i');
+    var isOpen = ans.classList.contains('open');
+    // Tutup semua dulu
+    var allA = document.querySelectorAll('.accordion-a');
+    var allI = document.querySelectorAll('.accordion-q i');
+    for (var i = 0; i < allA.length; i++) {
+      allA[i].classList.remove('open');
+      allI[i].style.transform = 'rotate(0deg)';
+    }
+    if (!isOpen) {
+      ans.classList.add('open');
+      icon.style.transform = 'rotate(180deg)';
+    }
+  }
+
+  function swTab(filter, btn) {
+    var btns = document.querySelectorAll('.tab-btn');
+    for (var i = 0; i < btns.length; i++) btns[i].classList.remove('on');
+    btn.classList.add('on');
+    renderPupuk(filter);
+  }
+
+  // ===== INTERSECTION OBSERVER =====
+  function initObs() {
+    var els = document.querySelectorAll('.sec:not(.v)');
+    var obs = new IntersectionObserver(function(entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add('v');
+          obs.unobserve(entries[i].target);
+        }
+      }
+    }, { threshold: 0.08 });
+    for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+  }
+
+  // ===== CHARTS =====
+  function initCharts() {
+    var commonOpts = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { labels: { font: { family: 'Poppins', size: 11 } } } },
+      scales: {
+        x: { ticks: { font: { family: 'Poppins', size: 10 } }, grid: { display: false } },
+        y: { ticks: { font: { family: 'Poppins', size: 10 } }, grid: { color: 'rgba(0,0,0,.06)' } }
+      }
+    };
+
+    new Chart(document.getElementById('cNP'), {
+      type: 'bar',
+      data: {
+        labels: ['Tanam','14 HST','28 HST','42 HST','56 HST','70+ HST'],
+        datasets: [
+          { label: 'N (kg/ha)', data: [0,50,75,75,50,0], backgroundColor: 'rgba(45,106,79,.7)' },
+          { label: 'P₂O₅ (kg/ha)', data: [54,32,0,0,0,0], backgroundColor: 'rgba(212,165,116,.7)' },
+          { label: 'K₂O (kg/ha)', data: [0,0,30,45,60,30], backgroundColor: 'rgba(22,138,173,.7)' }
+        ]
+      },
+      options: commonOpts
+    });
+
+    new Chart(document.getElementById('cKH'), {
+      type: 'bar',
+      data: {
+        labels: ['Urea','SP-36','KCl','NPK','Organik','Trichoderma'],
+        datasets: [
+          { label: 'Kemarau (kg/ha)', data: [250,150,200,300,4000,8], backgroundColor: 'rgba(217,119,6,.7)' },
+          { label: 'Hujan (kg/ha)', data: [200,200,150,300,4000,10], backgroundColor: 'rgba(22,138,173,.7)' }
+        ]
+      },
+      options: Object.assign({}, commonOpts, { scales: Object.assign({}, commonOpts.scales, { y: { type: 'logarithmic', ticks: { font: { family: 'Poppins', size: 10 }, callback: function(v){return v>=1000?(v/1000)+'t':v} }, grid: { color: 'rgba(0,0,0,.06)' } } }) })
+    });
+
+    new Chart(document.getElementById('cAir'), {
+      type: 'line',
+      data: {
+        labels: ['Semai','Vegetatif Awal','Vegetatif','Generatif Awal','Generatif','Penuh Buah','Akhir Panen'],
+        datasets: [{
+          label: 'Kebutuhan Air (mm/hari)',
+          data: [0.5, 2.5, 4, 5.5, 6.5, 7, 4],
+          borderColor: '#168AAD',
+          backgroundColor: 'rgba(22,138,173,.1)',
+          fill: true,
+          tension: 0.4,
+          pointBackgroundColor: '#168AAD',
+          pointRadius: 5
+        }]
+      },
+      options: commonOpts
+    });
+  }
+
+  // ===== AUTH (LOGIN / REGISTER) =====
+  // Sistem akun sederhana berbasis localStorage (khusus untuk kebutuhan front-end,
+  // menyimpan data di browser pengguna masing-masing).
+  function getUsers() {
+    try { return JSON.parse(localStorage.getItem('cabaiku_users') || '[]'); }
+    catch (e) { return []; }
+  }
+  function saveUsers(u) { localStorage.setItem('cabaiku_users', JSON.stringify(u)); }
+  function getSession() {
+    try { return JSON.parse(localStorage.getItem('cabaiku_session') || 'null'); }
+    catch (e) { return null; }
+  }
+
+  function openAuth() {
+    var session = getSession();
+    if (session) { return; } // sudah login, tombol jadi menu akun (lihat updateAuthUI)
+    document.getElementById('authOverlay').classList.remove('hidden');
+    swAuthTab('login');
+  }
+  function closeAuth() {
+    document.getElementById('authOverlay').classList.add('hidden');
+    showAuthMsg('', true);
+  }
+  function swAuthTab(which) {
+    var lf = document.getElementById('loginForm'), rf = document.getElementById('registerForm');
+    var lb = document.getElementById('tabLoginBtn'), rb = document.getElementById('tabRegisterBtn');
+    if (which === 'login') {
+      lf.classList.remove('hidden'); rf.classList.add('hidden');
+      lb.classList.add('on'); rb.classList.remove('on');
+    } else {
+      rf.classList.remove('hidden'); lf.classList.add('hidden');
+      rb.classList.add('on'); lb.classList.remove('on');
+    }
+    showAuthMsg('', true);
+  }
+  function showAuthMsg(text, hide) {
+    var el = document.getElementById('authMsg');
+    if (hide) { el.classList.add('hidden'); return; }
+    el.textContent = text;
+    el.classList.remove('hidden');
+    el.className = 'text-xs rounded-lg p-2.5 mb-3 bg-rd';
+  }
+
+  function doRegister(e) {
+    e.preventDefault();
+    var name = document.getElementById('regName').value.trim();
+    var email = document.getElementById('regEmail').value.trim().toLowerCase();
+    var pass = document.getElementById('regPass').value;
+    var users = getUsers();
+    if (users.some(function(u){ return u.email === email; })) {
+      showAuthMsg('Email sudah terdaftar. Silakan masuk.');
+      return false;
+    }
+    users.push({ name: name, email: email, pass: pass });
+    saveUsers(users);
+    localStorage.setItem('cabaiku_session', JSON.stringify({ name: name, email: email }));
+    closeAuth();
+    updateAuthUI();
+    return false;
+  }
+
+  function doLogin(e) {
+    e.preventDefault();
+    var email = document.getElementById('loginEmail').value.trim().toLowerCase();
+    var pass = document.getElementById('loginPass').value;
+    var users = getUsers();
+    var found = users.find(function(u){ return u.email === email && u.pass === pass; });
+    if (!found) {
+      showAuthMsg('Email atau kata sandi salah, atau akun belum terdaftar.');
+      return false;
+    }
+    localStorage.setItem('cabaiku_session', JSON.stringify({ name: found.name, email: found.email }));
+    closeAuth();
+    updateAuthUI();
+    return false;
+  }
+
+  function doLogout() {
+    localStorage.removeItem('cabaiku_session');
+    updateAuthUI();
+  }
+
+  function updateAuthUI() {
+    var session = getSession();
+    var btn = document.getElementById('navAuthBtn');
+    var label = document.getElementById('navAuthLabel');
+    if (session) {
+      label.textContent = session.name.split(' ')[0];
+      btn.querySelector('i').className = 'fas fa-circle-user';
+      btn.onclick = function() {
+        if (confirm('Keluar dari akun ' + session.name + '?')) doLogout();
+      };
+    } else {
+      label.textContent = 'Masuk';
+      btn.querySelector('i').className = 'fas fa-user';
+      btn.onclick = openAuth;
+    }
+  }
+
+  // ===== INIT =====
+  document.addEventListener('DOMContentLoaded', function() {
+    renderPupuk('all');
+    renderHama();
+    renderPenyakit();
+    renderChecklist(CL_K, 'checkKemarau', 'ck_');
+    renderChecklist(CL_H, 'checkHujan', 'ch_');
+    renderJadwal();
+    renderFAQ();
+    initObs();
+    initCharts();
+    updateAuthUI();
+
+    // Scroll spy untuk navbar
+    var sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', function() {
+      var nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.style.boxShadow = '0 2px 20px rgba(0,0,0,.08)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    });
+  });
+  </script>
+</body>
+</html>

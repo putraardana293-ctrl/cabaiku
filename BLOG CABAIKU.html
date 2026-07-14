@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artikel — Cabaiku</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --red:#dc2626;--red-dark:#b91c1c;--red-light:#fef2f2;
+      --text:#1f2937;--text-sec:#6b7280;--border:#e5e7eb;
+      --bg:#f9fafb;--white:#fff;
+      --fh:'Playfair Display',Georgia,serif;
+      --fb:'Inter',-apple-system,sans-serif;
+      --fs:Georgia,'Times New Roman',serif;
+      --r:10px;
+      --sh:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+      --sh-h:0 10px 25px rgba(0,0,0,.08),0 4px 10px rgba(0,0,0,.04);
+    }
+    body{font-family:var(--fb);color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    .ni{max-width:1120px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .nl{font-family:var(--fh);font-size:1.5rem;font-weight:800;color:var(--red);text-decoration:none;letter-spacing:-.5px}
+    .nl span{color:var(--text)}
+    .nv{display:flex;gap:32px;list-style:none}
+    .nv a{text-decoration:none;color:var(--text-sec);font-size:.9rem;font-weight:500;transition:color .2s}
+    .nv a:hover{color:var(--red)}
+    .hb{display:none;background:none;border:none;cursor:pointer;padding:4px}
+    .hb svg{display:block}
+    .bk{max-width:760px;margin:0 auto;padding:28px 24px 0}
+    .bk a{display:inline-flex;align-items:center;gap:6px;color:var(--text-sec);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+    .bk a:hover{color:var(--red)}
+    .aw{max-width:760px;margin:0 auto;padding:20px 24px 0}
+    .ah{width:100%;height:420px;object-fit:cover;border-radius:var(--r);display:block}
+    .ahd{padding:32px 0 0}
+    .at{font-family:var(--fh);font-size:2.2rem;font-weight:800;line-height:1.25;margin-bottom:20px;letter-spacing:-.5px}
+    .am{display:flex;align-items:center;gap:16px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+    .aa{width:44px;height:44px;border-radius:50%;background:var(--red-light);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:700;font-size:1.1rem;color:var(--red);flex-shrink:0}
+    .ai{line-height:1.4}
+    .an{font-weight:600;font-size:.92rem}
+    .ad{font-size:.82rem;color:var(--text-sec)}
+    .ab{padding:32px 0 0;font-family:var(--fs);font-size:1.1rem;line-height:1.9;color:#374151}
+    .ab p{margin-bottom:1.5em}
+    .ab h2{font-family:var(--fh);font-size:1.5rem;font-weight:700;color:var(--text);margin:2.2em 0 .8em;line-height:1.3}
+    .ab h3{font-family:var(--fh);font-size:1.2rem;font-weight:700;color:var(--text);margin:1.8em 0 .6em;line-height:1.3}
+    .ab img{width:100%;border-radius:var(--r);margin:2em 0;display:block}
+    .ab ul,.ab ol{margin:1em 0 1.5em 1.5em}
+    .ab li{margin-bottom:.5em}
+    .ab strong{color:var(--text)}
+    .ab em{font-style:italic}
+    .tg{display:flex;flex-wrap:wrap;gap:8px;padding:32px 0;border-top:1px solid var(--border);margin-top:12px}
+    .tag{font-size:.78rem;font-weight:600;color:var(--red);background:var(--red-light);padding:5px 14px;border-radius:100px}
+    .rf{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:28px;margin:16px 0 48px}
+    .rf h3{font-family:var(--fh);font-size:1.15rem;font-weight:700;margin-bottom:16px}
+    .rf ol{padding-left:1.5em;font-size:.85rem;color:var(--text-sec);line-height:1.8}
+    .rf li{margin-bottom:.3em}
+    .rs{background:var(--white);border-top:1px solid var(--border);padding:48px 24px}
+    .ri{max-width:1120px;margin:0 auto}
+    .rt{font-family:var(--fh);font-size:1.5rem;font-weight:700;margin-bottom:28px}
+    .rg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .rc{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:box-shadow .3s,transform .3s;text-decoration:none;color:inherit;display:block}
+    .rc:hover{box-shadow:var(--sh-h);transform:translateY(-2px)}
+    .rc img{width:100%;height:160px;object-fit:cover;display:block}
+    .rcb{padding:16px}
+    .rcd{font-size:.75rem;color:var(--text-sec);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+    .rct{font-family:var(--fh);font-size:1.05rem;font-weight:700;line-height:1.4}
+    footer{background:var(--white);border-top:1px solid var(--border);text-align:center;padding:28px 24px;color:var(--text-sec);font-size:.85rem}
+    footer a{color:var(--red);text-decoration:none}
+    footer a:hover{text-decoration:underline}
+    @media(max-width:768px){.ah{height:240px}.at{font-size:1.6rem}.ab{font-size:1.02rem}.rg{grid-template-columns:1fr}}
+    @media(max-width:640px){
+      .nv{display:none}.nv.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:16px 24px;gap:16px;box-shadow:var(--sh-h)}
+      .hb{display:block}.ah{height:200px;border-radius:8px}.at{font-size:1.4rem}.rf{padding:20px}.rg{gap:16px}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="ni">
+      <a href="index.html" class="nl">Cabaiku<span>.</span></a>
+      <ul class="nv" id="nv">
+        <li><a href="CABAI_START_UP.html">Beranda</a></li>
+        <li><a href="TENTANG CABAI.html">Tentang</a></li>
+      </ul>
+      <button class="hb" id="hb" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1f2937" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="bk">
+    <a href="CABAI_START_UP.html">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      Kembali ke Beranda
+    </a>
+  </div>
+
+  <article>
+    <div class="aw" id="articleRoot"></div>
+  </article>
+
+  <section class="rs" id="relatedSection">
+    <div class="ri">
+      <h2 class="rt">Artikel Terkait</h2>
+      <div class="rg" id="relatedGrid"></div>
+    </div>
+  </section>
+
+  <footer><p>&copy; 2025 <a href="index.html">Cabaiku</a>. Semua konten ditulis berdasarkan rujukan ilmiah.</p></footer>
+
+<script>
+const DB = [
+  {
+    id:1,
+    title:"Mengungkap Khasiat Tersembunyi Kapsaisin dalam Cabai",
+    date:"12 Juni 2025", readTime:"9 menit baca",
+    author:"Rina Kartika", initial:"R",
+    hero:"https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=1200&h=600&fit=crop&q=80",
+    tags:["Kapsaicin","Kesehatan","Cabai","Nutrisi"],
+    body:`
+<p>Indonesia merupakan salah satu produsen cabai terbesar di dunia. Tanaman ini telah menjadi bagian tak terpisahkan dari kehidupan sehari-hari masyarakat Nusantara, baik sebagai bumbu dapur maupun sebagai komoditas pertanian yang bernilai ekonomi tinggi. Namun di balik rasa pedas yang melegenda, cabai menyimpan senyawa bioaktif yang kini semakin banyak diteliti oleh kalangan akademisi dan industri kesehatan: kapsaisin.</p>
+
+<h2>Apa Itu Kapsaicin?</h2>
+<p>Kapsaicin (<em>trans-8-methyl-N-vanillyl-6-nonenamide</em>) adalah senyawa alkaloid yang terdapat secara alami pada bagian plasenta dan membran dalam buah cabai. Senyawa inilah yang memberikan sensasi pedas atau hangat saat kita mengonsumsi cabai. Tingkat kapsaisin bervariasi tergantung pada varietas cabai — cabai rawit mengandung konsentrasi yang jauh lebih tinggi dibandingkan cabai besar atau paprika.</p>
+<p>Secara kimiawi, kapsaisin termasuk dalam kelompok senyawa kapsainoid, yang terdiri atas beberapa turunan struktural seperti dihidrokapsaisin dan nordihidrokapsaisin. Kombinasi keseluruhan kapsainoid inilah yang menentukan tingkat kepedasan suatu varietas cabai, yang diukur menggunakan satuan Skoville Heat Unit (SHU). Sebagai perbandingan, paprika hijau memiliki nilai sekitar 0 SHU, cabai rawit berkisar 50.000–100.000 SHU, sementara cabai Carolina Reaper bahkan bisa mencapai lebih dari 2 juta SHU.</p>
+
+<img src="https://www.kampustani.com/wp-content/uploads/2018/10/Cara-Budidaya-Cabai-Di-Polybag.jpg" alt="Cabai merah segar close-up">
+
+<h2>Mekanisme Rasa Pedas di Tubuh Manusia</h2>
+<p>Rasa pedas yang kita rasakan sebenarnya bukanlah rasa dalam pengertian klasik (seperti manis, asam, asin, atau pahit), melainkan sebuah sensasi nyeri. Kapsaisin bekerja dengan mengikat reseptor bernama TRPV1 (<em>Transient Receptor Potential Vanilloid 1</em>) yang terdapat pada ujung saraf sensorik di lidah, mulut, dan seluruh permukaan kulit.</p>
+<p>Reseptor TRPV1 secara normal akan aktif saat terpapar panas fisik di atas 43 derajat Celcius atau zat-zat iritan tertentu. Ketika kapsaisin mengikat reseptor ini, ia "menipu" sel saraf sehingga mengirimkan sinyal ke otak seolah-olah tubuh sedang terbakar. Otak merespons dengan melepaskan endorfin — senyawa penghilang rasa sakit alami — yang menjelaskan mengapa banyak orang merasa sensasi menyenangkan setelah makan makanan pedas.</p>
+<p>Proses ini juga memicu pelepasan substansi P (<em>Substance P</em>), sebuah neuropeptida yang berperan dalam transmitasi sinyal nyeri. Menariknya, paparan kapsaisin berulang justru menurunkan kadar substansi P, yang menjadi dasar mengapa kapsaisin digunakan sebagai penghilang rasa sakit.</p>
+
+<h2>Kapsaisin sebagai Analgesik Topikal</h2>
+<p>Salah satu pemanfaatan medis kapsaisin yang paling banyak dipelajari adalah kemampuannya sebagai penghilang rasa sakit (<em>analgesik</em>). Prinsipnya berkebalikan dengan sensasi pedas awal: paparan kapsaisin secara berkelanjutan menyebabkan <em>desensitisasi</em> pada reseptor TRPV1. Dengan kata lain, reseptor menjadi "kelelahan" dan kurang sensitif terhadap sinyal nyeri.</p>
+<p>Mekanisme ini dimanfaatkan dalam bentuk krim atau plester topikal yang mengandung kapsaisin konsentrasi tinggi (biasanya 0,025 persen hingga 8 persen) untuk mengatasi kondisi seperti nyeri saraf (<em>neuropathic pain</em>), nyeri sendi akibat osteoartritis, serta nyeri pasca-herpes zoster. Beberapa tinjauan literatur menunjukkan bahwa penggunaan topikal kapsaisin secara konsisten selama beberapa minggu dapat mengurangi intensitas nyeri secara signifikan pada pasien dengan kondisi tersebut.</p>
+
+<img src="https://warstek.com/wp-content/uploads/2023/09/Capsain-1024x512.png" alt="Cabai merah dengan latar gelap">
+
+<h2>Efek Kapsaisin terhadap Metabolisme dan Berat Badan</h2>
+<p>Penelitian terkini mengungkap bahwa kapsaisin memiliki potensi dalam meningkatkan laju metabolisme tubuh. Senyawa ini mampu merangsang proses <em>termogenesis</em>, yaitu produksi panas oleh tubuh, yang pada gilirannya meningkatkan pembakaran kalori. Beberapa studi klinis melaporkan bahwa konsumsi kapsaisin dapat meningkatkan pengeluaran energi basal sekitar 4–5 persen selama beberapa jam setelah konsumsi.</p>
+<p>Selain itu, kapsaisin dilaporkan mampu meningkatkan oksidasi lemak, terutama lemak visceral yang menyelimuti organ dalam perut. Sebuah meta-analisis yang dipublikasikan menunjukkan bahwa suplementasi kapsaisin secara konsisten dapat menghasilkan penurunan berat badan rata-rata sekitar 0,5–1 kg setelah 6–12 minggu, meskipun efeknya lebih signifikan bila disertai dengan pembatasan kalori dan aktivitas fisik.</p>
+
+<h2>Manfaat Kardiovaskular</h2>
+<p>Beberapa penelitian epidemiologis di negara-negara dengan konsumsi cabai tinggi menunjukkan korelasi yang menarik dengan angka penyakit kardiovaskular yang lebih rendah. Kapsaisin diduga berperan melalui beberapa mekanisme: merelaksasi pembuluh darah melalui stimulasi produksi nitric oxide, menghambat agregasi trombosit yang dapat menyebabkan penggumpalan darah, serta membantu menurunkan kadar kolesterol LDL.</p>
+<p>Sebuah studi kohort besar di China yang melibatkan lebih dari 480.000 partisipan menemukan bahwa konsumsi makanan pedas secara rutin dikaitkan dengan penurunan risiko kematian akibat penyakit jantung dan pembuluh darah sebesar sekitar 14 persen. Meski korelasi ini belum sepenuhnya membuktikan hubungan kausal, temuan ini memperkuat dasar ilmiah untuk penelitian lebih lanjut.</p>
+
+<h2>Sifat Antioksidan dan Antiinflamasi</h2>
+<p>Kapsaisin memiliki kemampuan menangkal radikal bebas yang berperan dalam kerusakan sel dan penuaan dini. Senyawa ini bekerja sebagai penyumbang elektron yang menetralisir molekul-molekul reaktif tersebut sebelum mereka merusak DNA, protein, atau lipid seluler. Beberapa penelitian menunjukkan bahwa aktivitas antioksidan kapsaisin sebanding dengan vitamin E dan vitamin C pada konsentrasi tertentu.</p>
+<p>Dari aspek antiinflamasi, kapsaisin terbukti mampu menghambat produksi sitokin proinflamasi seperti TNF-alfa dan IL-6 melalui modulasi jalur sinyal NF-kB. Temuan ini membuka peluang pemanfaatan kapsaisin sebagai agen pendukung pada kondisi inflamasi kronis, meskipun dosis dan formulasi yang optimal masih memerlukan studi lebih lanjut.</p>
+
+<img src="https://monsera.id/wp-content/uploads/2025/08/Cabai-Sebagai-Antioksidan-Alami-Baik-untuk-Kesehatan.webp" alt="Aneka cabai merah dan hijau">
+
+<h2>Potensi Antikanker: Harapan atau Hype?</h2>
+<p>Salah satu area penelitian yang paling dinamis terkait kapsaisin adalah potensi antikankernya. Berbagai studi <em>in vitro</em> dan pada hewan coba menunjukkan bahwa kapsaisin mampu menginduksi <em>apoptosis</em> (kematian sel terprogram) pada beberapa jenis sel kanker, termasuk kanker prostat, kanker payudara, dan kanker kolorektal.</p>
+<p>Mekanisme yang diusulkan meliputi penghambatan siklus sel, aktivasi jalur kematian sel mitokondria, serta penekanan faktor transkripsi yang terlibat dalam pertumbuhan tumor. Namun, perlu ditekankan bahwa sebagian besar bukti ini masih bersumber dari penelitian laboratorium. Kapsaisin dalam bentuk murni pada konsentrasi tinggi berbeda jauh dengan kapsaisin yang terkandung dalam cabai yang kita makan sehari-hari. Oleh karena itu, klaim bahwa makan cabai dapat "mencegah kanker" masih terlalu prematur dan memerlukan validasi klinis yang lebih ketat.</p>
+
+<h2>Batasan Aman dan Efek Samping</h2>
+<p>Meskipun memiliki berbagai potensi kesehatan, konsumsi cabai berlebihan tidak selalu baik. Paparan kapsaisin yang berlebihan pada saluran pencernaan dapat memicu gejala GERD, iritasi lambung, dan diare pada individu yang sensitif. Pada kulit, kontak langsung dengan kapsaisin pekat tanpa perlindungan dapat menyebabkan iritasi, kemerahan, dan sensasi terbakar.</p>
+<p>Badan Pengawas Obat dan Makanan Amerika Serikat (FDA) umumnya menganggap kapsaisin sebagai zat yang aman (GRAS) ketika digunakan sebagai bahan pangan dalam jumlah wajar. Namun, untuk suplemen atau produk topikal dengan konsentrasi tinggi, disarankan untuk berkonsultasi dengan tenaga kesehatan.</p>
+
+<h2>Kesimpulan</h2>
+<p>Kapsaisin adalah contoh menarik bagaimana senyawa alami yang selama ini hanya dikenal sebagai "penyebab pedas" ternyata memiliki repertoar aktivitas biologis yang luas. Dari mekanisme interaksinya dengan reseptor TRPV1 hingga potensinya sebagai analgesik, modulator metabolisme, dan agen kardioprotektif, kapsaisin terus menjadi objek penelitian yang menjanjikan. Tentu saja, menambahkan cabai dalam masakan bukanlah pengganti pengobatan medis. Namun, memahami khasiat di balik rasa pedasnya setidaknya membuat kita semakin menghargai si kecil merah yang selama ini setia menemani setiap suapan nasi kita.</p>
+`,
+    refs:[
+      "Sulistyowati, E., & Wresdiyati, T. (2017). Peran kapsaisin sebagai antioksidan dan antiinflamasi: Tinjauan mekanisme molekuler. <em>Jurnal Kedokteran dan Kesehatan</em>, 3(2), 45–52.",
+      "Pratiwi, D. A., Nurrahman, A., & Hidayat, S. (2019). Efek pemberian kapsaisin terhadap profil lipid dan berat badan pada tikus model obesitas. <em>Buletin Teknologi Pertanian</em>, 24(1), 15–22.",
+      "Wahyuni, S., & Kusuma, D. (2018). Reseptor TRPV1 dan mekanisme analgesis kapsaisin: Tinjauan farmakologi. <em>Jurnal Biologi Indonesia</em>, 14(3), 89–97.",
+      "Hartono, R., & Susanto, T. (2020). Potensi kapsaisin sebagai agen kardioprotektif: Kajian literatur terkini. <em>Jurnal Pangan dan Gizi</em>, 11(1), 33–41.",
+      "Kusumawati, A., Putri, R. E., & Widodo, J. (2021). Aktivitas biologis kapsaisin sebagai antikanker: Mekanisme apoptosis dan hambatan proliferasi sel. <em>Jurnal Farmasi Indonesia</em>, 8(4), 112–120.",
+      "Lv, J., Qi, L., Yu, C., et al. (2015). Consumption of spicy foods and total and cause specific mortality: Population based cohort study. <em>BMJ</em>, 351, h3942.",
+      "Sharma, S. K., Vij, A. S., & Sharma, M. (2013). Mechanisms and clinical uses of capsaicin. <em>Eurasian Journal of Medicine</em>, 45(2), 125–130."
+    ]
+  },
+
+  {
+    id:2,
+    title:"Panduan Lengkap Menanam Cabai Rawit di Pekarangan Rumah",
+    date:"8 Juni 2025", readTime:"11 menit baca",
+    author:"Dedi Sulaiman", initial:"D",
+    hero:"https://tse4.mm.bing.net/th/id/OIP.mNJ2KTE7PgEQULLu4iZNEgHaEO?r=0&pid=Api&P=0&h=180",
+    tags:["Budidaya","Cabai Rawit","Pertanian Urban","Tips"],
+    body:`
+<p>Cabai rawit (<em>Capsicum frutescens</em>) merupakan komoditas yang memiliki nilai ekonomi tinggi di Indonesia. Fluktuasi harga yang kerap terjadi, terutama menjelang hari-hari besar keagamaan, mendorong banyak orang untuk mencoba menanamnya sendiri di pekarangan rumah. Kabar baiknya, cabai rawit termasuk tanaman yang relatif mudah dibudidayakan bahkan oleh pemula sekalipun, asalkan memahami prinsip-prinsip dasar yang akan dibahas dalam artikel ini.</p>
+
+<h2>Pemilihan Bibit: Bijian atau Seterika?</h2>
+<p>Langkah pertama yang menentukan keberhasilan budidaya adalah pemilihan bibit. Ada dua jalur utama yang bisa dipilih: menyemai biji sendiri atau membeli bibit siap tanam (<em>seedling</em>).</p>
+<p><strong>Penyemaian biji</strong> memiliki keuntungan biaya yang sangat rendah — satu buah cabai rawit mengandung puluhan biji. Namun, proses ini membutuhkan ketelitian. Biji cabai rawit memiliki lapisan kulit yang cukup keras, sehingga perlu direndam dalam air hangat (sekitar 40 derajat Celcius) selama 6–8 jam sebelum disemaikan untuk mempercepat proses imbibisi dan memecah dormansi.</p>
+<p>Media semai yang ideal adalah campuran tanah gembur, kompos, dan sekam bakar dengan perbandingan 2:1:1. Biji ditanam sedalam 0,5–1 cm, kemudian disiram secukupnya dan ditempatkan di tempat teduh namun tetap mendapat cahaya tidak langsung. Perkecambahan biasanya terjadi dalam 7–14 hari.</p>
+<p><strong>Bibit seterika</strong> lebih praktis dan menghemat waktu. Pilih bibit yang memiliki tinggi sekitar 15–20 cm, batang kokoh berwarna hijau tua, dan sudah memiliki 4–6 daun sejati. Hindari bibit yang tampak kerdil, menguning, atau memiliki bercak-bercak pada daun karena bisa jadi terinfeksi patogen.</p>
+
+<h2>Persiapan Media Tanam dan Pot</h2>
+<p>Cabai rawit dapat ditanam di lahan terbuka maupun dalam pot. Untuk pekarangan rumah yang terbatas, penggunaan pot atau polybag merupakan pilihan paling realistis. Ukuran pot minimal 30 cm diameter dengan kedalaman 30–40 cm. Pastikan pot memiliki lubang drainase yang memadai di bagian bawah.</p>
+<p>Komposisi media tanam yang disarankan adalah campuran tanah humus, kompos atau pupuk kandang yang sudah matang, dan sekam bakar dengan perbandingan 2:1:1. Media ini memberikan keseimbangan antara kemampuan menahan air, aerasi, dan ketersediaan nutrisi. Sebelum tanam, media sebaiknya disterilisasi terlebih dahulu dengan cara dijemur di bawah sinar matahari selama 2–3 hari untuk mengurangi populasi patogen tanah.</p>
+
+<img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=900&h=500&fit=crop&q=80" alt="Cabai merah segar untuk bibit">
+
+<h2>Teknik Penanaman yang Benar</h2>
+<p>Penanaman sebaiknya dilakukan pada sore hari ketika intensitas matahari mulai berkurang, sehingga tanaman tidak mengalami <em>transplant shock</em> yang berat. Buat lubang tanam sedalam sama dengan tinggi polybag semaian. Keluarkan bibit dari wadah semaian secara hati-hati agar akar tidak putus.</p>
+<p>Masukkan bibit ke dalam lubang tanam, lalu tutup dengan tanah hingga pangkal batang. Padatkan perlahan dan siram immediately setelah penanaman. Berikan naungan (<em>shading net</em> 30–50 persen) selama 3–5 hari pertama untuk membantu tanaman beradaptasi dengan lingkungan baru.</p>
+<p>Jarak tanam untuk cabai rawit dalam pot adalah satu tanaman per pot. Jika menanam di lahan terbuka, jarak ideal adalah 50–60 cm antar baris dan 40–50 cm dalam baris. Kepadatan yang berlebihan akan menghambat sirkulasi udara dan mempercepat penyebaran penyakit.</p>
+
+<h2>Perawatan Rutin: Air, Nutrisi, dan Pemangkasan</h2>
+<h3>Penyiraman</h3>
+<p>Cabai rawit membutuhkan kelembaban tanah yang konsisten, namun tidak tahan terhadap genangan air. Prinsip penyiraman yang baik adalah "basah kering" — siram secara mendalam ketika lapisan atas tanah (2–3 cm) sudah terasa kering saat disentuh. Pada musim kemarau, penyiraman mungkin perlu dilakukan 1–2 kali sehari. Pada musim hujan, kurangi frekuensi penyiraman dan pastikan drainase berfungsi baik.</p>
+
+<h3>Pemupukan</h3>
+<p>Pemupukan dibagi menjadi dua fase: fase vegetatif (pertumbuhan batang dan daun) dan fase generatif (pembungaan dan pembuahan). Pada fase vegetatif, berikan pupuk yang kaya nitrogen seperti NPK dengan rasio tinggi pada unsur N (misalnya NPK 16-16-16 atau 30-10-10) setiap 2 minggu sekali. Pada fase generatif, beralih ke pupuk dengan rasio K (kalium) yang lebih tinggi (misalnya NPK 12-12-17 atau 6-12-36) untuk mendukung pembungaan lebat dan buah yang besar serta tahan simpan.</p>
+<p>Selain pupuk kimia, pemberian pupuk organik cair (POC) seperti larutan fermentasi jerami atau pupuk kandang cair setiap minggu dapat meningkatkan kesehatan tanaman secara keseluruhan dan memperbaiki struktur tanah dalam pot.</p>
+
+<img src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=900&h=500&fit=crop&q=80" alt="Tanaman cabai di polybag">
+
+<h3>Pemangkasan</h3>
+<p>Pemangkasan (<em>pruning</em>) sering diabaikan oleh petani pemula, padahal teknik ini sangat krusial untuk produktivitas jangka panjang. Pemangkasan pertama dilakukan saat tanaman berumur sekitar 30–35 hari setelah tanam: buang tunas air (tunas yang tumbuh dari ketiak daun pada bagian batang utama bawah) karena tunas ini menghabiskan energi tanpa menghasilkan buah.</p>
+<p>Pemangkasan berikutnya dilakukan setelah panen pertama: potong cabang-cabang yang sudah tidak produktif dan menguning untuk merangsang pertumbuhan cabang baru yang akan menghasilkan buah pada gelombang berikutnya. Dengan pemangkasan yang tepat, satu tanaman cabai rawit bisa produktif hingga 6–9 bulan.</p>
+
+<h2>Pengendalian Hama dan Penyakit Utama</h2>
+<p>Hama yang paling umum menyerang cabai rawit adalah <em>kutu daun</em> (<em>Aphis gossypii</em>), <em>kutu putih</em> (<em>Bemisia tabaci</em>), dan <em>thrips</em>. Serangan kutu daun dapat dikendalikan dengan semprotan air sabun (5 ml sabun cair per liter air) atau larutan neem oil. Untuk thrips yang lebih sulit dikendalikan, gunakan perangkap berwarna kuning yang dilengkapi lem.</p>
+<p>Penyakit utama yang perlu diwaspadai meliputi <em>antraknosa</em> (bercak cokelat pada buah yang disebabkan jamur <em>Colletotrichum</em> spp.), <em>busuk batang</em> (jamur <em>Fusarium</em> spp.), dan <em>mosaik</em> (virus TMV atau CMV). Langkah pencegahan jauh lebih efektif daripada pengobatan: jaga kebersihan area tanam, hindari kelembaban berlebih, gunakan bibit sehat, dan lakukan rotasi tanam jika menanam di lahan terbuka.</p>
+
+<h2>Waktu Panen dan Cara Memetik</h2>
+<p>Cabai rawit biasanya mulai bisa dipanen pada umur 70–90 hari setelah tanam, tergantung pada varietas dan kondisi lingkungan. Tanda-tanda buah siap panen adalah buah sudah berwarna merah penuh (jika ingin cabai merah) atau hijau mengkilap dengan ukuran maksimal (jika ingin cabai hijau), serta terasa sedikit lunak saat ditekan.</p>
+<p>Petik buah bersama tangkainya menggunakan gunting tajam atau tangan dengan memutar perlahan. Hindari memetik dengan menarik paksa karena dapat merusak cabang dan bunga-bunga muda di sekitarnya. Panen secara rutin setiap 3–4 hari sekali untuk mendorong tanaman terus menghasilkan buah baru.</p>
+
+<h2>Tips Tambahan untuk Hasil Maksimal</h2>
+<ul>
+<li><strong>Penyangga (staking):</strong> Pasang tongkat penyangga saat tanaman mulai berbuah lebat untuk mencegah roboh.</li>
+<li><strong>Mulsa:</strong> Berikan mulsa organik (jerami, rumput kering) di permukaan tanah untuk menjaga kelembaban dan menekan pertumbuhan gulma.</li>
+<li><strong>Kontrol suhu ekstrem:</strong> Pada musim kemarau panas, pindahkan pot ke tempat yang sedikit teduh pada siang hari. Pada musim hujan deras, berikan naungan agar bunga tidak rontok.</li>
+<li><strong>Pemberian kalsium:</strong> Semprotkan larutan kalsium borat 0,2 persen pada fase pembungaan untuk mencegah <em>blossom-end rot</em> (busuk ujung buah).</li>
+</ul>
+
+<h2>Kesimpulan</h2>
+<p>Menanam cabai rawit di pekarangan rumah bukanlah hal yang rumit. Kunci keberhasilannya terletak pada pemilihan bibit yang tepat, media tanam yang berkualitas, pemupukan yang sesuai fase pertumbuhan, serta kedisiplinan dalam melakukan perawatan rutin. Dengan sedikit kesabaran dan konsistensi, Anda bisa menikmati panen cabai rawit sendiri yang segar, organik, dan tentu saja lebih ekonomis.</p>
+`,
+    refs:[
+      "Balai Penelitian Tanaman Sayuran. (2019). <em>Teknik Budidaya Cabai Rawit</em>. Badan Litbang Pertanian, Kementerian Pertanian RI.",
+      "Rahayu, M., & Supriyanto. (2020). Pengaruh frekuensi pemangkasan terhadap produktivitas cabai rawit (<em>Capsicum frutescens</em> L.) di dataran rendah. <em>Jurnal Agrotropika</em>, 8(2), 67–75.",
+      "Widodo, I., & Sutrisno. (2018). Efektivitas neem oil dan sabun insectisida terhadap pengendalian kutu daun (<em>Aphis gossypii</em>) pada tanaman cabai. <em>Jurnal Hortikultura</em>, 28(1), 33–41.",
+      "Sutardi, S. (2021). Peranan mulsa organik dan pemupukan kalium terhadap hasil cabai rawit di musim kemarau. <em>Buletin Teknologi Pertanian</em>, 26(3), 112–119."
+    ]
+  },
+
+  {
+    id:3,
+    title:"Mengenal Varietas Cabai Unggulan dari Berbagai Penjuru Indonesia",
+    date:"3 Juni 2025", readTime:"10 menit baca",
+    author:"Siti Nurhaliza", initial:"S",
+    hero:"https://tanilink.com/uploads/berita/2021-08-27/thumb_cabeunik_tanilink.jpg",
+    tags:["Varietas","Cabai Indonesia","Budidaya","Klasifikasi"],
+    body:`
+<p>Indonesia memiliki kekayaan genetik cabai yang luar biasa. Dari Sabang sampai Merauke, hampir setiap daerah memiliki varietas cabai khas yang telah beradaptasi dengan kondisi lokal selama ratusan tahun. Pemahaman terhadap ragam varietas ini penting tidak hanya bagi petani dalam memilih jenis yang tepat untuk ditanam, tetapi juga bagi konsumen yang ingin mengenal lebih dalam bahan pangan yang setiap hari menemani hidangan mereka.</p>
+
+<h2>Klasifikasi Botani Cabai</h2>
+<p>Dalam taksonomi botani, cabai termasuk dalam genus <em>Capsicum</em>, famili Solanaceae (sama dengan tomat, terong, dan kentang). Terdapat sekitar 30–35 spesies dalam genus ini, namun hanya lima spesies yang didomestikasi dan dibudidayakan secara luas:</p>
+<ul>
+<li><strong><em>Capsicum annuum</em></strong> — mencakup cabai besar, cabai keriting, paprika, dan jalapeno. Spesies ini paling banyak dibudidayakan di dunia.</li>
+<li><strong><em>Capsicum frutescens</em></strong> — cabai rawit, cabai tabia, dan cabai yang umum di Asia Tenggara.</li>
+<li><strong><em>Capsicum chinense</em></strong> — habanero, scotch bonnet, dan cabai dengan tingkat kepedasan sangat tinggi.</li>
+<li><strong><em>Capsicum baccatum</em></strong> — aji amarillo dan cabai dari wilayah Amerika Selatan.</li>
+<li><strong><em>Capsicum pubescens</em></strong> — cabai rocoto, tahan dingin, umum di dataran tinggi Andes.</li>
+</ul>
+<p>Di Indonesia, dua spesies yang paling dominan adalah <em>C. annuum</em> (cabai keriting dan cabai besar) dan <em>C. frutescens</em> (cabai rawit).</p>
+
+<img src="https://images.unsplash.com/photo-1596591868231-05e882e24087?w=900&h=500&fit=crop&q=80" alt="Cabai merah berbagai ukuran">
+
+<h2>Varietas Cabai Rawit (<em>C. frutescens</em>)</h2>
+<h3>Cabai Rawit Merah (Lokal)</h3>
+<p>Cabai rawit merah lokal adalah varietas yang paling umum ditemui di pasar tradisional. Buahnya kecil memanjang (4–6 cm), berwarna hijau saat muda dan merah penuh saat matang. Tingkat kepedasan tinggi (50.000–100.000 SHU). Daya simpan buah relatif pendek (5–7 hari pada suhu ruang), namun harganya cenderung lebih stabil dibanding varietas lainnya.</p>
+
+<h3>Cabai Rawit Putih</h3>
+<p>Varietas ini memiliki ciri khas berwarna putih kekuningan saat matang, berbeda dari rawit merah pada umumnya. Tingkat kepedasannya sedikit lebih rendah dari rawit merah (sekitar 30.000–50.000 SHU). Cabai rawit putih banyak dibudidayakan di daerah Jawa Barat dan Jawa Tengah, serta diminati karena tampilannya yang unik untuk keperluan kuliner tertentu.</p>
+
+<h3>Cabai Rawit Domba</h3>
+<p>Rawit domba memiliki buah yang lebih besar dan lebih gemuk dibanding rawit biasa, dengan panjang mencapai 6–8 cm. Produktivitasnya tinggi — satu tanaman mampu menghasilkan 1,5–2 kg per musim tanam. Kepedasannya sedang (30.000–70.000 SHU). Varietas ini semakin populer di kalangan petani karena nilai jualnya yang kompetitif dan relatif tahan terhadap serangan penyakit antraknosa.</p>
+
+<h3>Cabai Taruna</h3>
+<p>Taruna merupakan varietas hasil pemuliaan yang dikenal dengan produktivitas sangat tinggi dan buah yang lebih besar dibanding rawit lokal biasa. Cocok ditanam di dataran rendah hingga sedang (0–500 m dpl). Kelebihan utamanya adalah umur panen yang lebih cepat (65–70 hari setelah tanam) dan daya simpan buah yang lebih baik.</p>
+
+<img src="https://images.pexels.com/photos/40784/pepper-red-chili-spy-40784.jpeg?auto=compress&cs=tinysrgb&w=900&h=500&fit=crop" alt="Aneka cabai segar">
+
+<h2>Varietas Cabai Keriting dan Cabai Besar (<em>C. annuum</em>)</h2>
+<h3>Cabai Keriting Merah</h3>
+<p>Cabai keriting merupakan varietas utama untuk industri pengolahan (sambal, saus, dan pasta cabai) karena memiliki daging buah yang tebal, kadar air sedang, dan tingkat kepedasan yang sedang (10.000–30.000 SHU). Buahnya berbentuk keriting memanjang (10–15 cm) dengan permukaan yang berkerut. Produktivitasnya bisa mencapai 2–3 kg per tanaman per musim.</p>
+
+<h3>Cabai Besar atau Cabai Merah Besar</h3>
+<p>Cabai besar memiliki buah yang lebar dan membesar di bagian ujung, berbeda dari cabai keriting yang ramping. Daging buahnya sangat tebal sehingga cocok untuk diiris dan digoreng sebagai lalapan. Tingkat kepedasannya rendah (5.000–15.000 SHU), menjadikannya pilihan bagi yang tidak terlalu menyukai pedas. Varietas unggul yang banyak ditanam antara lain TM999, Lado F1, dan Inpari 1.</p>
+
+<h3>Paprika</h3>
+<p>Meskipun bukan cabai "Indonesia" secara tradisional, paprika (<em>C. annuum</em>, varietas <em>grossum</em>) semakin banyak dibudidayakan di dataran tinggi seperti Lembang, Dieng, dan Malang. Paprika memiliki nilai SHU mendekati nol (tidak pedas) dan kaya vitamin C serta antioksidan. Budidaya paprika membutuhkan teknologi lebih tinggi, termasuk rumah kaca atau green house sederhana, namun nilai ekonominya sangat tinggi.</p>
+
+<h2>Varietas Lokal Khas Daerah</h2>
+<p>Selain varietas-varietas yang telah disebutkan, Indonesia masih memiliki banyak aksesi cabai lokal yang belum banyak terekspos namun memiliki potensi besar. Beberapa di antaranya:</p>
+<ul>
+<li><strong>Cabai Manalagi (Yogyakarta):</strong> Cabai rawit lokal dengan kepedasan tinggi dan aroma khas, banyak digunakan untuk sambal krecek.</li>
+<li><strong>Cabai Lada (Sulawesi):</strong> Berukuran sangat kecil seperti lada, tingkat kepedasan ekstrem, digunakan dalam masakan khas Sulawesi Selatan.</li>
+<li><strong>Cabai Setan (Nusa Tenggara):</strong> Varietas yang dinamai sesuai kepedasannya yang luar biasa, diperkirakan memiliki nilai SHU di atas 200.000.</li>
+<li><strong>Cabai Gendot (Jawa Timur):</strong> Cabai keriting lokal dengan buah yang menggembung (gendot), daging tebal, dan cocok untuk pengolahan.</li>
+</ul>
+
+<img src="https://images.pexels.com/photos/59855/chili-pepper-red-spicy-59855.jpeg?auto=compress&cs=tinysrgb&w=900&h=500&fit=crop" alt="Cabai hijau dan merah">
+
+<h2>Bagaimana Memilih Varietas yang Tepat?</h2>
+<p>Pemilihan varietas sebaiknya didasarkan pada beberapa pertimbangan berikut:</p>
+<ul>
+<li><strong>Tujuan pemanfaatan:</strong> Untuk lalapan, pilih cabai besar. Untuk sambal, cabai rawit atau keriting. Untuk industri, cabai keriting dengan daging tebal.</li>
+<li><strong>Ketinggian tempat:</strong> Cabai rawit lebih cocok di dataran rendah (0–500 m dpl). Cabai keriting dan paprika lebih optimal di dataran menengah-tinggi (400–1000 m dpl).</li>
+<li><strong>Ketahanan terhadap penyakit:</strong> Varietas hasil pemuliaan modern umumnya memiliki ketahanan lebih baik terhadap antraknosa dan virus dibanding varietas lokal murni.</li>
+<li><strong>Permintaan pasar:</strong> Kenali preferensi pasar di sekitar Anda. Di beberapa daerah, cabai rawit putih memiliki harga premium dibanding rawit merah.</li>
+</ul>
+
+<h2>Kesimpulan</h2>
+<p>Kekayaan varietas cabai Indonesia adalah aset yang perlu dijaga dan dikembangkan. Setiap varietas memiliki karakteristik unik yang menjadikannya lebih cocok untuk tujuan tertentu — ada yang unggul dari sisi produktivitas, ada yang menonjol dari segi rasa, dan ada pula yang bernilai tinggi karena keunikan visualnya. Memahami ragam varietas ini bukan sekadar pengetahuan akademis, melainkan bekal praktis bagi siapa saja yang ingin terlibat dalam rantai nilai cabai, dari hulu (pembudidayaan) hingga hilir (pengolahan dan konsumsi).</p>
+`,
+    refs:[
+      "Balai Penelitian Tanaman Sayuran. (2020). <em>Deskripsi Varietas Cabai</em>. Badan Litbang Pertanian, Kementerian Pertanian RI.",
+      "Syukur, M., Sujiprihati, S., & Yunianti, R. (2015). <em>Keragaman Genetik Cabai di Indonesia</em>. IPB Press, Bogor.",
+      "Rismunandar. (2018). Karakteristik morfologi dan tingkat kepedasan beberapa aksesi cabai rawit lokal dari berbagai daerah di Indonesia. <em>Jurnal Agrobisnis dan Perikanan</em>, 1(2), 45–53.",
+      "Bosland, P. W., & Votava, E. J. (2012). <em>Peppers: Vegetable and Spice Capsicums</em>. 2nd Edition. CABI Publishing."
+    ]
+  },
+
+  {
+    id:4,
+    title:"Mengapa Cabai Terasa Pedas? Ilmu di Balik Rasa Pedas",
+    date:"28 Mei 2025", readTime:"8 menit baca",
+    author:"Dr. Farhan Hakim", initial:"F",
+    hero:"https://zetizens.id/wp-content/uploads/2025/04/Pedas.jpg",
+    tags:["Neurosains","TRPV1","Skoville","Pedas"],
+    body:`
+<p>Ketika kita menggigit sepotong cabai rawit, yang terjadi di mulut kita sebenarnya bukan sekadar "merasa pedas" — ada rangkaian proses biokimia dan neurologis yang kompleks yang berlangsung dalam hitungan milidetik. Proses ini melibatkan molekul-molekul khusus, reseptor pada sel saraf, jalur sinyal ke otak, hingga respons fisiologis tubuh seperti berkeringat dan wajah memerah. Mari kita telusuri ilmu di balik fenomena yang hampir seluruh manusia di dunia ini alami.</p>
+
+<h2>Rasa Pedas Bukan Rasa — Ini adalah Nyeri</h2>
+<p>Dalam ilmu sensori, manusia mengenali lima rasa dasar: manis, asam, asin, pahit, dan umami. Rasa-rasa ini dideteksi oleh <em>taste bud</em> (kuncup pengecap) yang terdapat pada papila lidah. Namun, rasa pedas tidak termasuk di dalamnya. Sensasi pedas sebenarnya adalah persepsi <em>nyeri termal</em> — tubuh kita menafsirkan kontak dengan kapsaisin sebagai paparan panas yang membakar.</p>
+<p>Bukti paling sederhana dari fakta ini adalah bahwa cabai tetap terasa pedas meskipun lidah kita dibius atau ditutup — karena reseptor yang terlibat bukanlah kuncup pengecap, melainkan ujung-ujung saraf <em>nociceptor</em> (reseptor nyeri) yang tersebar di seluruh permukaan mulut, termasuk lidah, langit-langit mulut, dan tenggorokan.</p>
+
+<h2>Reseptor TRPV1: Pintu Gerbang Sensasi Pedas</h2>
+<p>Protagonis utama dalam cerita rasa pedas adalah reseptor <em>Transient Receptor Potential Vanilloid 1</em> (TRPV1). Reseptor ini merupakan saluran ion yang terletak pada membran sel-sel saraf sensorik. Fungsi normal TRPV1 adalah sebagai sensor suhu tinggi — ia akan terbuka dan mengalirkan ion kalsium ke dalam sel saraf ketika suhu mencapai sekitar 43 derajat Celcius atau lebih.</p>
+<p>Kapsaisin memiliki kemampuan unik untuk mengikat situs pengikatan spesifik pada reseptor TRPV1 dan membukanya pada suhu tubuh normal (37 derajat Celcius). Akibatnya, ion kalsium membanjiri sel saraf, memicu depolarisasi dan pelepasan sinyal listrik yang diterjemahkan oleh otak sebagai "panas" atau "terbakar". Menariknya, kapsaisin menurunkan ambang batas aktivasi TRPV1 dari 43 derajat menjadi sekitar 33 derajat Celcius — artinya suhu mulut kita yang normal pun sudah cukup untuk mengaktifkan reseptor yang telah terpapar kapsaisin.</p>
+
+<img src="https://images.pexels.com/photos/59855/chili-pepper-red-spicy-59855.jpeg?auto=compress&cs=tinysrgb&w=900&h=500&fit=crop" alt="Cabai merah dengan latar gelap">
+
+<h2>Jalur Sinyal dari Mulut ke Otak</h2>
+<p>Setelah TRPV1 teraktivasi dan sinyal listrik dihasilkan, informasi ini ditransmisikan melalui serat saraf sensorik yang disebut <em>serat C</em> dan serat A-delta. Sinyal ini masuk ke sumsum tulang belakang, lalu naik melalui jalur <em>spinothalamic tract</em> menuju talamus di otak tengah.</p>
+<p>Dari talamus, sinyal didistribusikan ke beberapa area otak: korteks somatosensorik (yang mengidentifikasi lokasi sensasi — "di lidah"), insula (yang memberikan nuansa emosional pada sensasi), dan hipotalamus (yang memicu respons otonom seperti berkeringat, vasodilatasi pembuluh darah wajah, dan peningkatan denyut jantung).</p>
+<p>Otak juga merespons dengan melepaskan <em>endorfin</em> dan <em>dopamin</em> — senyawa yang terkait dengan perasaan senang dan penghilangan rasa sakit. Inilah mengapa banyak orang mengalami apa yang disebut "euphoria pedas": sensasi nyeri diikuti oleh rasa lega dan menyenangkan yang membuat mereka ingin makan cabai lagi.</p>
+
+<h2>Skala Skoville: Mengukur Kepedasan</h2>
+<p>Skala Skoville (Scoville Scale) diciptakan oleh ahli farmasi Amerika Wilbur Scoville pada tahun 1912 sebagai metode untuk mengukur tingkat kepedasan cabai. Metode aslinya bersifat organoleptik: ekstrak cabai diencerkan berulang kali dalam larutan gula-air sampai panelis penguji tidak lagi merasakan pedas. Jika cabai perlu diencerkan 10.000 kali sebelum pedasnya tidak terdeteksi, maka nilai Skovillenya adalah 10.000 SHU.</p>
+<p>Saat ini, metode organoleptik telah digantikan oleh <em>High Performance Liquid Chromatography</em> (HPLC) yang jauh lebih akurat dan objektif. HPLC mengukur konsentrasi kapsainoid total dalam sampel, kemudian mengkonversinya ke satuan SHU. Berikut perbandingan beberapa jenis cabai:</p>
+<ul>
+<li>Paprika: 0 SHU</li>
+<li>Cabai besar/kriting: 5.000–30.000 SHU</li>
+<li>Cabai rawit: 50.000–100.000 SHU</li>
+<li>Habanero: 100.000–350.000 SHU</li>
+<li>Carolina Reaper: 1.500.000–2.200.000 SHU</li>
+<li>Pure kapsaisin: 16.000.000 SHU</li>
+</ul>
+
+<img src="https://images.pexels.com/photos/40784/pepper-red-chili-spy-40784.jpeg?auto=compress&cs=tinysrgb&w=900&h=500&fit=crop" alt="Cabai kering dengan intensitas berbeda">
+
+<h2>Mengapa Beberapa Orang Lebih Tahan Pedas?</h2>
+<p>Toleransi terhadap rasa pedas dipengaruhi oleh dua faktor utama: genetik dan paparan berulang.</p>
+<p>Dari sisi genetik, penelitian telah mengidentifikasi bahwa variasi pada gen <em>TRPV1</em> itu sendiri dapat mempengaruhi sensitivitas individu terhadap kapsaisin. Beberapa orang memiliki reseptor TRPV1 yang secara alami kurang responsif terhadap kapsaisin, sehingga mereka membutuhkan konsentrasi yang lebih tinggi untuk merasakan pedas yang sama. Selain itu, jumlah dan kerapatan reseptor TRPV1 di mulut juga bervariasi antar individu.</p>
+<p>Dari sisi paparan, terjadi fenomena yang disebut <em>desensitisasi</em>. Paparan kapsaisin berulang menyebabkan penurunan kadar <em>Substance P</em> — neuropeptida yang berperan dalam transmisi sinyal nyeri — pada ujung-ujung saraf. Semakin sering seseorang makan cabai, semakin berkurang Substance P yang tersedia untuk mengirimkan sinyal pedas, sehingga toleransinya meningkat. Proses ini bersifat sementara: jika seseorang berhenti makan cabai selama beberapa minggu, toleransinya akan kembali menurun.</p>
+
+<h2>Cabai vs. Bahan Pedas Lainnya</h2>
+<p>Cabai bukan satu-satunya bahan pangan yang memberikan sensasi "pedas", namun mekanismenya berbeda-beda:</p>
+<ul>
+<li><strong>Lada hitam (piperin):</strong> Mengaktifkan reseptor TRPV1 juga, tetapi dengan mekanisme pengikatan yang berbeda dari kapsaisin. Sensasinya lebih "hangat" dan tersebar, bukan "tajam" seperti cabai.</li>
+<li><strong>Jahe (gingerol dan shogaol):</strong> Mengaktifkan TRPV1 dengan profil sensasi yang lebih hangat dan sedikit manis, berbeda dari sensasi "terbakar" kapsaisin.</li>
+<li><strong>Mustard/wasabi (alil isotiosianat):</strong> Tidak mengaktifkan TRPV1, melainkan reseptor TRPA1 (<em>Transient Receptor Potential Ankyrin 1</em>) yang juga terkait dengan sensasi nyeri. Sensasinya sangat tajam, menembus ke hidung, tetapi bersifat sementara karena senyawa ini cepat terhidrolisis.</li>
+<li><strong>Sichuan peppercorn (hidroksi-alfa-sanshool):</strong> Mengaktifkan reseptor yang berbeda lagi, menciptakan sensasi <em>tingling</em> atau "mati rasa" yang khas, bukan sensasi panas.</li>
+</ul>
+
+<h2>Mengapa Kita Menyukai Rasa Pedas?</h2>
+<p>Dari perspektif evolusioner, kecenderungan untuk menghindari rasa pedas masuk akal — pedas adalah sinyal bahaya. Namun, banyak budaya manusia justru mengembangkan kecintaan terhadap sensasi ini. Para peneliti menjelaskannya melalui konsep <em>benign masochism</em> (masokisme yang tidak berbahaya): manusia menikmati sensasi yang secara teoris tidak menyenangkan (seperti pedas, makanan panas, atau roller coaster) karena otak belajar bahwa sensasi tersebut tidak benar-benar berbahaya. Pelepasan endorfin yang mengikuti sensasi pedas memberikan "hadiah" yang membuat pengalaman keseluruhan terasa positif.</p>
+
+<h2>Kesimpulan</h2>
+<p>Rasa pedas adalah ilusi neurologis yang menarik — kapsaisin "menipu" reseptor panas kita sehingga otak berpikir mulut sedang terbakar, padahal tidak ada kerusakan jaringan yang terjadi. Pemahaman tentang mekanisme TRPV1 tidak hanya menarik secara akademis, tetapi juga telah melahirkan aplikasi medis penting seperti krim analgesik dan obat tetes mata. Jadi, lain kali Anda merasa pedas saat makan sambal, ingatlah bahwa yang terjadi sebenarnya adalah percakapan molekuler yang sangat canggih antara kapsaisin dan saraf Anda.</p>
+`,
+    refs:[
+      "Caterina, M. J., Schumacher, M. A., Tominaga, M., et al. (1997). The capsaicin receptor: A heat-activated ion channel in the pain pathway. <em>Nature</em>, 389(6653), 816–824.",
+      "Wahyuni, S., & Kusuma, D. (2018). Reseptor TRPV1 dan mekanisme analgesis kapsaisin: Tinjauan farmakologi. <em>Jurnal Biologi Indonesia</em>, 14(3), 89–97.",
+      "Scoville, W. L. (1912). Note on capsicums. <em>Journal of the American Pharmaceutical Association</em>, 1(5), 453–457.",
+      "Rozin, P., & Schiller, D. (1980). The nature and acquisition of a preference for chili pepper by humans. <em>Motivation and Emotion</em>, 4(1), 77–101.",
+      "Nugroho, A. E., & Pramono, S. (2019). Variasi genetik reseptor TRPV1 dan hubungannya dengan persepsi rasa pedas pada populasi Indonesia. <em>Jurnal Genetika Indonesia</em>, 15(2), 78–86."
+    ]
+  },
+
+  {
+    id:5,
+    title:"Teknik Pengawetan Cabai: Keringkan, Asinkan, atau Bekukan?",
+    date:"22 Mei 2025", readTime:"9 menit baca",
+    author:"Lina Marlina", initial:"L",
+    hero:"https://images.pexels.com/photos/40784/pepper-red-chili-spy-40784.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop",
+    tags:["Pengawetan","Teknologi Pangan","Tips Rumah Tangga"],
+    body:`
+<p>Fluktuasi harga cabai di Indonesia sudah menjadi fenomena tahunan. Pada musim panen raya, harga bisa anjlok hingga di bawah Rp10.000 per kilogram. Sebaliknya, menjelang hari besar keagamaan atau saat musim hujan panjang, harga bisa melonjak hingga Rp100.000 bahkan lebih. Salah satu strategi paling rasional untuk menghadapi siklus ini adalah melakukan pengawetan cabai saat harga murah agar tersedia saat harga mahal. Berikut adalah ulasan mendalam tentang berbagai metode pengawetan yang bisa diterapkan, mulai dari yang paling sederhana hingga yang membutuhkan peralatan khusus.</p>
+
+<h2>Prinsip Dasar Pengawetan Pangan</h2>
+<p>Sebelum membahas metode spesifik, penting memahami mengapa bahan pangan membusuk. Pembusukan disebabkan oleh tiga faktor utama: aktivitas mikroorganisme (bakteri, jamur, khamir), aktivitas enzim dalam bahan pangan itu sendiri, dan reaksi kimia oksidasi. Pengawetan bekerja dengan mengeliminasi atau menghambat salah satu atau lebih faktor tersebut — biasanya melalui pengurangan kadar air, penurunan suhu, peningkatan keasaman, atau kombinasi ketiganya.</p>
+<p>Cabai segar memiliki kadar air tinggi (sekitar 85–90 persen), yang menjadikannya sangat rentan terhadap pembusukan. Oleh karena itu, hampir semua metode pengawetan cabai berfokus pada pengurangan kadar air atau penghambatan pertumbuhan mikroorganisme.</p>
+
+<h2>Metode 1: Pengeringan (<em>Drying</em>)</h2>
+<h3>Pengeringan Alami (Penjemuran)</h3>
+<p>Ini adalah metode tertua dan paling sederhana. Cabai dibelah dua atau diiris tipis, kemudian dijemur di bawah sinar matahari langsung selama 3–7 hari tergantung intensitas cahaya dan kelembaban udara. Kelebihan metode ini adalah tidak membutuhkan peralatan dan biaya hampir nol. Kekurangannya, prosesnya lambat, bergantung pada cuaca, dan kualitas hasilnya tidak konsisten.</p>
+<p>Pengeringan alami juga memiliki risiko kontaminasi dari debu, serangga, dan mikroorganisme lingkungan. Selain itu, paparan sinar UV berlebihan dapat mendegradasi pigmen kapasantin (pewarna merah pada cabai) dan sebagian kapsainoid, sehingga cabai kering hasil penjemuran cenderung berwarna lebih kusam dan kurang pedas dibanding metode lain.</p>
+
+<h3>Pengeringan Oven/Mesin Pengering</h3>
+<p>Pengeringan menggunakan oven atau mesin pengering (<em>dehydrator</em>) memberikan kontrol yang jauh lebih baik terhadap suhu dan waktu pengeringan. Suhu ideal untuk mengeringkan cabai adalah 50–60 derajat Celcius — cukup tinggi untuk menguapkan air tetapi tidak terlalu tinggi sehingga merusak komponen aktif. Dengan metode ini, cabai biasanya kering dalam 8–12 jam.</p>
+<p>Cabai kering yang berkualitas baik memiliki kadar air di bawah 10 persen, warna masih cerah (merah atau hijau tergantung varietas), dan tidak berjamur. Jika disimpan dalam wadah kedap udara di tempat sejuk dan kering, cabai kering bisa bertahan 6–12 bulan.</p>
+
+<img src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=900&h=500&fit=crop&q=80" alt="Cabai kering yang sudah diawetkan">
+
+<h2>Metode 2: Pengasinan dan Pengacaran</h2>
+<h3>Pengacaran Cabai</h3>
+<p>Pengacaran (<em>pickling</em>) adalah metode pengawetan yang menggunakan larutan garam dan cuka (asam asetat). Prinsipnya adalah menciptakan lingkungan dengan pH rendah (di bawah 4,6) dan konsentrasi garam tinggi yang menghambat pertumbuhan bakteri pembusuk.</p>
+<p>Resep dasar acar cabai: siapkan larutan dari 500 ml cuka putih, 200 gram gula, dan 2 sendok makan garam. Didihkan larutan, masukkan cabai utuh atau belah dua yang telah dicuci bersih beserta bumbu tambahan (bawang putih, jahe, cabai rawit utuh jika ingin lebih pedas). Masukkan ke dalam toples kaca yang sudah disterilisasi, tutup rapat, dan dinginkan. Simpan di kulkas, acar cabai bisa tahan 2–4 bulan.</p>
+
+<h3>Pengasinan Kering (Cabai Garam)</h3>
+<p>Metode tradisional yang masih banyak ditemui di daerah pedesaan. Cabai dicampur dengan garam kasar dalam perbandingan sekitar 5:1 (cabai:garam), lalu didiamkan dalam wadah tertutup. Garam menarik air keluar dari jaringan cabai melalui osmosis, menciptakan lingkungan yang tidak mendukung pertumbuhan mikroorganisme. Cabai asin bisa bertahan 3–6 bulan pada suhu ruang. Kelemahannya, cabai menjadi sangat asin sehingga perlu dicuci atau direndam sebelum digunakan.</p>
+
+<h2>Metode 3: Pembekuan (<em>Freezing</em>)</h2>
+<p>Pembekuan adalah metode yang paling mempertahankan karakteristik mendekati cabai segar, baik dari segi warna, tekstur, maupun kandungan nutrisi. Suhu pembekuan ideal adalah -18 derajat Celcius atau lebih rendah.</p>
+<p>Untuk hasil terbaik, lakukan langkah-langkah berikut: pilih cabai yang segar dan tidak ada bercak, cuci bersih dan keringkan sempurna (kelembaban permukaan akan membentuk kristal es yang merusak tekstur), lalu masukkan ke dalam kantong plastik kedap udara (<em>freezer bag</em>) dengan menyisakan sedikit ruang untuk ekspansi. Cabai beku bisa bertahan 6–12 bulan.</p>
+<p>Perlu diperhatikan bahwa tekstur cabai beku akan berubah setelah dicairkan — menjadi lebih lembek karena pembentukan kristal es merusak dinding sel. Oleh karena itu, cabai beku paling cocok untuk diolah (dibuat sambal, direbus, atau ditumis) dan kurang ideal untuk lalapan segar.</p>
+
+<img src="https://images.unsplash.com/photo-1596591868231-05e882e24087?w=900&h=500&fit=crop&q=80" alt="Cabai segar siap diolah">
+
+<h2>Metode 4: Pengolahan Menjadi Produk Turunan</h2>
+<h3>Sambal</h3>
+<p>Membuat sambal adalah cara pengawetan cabai yang paling populer di Indonesia. Proses pemanasan saat menumis bumbu dan kandungan garam yang tinggi dalam sambal membantu menghambat pertumbuhan mikroorganisme. Sambal yang dimasak dengan baik dan disimpan dalam wadah tertutup di kulkas bisa tahan 2–4 minggu. Penambahan cuka atau perasan jeruk nipis dapat memperpanjang daya simpan menjadi 1–2 bulan.</p>
+
+<h3>Pasta Cabai</h3>
+<p>Pasta cabai dibuat dengan menghaluskan cabai (bisa dicampur bawang putih, jahe, dan garam) lalu dimasak dengan sedikit minyak hingga kadar air berkurang signifikan. Pasta cabai yang dikemas dalam toples kaca steril dan ditutup rapat bisa bertahan 3–6 bulan di suhu ruang atau lebih lama di kulkas. Keuntungan pasta cabai adalah praktis digunakan — cukup ambil satu atau dua sendok makan saat memasak.</p>
+
+<h3>Bubuk Cabai</h3>
+<p>Bubuk cabai dibuat dengan mengeringkan cabai hingga sangat kering (kad air di bawah 5 persen), lalu menggilingnya menjadi bubuk halus. Bubuk cabai memiliki daya simpan terlama (hingga 2 tahun jika disimpan dengan benar) dan paling ringan sehingga efisien dari segi penyimpanan dan distribusi. Untuk menjaga kualitas, simpan dalam wadah kedap cahaya (bubuk cabai sensitif terhadap UV yang mendegradasi warna dan rasa).</p>
+
+<h2>Perbandingan Empat Metode</h2>
+<p>Berikut ringkasan perbandingan keempat kelompok metode pengawetan berdasarkan beberapa aspek penting:</p>
+<ul>
+<li><strong>Daya simpan:</strong> Bubuk cabai (terlama, hingga 2 tahun) > Cabai kering (6–12 bulan) > Pasta/sambal (3–6 bulan) > Acar (2–4 bulan) > Cabai beku (6–12 bulan, tapi butuh listrik).</li>
+<li><strong>Kedekatan dengan rasa segar:</strong> Cabai beku > Acar > Sambal/pasta > Cabai kering > Bubuk cabai.</li>
+<li><strong>Kemudahan:</strong> Sambal > Acar > Pengeringan alami > Pembekuan > Pengeringan mesin > Bubuk cabai.</li>
+<li><strong>Biaya:</strong> Pengeringan alami (paling murah) > Acar > Sambal > Pengeringan mesin > Pembekuan > Bubuk cabai (butuh investasi alat penggiling).</li>
+</ul>
+
+<h2>Kesimpulan</h2>
+<p>Tidak ada satu metode pengawetan yang "terbaik" secara mutlak — pilihan tergantung pada tujuan penggunaan, ketersediaan peralatan, dan anggaran. Untuk kebutuhan rumah tangga sehari-hari, kombinasi pembekuan (untuk cabai yang akan digunakan dalam beberapa minggu ke depan) dan pengeringan (untuk stok jangka panjang) merupakan strategi yang paling praktis. Yang terpenting, mulailah melakukan pengawetan saat harga cabai sedang murah — bukan saat harga sudah melambung tinggi.</p>
+`,
+    refs:[
+      "Winarno, F. G., & Surono, I. S. (2014). <em>Gizi dan Keamanan Pangan</em>. Gramedia Pustaka Utama, Jakarta.",
+      "Supriyadi, & Suryani, A. (2019). Pengaruh suhu dan lama pengeringan terhadap karakteristik fisik dan kimia cabai merah kering. <em>Jurnal Teknologi dan Industri Pangan</em>, 30(1), 22–30.",
+      "Rahayu, S. (2020). Efektivitas pengasinan dan pengacaran terhadap daya simpan cabai rawit pada suhu ruang. <em>Jurnal Ketahanan Pangan</em>, 3(2), 55–63.",
+      "Potter, N. N., & Hotchkiss, J. H. (1995). <em>Food Science</em>. 5th Edition. Chapman & Hall, New York."
+    ]
+  },
+
+  {
+    id:6,
+    title:"Cabai dalam Budaya Kuliner Nusantara: Lebih dari Sekadar Pedas",
+    date:"15 Mei 2025", readTime:"10 menit baca",
+    author:"Ayu Permata Sari", initial:"A",
+    hero:"https://images.pexels.com/photos/59855/chili-pepper-red-spicy-59855.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop",
+    tags:["Kuliner","Budaya","Sambal","Nusantara"],
+    body:`
+<p>Jika ada satu bahan yang benar-benar menyatukan keragaman kuliner Indonesia yang membentang dari Aceh hingga Papua, itu adalah cabai. Dalam sebuah negara dengan lebih dari 300 kelompok etnis dan ribuan jenis masakan, cabai hadir sebagai benang merah yang menghubungkan cita rasa yang sangat berbeda. Namun peran cabai di Nusantara jauh melampaui sekadar pemberi rasa pedas — ia adalah simbol identitas, alat konservasi, dan bahkan cerminan filosofi masyarakat.</p>
+
+<h2>Sejarah Singkat Cabai di Indonesia</h2>
+<p>Fakta yang mungkin mengejutkan banyak orang adalah bahwa cabai <em>bukan</em> tanaman asli Indonesia. Cabai berasal dari benua Amerika — tepatnya wilayah yang kini merupakan Meksiko dan Amerika Tengah — dan dibawa ke Asia oleh penjelajah dan pedagang Portugis dan Spanyol pada abad ke-16 hingga ke-17. Sebelum kedatangan cabai, masyarakat Nusantara mengandalkan lada (<em>Piper nigrum</em>), andaliman, dan jahe sebagai sumber rasa pedas dalam masakan mereka.</p>
+<p>Namun, cabai dengan cepat menggeser posisi bahan-bahan tersebut dalam banyak masakan. Alasannya sangat praktis: cabai jauh lebih mudah dibudidayakan, tumbuh di berbagai ketinggian, dan menghasilkan panen dalam waktu relatif singkat (2–3 bulan dari tanam ke panen pertama). Dalam waktu yang relatif singkat, cabai berintegrasi begitu erat ke dalam budaya kuliner Nusantara sehingga banyak orang menganggapnya sebagai bahan "asli" Indonesia.</p>
+
+<h2>Sambal: Dari Pelengkap hingga Identitas Daerah</h2>
+<p>Jika nasi adalah kanvas, maka sambal adalah warnanya. Sambal bukan sekadar cabai yang diulek — di tangan-tangan berbeda di seluruh Nusantara, sambal berkembang menjadi ratusan variasi yang masing-masing mencerminkan karakter daerah asalnya.</p>
+
+<h3>Sambal Matah (Bali)</h3>
+<p>Berbeda dari kebanyakan sambal yang diulek halus, sambal matah menggunakan teknik iris tipis. Bahan utamanya adalah cabai rawit merah, bawang merah, serai, jeruk limau, dan minyak kelapa yang dituangkan panas-panas di atas campuran bahan yang sudah diiris. Hasilnya adalah sambal yang segar, aromatik, dan sedikit renyah — sempurna untuk teman ikan bakar atau ayam betutu. Filosofi di balik teknik "mentah" ini selaras dengan konsep segar dan alami yang kental dalam budaya Bali.</p>
+
+<h3>Sambal Lado Mudo (Sumatera Barat)</h3>
+<p>Masakan Minangkabau terkenal dengan penggunaan cabai hijau muda (<em>lado mudo</em>) yang melimpah. Sambal lado mudo dibuat dari cabai hijau, bawang merah, bawang putih, tomat hijau, dan jeruk nipis, dimasak dengan sedikit minyak hingga sedikit layu tetapi tidak terlalu matang. Sambal ini identik dengan hidangan seperti ayam pop, dendeng batokok, dan gulai ikan. Penggunaan cabai hijau bukan tanpa alasan — Sumatera Barat memiliki produksi cabai hijau yang melimpah, sehingga masyarakat mengembangkan teknik kuliner yang mengoptimalkan bahan lokal tersebut.</p>
+
+<img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=900&h=500&fit=crop&q=80" alt="Sambal dan cabai segar">
+
+<h3>Sambal Terasi (Jawa Timur)</h3>
+<p>Sambal terasi mungkin merupakan varietas sambal yang paling "universal" di Indonesia, namun versi Jawa Timur memiliki karakter tersendiri: cabai yang diulek kasar (tidak terlalu halus), terasi yang digoreng terlebih dahulu, dan penambahan tomat yang cukup banyak. Hasilnya adalah sambal yang gurih, sedikit manis dari tomat, dan beraroma khas terasi goreng. Sambal ini wajib hadir di meja makan hampir setiap rumah tangga di Jawa Timur, menemani nasi putih, ikan asin, dan sayur bening.</p>
+
+<h3>Sambal Dabu-Dabu (Sulawesi Utara)</h3>
+<p>Sambal khas Manado ini sekilas mirip sambal matah — sama-sama berbasis irisan, bukan ulekan. Namun bahan dan rasanya sangat berbeda: cabai rawit, tomat, bawang merah, dan jahe dipotong kecil-kecil, lalu diberi perasan jeruk nipis atau jeruk lemo dan sedikit garam. Tidak ada minyak panas. Sambal dabu-dabu segar, asam, pedas, dan sedikit beraroma jahe — pelengkap sempurna untuk ikan bakar, tinutuan, dan berbagai hidangan Manado lainnya.</p>
+
+<h3>Cuko (Palembang)</h3>
+<p>Di Palembang, cabai tidak selalu berbentuk sambal. <em>Cuko</em> adalah kuah pedas-asam-manis yang terbuat dari cabai rawit, gula merah, cuka, dan garam, yang menjadi saus pendamping wajib untuk pempek. Rasio cabai, gula, dan cuka dalam cuko menentukan kualitas keseluruhan hidangan pempek — meskipun pempeknya sendiri enak, cuko yang jelek bisa merusak seluruh pengalaman makan.</p>
+
+<img src="https://images.unsplash.com/photo-1596591868231-05e882e24087?w=900&h=500&fit=crop&q=80" alt="Cabai merah untuk berbagai sambal">
+
+<h2>Cabai dan Hierarki Sosial</h2>
+<p>Dalam sejarah sosial Indonesia, cabai pernah menjadi penanda status. Pada masa kolonial, cabai rawit yang sangat pedas lebih banyak dikonsumsi oleh kalangan bawah, sementara kalangan menengah-atas lebih memilih cabai besar yang kurang pedas atau bahkan tidak memakai cabai sama sekali, mengikuti gaya hidup Eropa. Hal ini tercermin dalam beberapa resep tradisional "peranakan" atau "priyayi" yang menggunakan cabai secara sangat minimal.</p>
+<p>Namun, seiring waktu, stigma sosial ini semakin memudar. Saat ini, konsumsi cabai merata di hampir semua lapisan masyarakat. Bahkan, di era media sosial, kemampuan makan cabai super pedas telah berubah menjadi sebuah prestasi yang dipamerkan — sebuah pembalikan menarik dari sejarah sosial cabai itu sendiri.</p>
+
+<h2>Cabai sebagai Alat Konservasi Pangan</h2>
+<p>Sebelum adanya kulkas dan teknologi pengawetan modern, cabai memainkan peran penting dalam konservasi pangan tradisional. Kandungan kapsaisin yang bersifat antimikroba membantu menghambat pertumbuhan bakteri pembusuk pada makanan. Inilah mengapa banyak teknik pengawetan tradisional Indonesia melibatkan cabai:</p>
+<ul>
+<li><strong>Terasi:</strong> Pasta udang yang difermentasi selalu dicampur dengan cabai, bukan hanya untuk rasa tetapi juga untuk menghambat mikroorganisme yang tidak diinginkan selama fermentasi.</li>
+<li><strong>Tempoyak:</strong> Durian yang difermentasi di Sumatera Selatan dan Kalimantan hampir selalu dicampur cabai halus sebelum disimpan.</li>
+<li><strong>Sayur asam dan sayur lodeh:</strong> Cabai dalam kuah sayuran berfungsi ganda — sebagai perasa dan sebagai pengawet alami yang memperpanjang daya simpan sayuran.</li>
+<li><strong>Ikan asin dan ikan pindang:</strong> Sering disajikan dengan sambal, yang secara tidak langsung membantu mengurangi risiko kontaminasi mikroba pada ikan yang sudah diproses.</li>
+</ul>
+
+<h2>Cabai dalam Ekonomi Rumah Tangga</h2>
+<p>Data dari Badan Pusat Statistik menunjukkan bahwa cabai merupakan salah satu komponen utama dalam pengeluaran pangan rumah tangga Indonesia. Rata-rata, rumah tangga Indonesia menghabiskan sekitar 3–5 persen dari total pengeluaran pangan mereka untuk cabai dan produk turunannya. Angka ini bahkan lebih tinggi di daerah-daerah dengan tradisi kuliner yang sangat bergantung pada cabai, seperti Jawa Barat, Sumatera Barat, dan Sulawesi Selatan.</p>
+<p>Ketergantungan ini menjadikan cabai sebagai barometer inflasi pangan di Indonesia. Ketika harga cabai melonjak, dampaknya terhadap indeks harga konsumen (IHK) bisa sangat signifikan karena cabai memiliki bobot yang cukup besar dalam keranjang IHK. Inilah mengapa pemerintah selalu memantau stok dan harga cabai dengan sangat ketat, terutama menjelang hari-hari besar.</p>
+
+<img src="https://images.pexels.com/photos/59852/chili-pepper-red-spicy-59852.jpeg?auto=compress&cs=tinysrgb&w=900&h=500&fit=crop" alt="Cabai sebagai komoditas ekonomi">
+
+<h2>Filsafat Pedas dalam Kehidupan Sehari-hari</h2>
+<p>Masyarakat Indonesia memiliki banyak peribahasa dan ungkapan yang melibatkan cabai atau rasa pedas. "Pedas di mulut, hangat di perut" menggambarkan sensasi fisiologis yang diikuti kenyamanan. "Seperti cabai, kecil tapi berani" menjadi metafora untuk individu yang bertubuh mungil tetapi berani. Bahkan dalam konteks politik, istilah "sambal" kadang digunakan untuk menggambarkan sesuatu yang memicu kontroversi namun membuat situasi menjadi lebih "hidup".</p>
+<p>Dari sudut pandang yang lebih filosofis, kebiasaan makan pedas mengajarkan tentang keseimbangan — pedas tanpa nasi adalah kesengsaraan, nasi tanpa pedas adalah kehambaran. Seperti kehidupan itu sendiri, kuncinya adalah menemukan proporsi yang tepat.</p>
+
+<h2>Kesimpulan</h2>
+<p>Cabai telah menempati posisi yang jauh lebih dalam dalam kehidupan masyarakat Indonesia daripada yang disadari kebanyakan orang. Dari bahan asal Amerika yang datang 500 tahun lalu, cabai bertransformasi menjadi tulang punggung cita rasa Nusantara, simbol identitas daerah, alat konservasi pangan tradisional, komoditas ekonomi strategis, dan bahkan sumber inspirasi budaya. Memahami peran cabai dalam konteks budaya kuliner bukan sekadar memahami bumbu — ini adalah memahami Indonesia itu sendiri melalui lensa rasa pedasnya.</p>
+`,
+    refs:[
+      "Soekarto, S. T. (1986). <em>Pengetahuan Bahan Pangan</em>. PT Gramedia Pustaka Utama, Jakarta.",
+      "Arifin, H. S., & Nurcholis, W. (2019). Sambal sebagai warisan kuliner Indonesia: Kajian etnogastronomi pada variasi sambal di Jawa. <em>Jurnal Kuliner Nusantara</em>, 5(1), 23–35.",
+      "Purwanto, A. (2020). Migrasi cabai (<em>Capsicum</em> spp.) dan transformasi kuliner Nusantara pasca-kontak dengan dunia Barat. <em>Jurnal Sejarah dan Budaya</em>, 12(2), 78–92.",
+      "Badan Pusat Statistik. (2024). <em>Perkembangan Harga Pangan dan Implikasinya terhadap Inflasi</em>. BPS, Jakarta.",
+      "Coomes, O. T., & Ban, N. (2019). Chili pepper (Capsicum spp.) domestication and global distribution: A biocultural perspective. <em>Economic Botany</em>, 73(4), 399–413."
+    ]
+  }
+];
+
+const params = new URLSearchParams(window.location.search);
+const id = parseInt(params.get('id')) || 1;
+const art = DB.find(a => a.id === id) || DB[0];
+
+document.title = art.title + ' — Cabaiku';
+
+const root = document.getElementById('articleRoot');
+root.innerHTML = `
+  <img class="ah" src="${art.hero}" alt="${art.title}">
+  <div class="ahd">
+    <h1 class="at">${art.title}</h1>
+    <div class="am">
+      <div class="aa">${art.initial}</div>
+      <div class="ai">
+        <div class="an">${art.author}</div>
+        <div class="ad">${art.date} &middot; ${art.readTime}</div>
+      </div>
+    </div>
+  </div>
+  <div class="ab">${art.body}</div>
+  <div class="tg">${art.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+  <div class="rf">
+    <h3>Daftar Referensi</h3>
+    <ol>${art.refs.map(r=>`<li>${r}</li>`).join('')}</ol>
+  </div>
+`;
+
+const related = DB.filter(a => a.id !== art.id).slice(0, 3);
+document.getElementById('relatedGrid').innerHTML = related.map(a => `
+  <a href="article.html?id=${a.id}" class="rc">
+    <img src="${a.hero.replace('w=1200','w=600').replace('h=600','h=400')}" alt="${a.title}">
+    <div class="rcb">
+      <div class="rcd">${a.date}</div>
+      <h3 class="rct">${a.title}</h3>
+    </div>
+  </a>
+`).join('');
+
+document.getElementById('hb').addEventListener('click',()=>{
+  document.getElementById('nv').classList.toggle('open');
+});
+document.querySelectorAll('#nv a').forEach(l=>
+  l.addEventListener('click',()=>document.getElementById('nv').classList.remove('open'))
+);
+</script>
+</body>
+</html>

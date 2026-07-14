@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Panduan Lengkap Perawatan Cabai — Musim Kemarau & Hujan</title>
+<meta name="description" content="Panduan lengkap perawatan tanaman cabai di musim kemarau dan hujan. Pupuk, penyiraman, dan tips budidaya cabai optimal.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{g:{DEFAULT:'#2D6A4F',l:'#52B788',d:'#1B4332',50:'#D8F3DC',100:'#B7E4C7'},e:{DEFAULT:'#A0785A',l:'#D4A574'},w:{DEFAULT:'#168AAD',l:'#76C8D0',d:'#0E6377'}},fontFamily:{p:['Poppins','sans-serif']}}}
+</script>
+<style>
+    :root{--bg:#F0F9F0;--fg:#1A1A1A;--mt:#5F6B6A;--ac:#2D6A4F;--cd:#FFFFFF;--bd:#D1E7DD}
+    .dark{--bg:#0C1F10;--fg:#E0F2E0;--mt:#8FA89A;--ac:#52B788;--cd:#132A17;--bd:#1E3D24}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--fg);transition:background .35s,color .35s;overflow-x:hidden}
+    .sec{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+    .sec.v{opacity:1;transform:translateY(0)}
+    .ch{transition:transform .3s,box-shadow .3s}
+    .ch:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(45,106,79,.12)}
+    .dark .ch:hover{box-shadow:0 12px 28px rgba(0,0,0,.35)}
+    .tbl{border-collapse:separate;border-spacing:0;width:100%}
+    .tbl thead th{background:#2D6A4F;color:#fff;padding:.55rem .75rem;text-align:left;font-weight:600;font-size:.72rem}
+    .dark .tbl thead th{background:#1B4332}
+    .tbl tbody td{padding:.5rem .75rem;border-bottom:1px solid var(--bd);font-size:.76rem}
+    .tbl tbody tr{transition:background .2s}
+    .tbl tbody tr:hover{background:rgba(82,183,136,.06)}
+    .acc-i{border:1px solid var(--bd);border-radius:.6rem;overflow:hidden;margin-bottom:.45rem;transition:border-color .3s}
+    .acc-i:hover{border-color:var(--ac)}
+    .acc-q{padding:.8rem 1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;background:var(--cd);font-size:.83rem;gap:.7rem;user-select:none}
+    .acc-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s;padding:0 1rem;background:var(--cd);font-size:.78rem;color:var(--mt);line-height:1.75}
+    .acc-a.op{max-height:700px;padding:0 1rem .8rem}
+    .tab-b{padding:.45rem 1.1rem;border-radius:999px;font-weight:600;border:2px solid var(--bd);cursor:pointer;transition:all .2s;font-family:'Poppins';font-size:.75rem;background:transparent;color:var(--mt)}
+    .tab-b.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+    .tab-b:hover:not(.on){border-color:var(--ac);color:var(--ac)}
+    .hero-g{background:linear-gradient(135deg,#1B4332 0%,#2D6A4F 40%,#40916C 100%);position:relative;overflow:hidden}
+    .hero-g::before{content:'';position:absolute;top:-35%;right:-10%;width:550px;height:550px;background:radial-gradient(circle,rgba(82,183,136,.11)0%,transparent 70%);border-radius:50%;animation:fl 8s ease-in-out infinite}
+    .hero-g::after{content:'';position:absolute;bottom:-20%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(212,165,116,.07)0%,transparent 70%);border-radius:50%;animation:fl 10s ease-in-out infinite reverse}
+    @keyframes fl{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,-18px)}}
+    @keyframes su{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    .glass{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.13)}
+    .dark .glass{background:rgba(0,0,0,.2);border-color:rgba(255,255,255,.07)}
+    .badge{display:inline-block;padding:.13rem .45rem;border-radius:999px;font-size:.62rem;font-weight:600}
+    .bg-gn{background:#D8F3DC;color:#1B4332}.bg-bl{background:#D4EDFC;color:#0E6377}.bg-am{background:#FEF3C7;color:#92400E}.bg-rd{background:#FEE2E2;color:#991B1B}
+    .dark .bg-gn{background:#1B4332;color:#D8F3DC}.dark .bg-bl{background:#0E3B4F;color:#76C8D0}.dark .bg-am{background:#3D2E05;color:#FDE68A}.dark .bg-rd{background:#3B0D0D;color:#FCA5A5}
+    input,select,textarea{background:var(--cd);color:var(--fg);border:1px solid var(--bd);border-radius:.5rem;padding:.5rem .8rem;width:100%;font-family:'Poppins';font-size:.83rem;transition:border-color .2s}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px rgba(82,183,136,.12)}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#52B788;border-radius:3px}
+    @media(max-width:768px){.tbl{font-size:.68rem}.tbl thead th,.tbl tbody td{padding:.3rem .4rem}}
+    @media print{.np{display:none!important}.sec{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body class="font-p">
+
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)">
+    <div class="max-w-6xl mx-auto px-4"><div class="flex items-center justify-between h-14">
+        <a href="#beranda" class="flex items-center gap-2 text-lg font-bold" style="color:var(--ac)"><i class="fas fa-pepper-hot text-xl"></i>CabaiKu</a>
+            <div class="hidden md:flex items-center gap-5 text-xs font-medium">
+            <a href="CABAI_START_UP.html" class="hover:opacity-70 transition">Beranda</a>
+            <a href="TENTANG CABAI.html" class="hover:opacity-70 transition">Tentang</a>
+            <a href="CABAI_START_UP.html#visimisi" class="hover:opacity-70 transition">Visi & Misi</a>
+            <a href="musim hujan.html" class="hover:opacity-70 transition">Musim Kemarau</a>
+            <a href="musim hujan.html" class="hover:opacity-70 transition">Musim Hujan</a>
+            <a href="pupuk cabai.html" class="hover:opacity-70 transition">Pupuk</a>
+            <a href="hama cabai.html" class="hover:opacity-70 transition">Hama</a>
+            <a href="penyakit cabai.html" class="hover:opacity-70 transition">Penyakit</a>
+            <a href="jadwal cabai.html" class="hover:opacity-70 transition">Jadwal</a>
+            <a href="CABAI_START_UP.html#faq" class="hover:opacity-70 transition">FAQ</a>
+            <a href="BLOG CABAIKU.html" class="hover:opacity-70 transition">Blog</a>
+            <a href="CABAI_START_UP.html#kontak" class="hover:opacity-70 transition">Kontak</a>
+</div>
+<div class="flex items-center gap-2">
+<button onclick="document.documentElement.classList.toggle('dark')" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"><i class="fas fa-moon text-sm" style="color:var(--fg)"></i></button>
+<button onclick="document.getElementById('mobN').classList.toggle('hidden')" class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"><i class="fas fa-bars text-sm" style="color:var(--fg)"></i></button>
+</div></div></div>
+<div id="mobN" class="hidden md:hidden border-t" style="border-color:var(--bd);background:var(--cd)"><div class="px-4 py-2 space-y-0.5 text-xs font-medium">
+            <a href="CABAI_START_UP.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Beranda</a>
+            <a href="TENTANG CABAI.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Tentang</a>
+            <a href="CABAI_START_UP.html#visimisi" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Visi & Misi</a>
+            <a href="musim hujan.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Musim Kemarau</a>
+            <a href="musim hujan.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Musim Hujan</a>
+            <a href="pupuk cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Pupuk</a>
+            <a href="hama cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Hama</a>
+            <a href="penyakit cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Penyakit</a>
+            <a href="jadwal cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Jadwal</a>
+            <a href="CABAI_START_UP.html#faq" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">FAQ</a>
+            <a href="BLOG CABAIKU.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Blog</a>
+            <a href="CABAI_START_UP.html#kontak" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Kontak</a>
+</div></div>
+</nav>
+
+<!-- ========== BERANDA ========== -->
+<section id="beranda" class="hero-g min-h-screen flex items-center pt-14">
+<div class="max-w-6xl mx-auto px-4 py-14 grid lg:grid-cols-2 gap-10 items-center relative z-10">
+<div style="animation:su .7s ease-out">
+<div class="inline-flex items-center gap-2 glass text-white text-xs px-3 py-1.5 rounded-full mb-5"><i class="fas fa-pepper-hot"></i>Panduan Spesifik Tanaman Cabai</div>
+<h1 class="text-3xl sm:text-4xl lg:text-[2.5rem] font-extrabold text-white leading-tight mb-5">Perawatan Lengkap Tanaman Cabai di Musim <span class="text-green-300">Kemarau</span> & <span class="text-blue-300">Hujan</span></h1>
+<p class="text-green-100 text-sm mb-7 leading-relaxed max-w-lg">Dari penyiraman hingga 16+ jenis pupuk dengan dosis tepat — lengkap dengan strategi khusus berdasarkan musim untuk hasil cabai optimal.</p>
+<div class="flex flex-wrap gap-3">
+<a href="#kemarau" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm text-white transition hover:scale-105" style="background:linear-gradient(135deg,#D97706,#F59E0B)"><i class="fas fa-sun"></i>Musim Kemarau</a>
+<a href="#hujan" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm border-2 border-white text-white transition hover:bg-white hover:text-green-800"><i class="fas fa-cloud-rain"></i>Musim Hujan</a>
+</div>
+<div class="flex gap-8 mt-9">
+<div class="text-center"><div class="text-3xl font-bold text-white">16+</div><div class="text-green-200 text-xs">Jenis Pupuk</div></div>
+<div class="text-center"><div class="text-3xl font-bold text-white">6</div><div class="text-green-200 text-xs">Fase Pemupukan</div></div>
+<div class="text-center"><div class="text-3xl font-bold text-white">15</div><div class="text-green-200 text-xs">FAQ Terjawab</div></div>
+</div>
+</div>
+<div class="relative hidden lg:block" style="animation:su .9s ease-out">
+<img src="./FOTO/1 (hujan).jpg" alt="Tanaman cabai berbuah lebat" class="rounded-2xl shadow-2xl w-full object-cover" style="height:420px" loading="eager">
+<div class="absolute -bottom-4 -left-4 glass rounded-xl p-3 flex items-center gap-3" style="animation:fl 6s ease-in-out infinite">
+<div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center"><i class="fas fa-pepper-hot text-white text-lg"></i></div>
+<div><div class="text-white font-semibold text-sm">Capsicum annuum</div><div class="text-green-200 text-xs">Solanaceae</div></div>
+</div>
+<div class="absolute -top-3 -right-3 glass rounded-xl p-3 flex items-center gap-3" style="animation:fl 7s ease-in-out infinite reverse">
+<div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center"><i class="fas fa-chart-line text-white"></i></div>
+<div><div class="text-white font-semibold text-sm">Produktivitas</div><div class="text-green-200 text-xs">1.5 - 3 ton/ha</div></div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0"><svg viewBox="0 0 1440 80" fill="none"><path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80Z" fill="var(--bg)"/></svg></div>
+</section>
+
+<!-- ========== TENTANG ========== -->
+<section id="tentang" class="py-14 px-4">
+<div class="max-w-6xl mx-auto">
+<div class="grid lg:grid-cols-2 gap-10 items-center mb-12">
+<div class="sec">
+<span class="badge bg-gn mb-3">Tentang Panduan</span>
+<h2 class="text-2xl sm:text-3xl font-bold mb-4">Mengapa Cabai Butuh Perawatan Berbeda di Setiap Musim?</h2>
+<p class="text-sm mb-3 leading-relaxed" style="color:var(--mt)">Cabai (<em>Capsicum annuum</em>) memiliki sistem perakaran dangkal — 60-70% akar di lapisan 0-20 cm — sangat rentan terhadap fluktuasi air. Di kemarau: stres kekeringan, flower drop, buah kecil. Di hujan: genangan, Phytophthora, antraknosa, leaching pupuk.</p>
+<p class="text-sm leading-relaxed" style="color:var(--mt)">Panduan ini menyajikan strategi spesifik kedua musim dengan 16+ jenis pupuk berdasarkan fase pertumbuhan dan kondisi musim.</p>
+</div>
+<div class="sec"><img src="./FOTO/perawatan (hujan).jpg" alt="Buah cabai merah matang" class="rounded-2xl shadow-lg w-full object-cover" style="height:360px" loading="lazy"></div>
+</div>
+<div class="sec mb-12">
+<h3 class="text-lg font-bold mb-5 text-center">Syarat Tumbuh Optimal Cabai</h3>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+<div class="ch text-center rounded-xl p-3.5" style="background:var(--cd);border:1px solid var(--bd)"><i class="fas fa-temperature-half text-xl mb-1.5" style="color:#DC2626"></i><div class="text-xs font-bold">Suhu</div><div class="text-sm font-extrabold" style="color:var(--ac)">25-30°C</div></div>
+<div class="ch text-center rounded-xl p-3.5" style="background:var(--cd);border:1px solid var(--bd)"><i class="fas fa-droplet text-xl mb-1.5" style="color:#168AAD"></i><div class="text-xs font-bold">Kelembapan</div><div class="text-sm font-extrabold" style="color:var(--ac)">60-80%</div></div>
+<div class="ch text-center rounded-xl p-3.5" style="background:var(--cd);border:1px solid var(--bd)"><i class="fas fa-sun text-xl mb-1.5" style="color:#D97706"></i><div class="text-xs font-bold">Cahaya</div><div class="text-sm font-extrabold" style="color:var(--ac)">8-12 jam</div></div>
+<div class="ch text-center rounded-xl p-3.5" style="background:var(--cd);border:1px solid var(--bd)"><i class="fas fa-flask text-xl mb-1.5" style="color:#2D6A4F"></i><div class="text-xs font-bold">pH Tanah</div><div class="text-sm font-extrabold" style="color:var(--ac)">5.5-6.5</div></div>
+<div class="ch text-center rounded-xl p-3.5" style="background:var(--cd);border:1px solid var(--bd)"><i class="fas fa-mountain text-xl mb-1.5" style="color:#A0785A"></i><div class="text-xs font-bold">Ketinggian</div><div class="text-sm font-extrabold" style="color:var(--ac)">300-1500m</div></div>
+<div class="ch text-center rounded-xl p-3.5" style="background:var(--cd);border:1px solid var(--bd)"><i class="fas fa-water text-xl mb-1.5" style="color:#0E6377"></i><div class="text-xs font-bold">Drainase</div><div class="text-sm font-extrabold" style="color:var(--ac)">Baik</div></div>
+</div>
+</div>
+<div class="sec">
+<h3 class="text-lg font-bold mb-5 text-center">Perbandingan Tantangan</h3>
+<div class="overflow-x-auto rounded-2xl" style="background:var(--cd);border:1px solid var(--bd)">
+<table class="tbl"><thead><tr><th>Aspek</th><th><i class="fas fa-sun mr-1"></i>Kemarau</th><th><i class="fas fa-cloud-rain mr-1"></i>Hujan</th></tr></thead><tbody>
+<tr><td class="font-medium">Suhu</td><td>28-36°C</td><td>24-30°C</td></tr>
+<tr><td class="font-medium">Kelembapan</td><td>40-65%</td><td>80-95%</td></tr>
+<tr><td class="font-medium">Risiko Utama</td><td>Kekeringan, flower drop</td><td>Genangan, busuk akar, antraknosa</td></tr>
+<tr><td class="font-medium">Penyiraman</td><td>2x sehari, 8-12 L/m²</td><td>Dikurangi/hentikan</td></tr>
+<tr><td class="font-medium">Pupuk Prioritas</td><td>KCl/SOP, Kompos, Mikoriza</td><td>Dolomit, Trichoderma, NPK 12-12-17</td></tr>
+<tr><td class="font-medium">Hama Dominan</td><td>Kutu daun, thrips, tungau</td><td>Keong mas, ulat grayak</td></tr>
+<tr><td class="font-medium">Penyakit Dominan</td><td>Embun tepung (minor)</td><td>Antraknosa, busuk akar, layu bakteri</td></tr>
+</tbody></table></div>
+</div>
+</div>
+</section>
+
+<!-- ========== MUSIM KEMARAU ========== -->
+<section id="kemarau" class="py-14 px-4" style="background:linear-gradient(180deg,var(--bg),#FFF7ED 50%,var(--bg))">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-8 sec"><span class="badge bg-am mb-2"><i class="fas fa-sun mr-1"></i>Musim Kemarau</span><h2 class="text-2xl sm:text-3xl font-bold mb-2">Strategi Perawatan Cabai Saat Kemarau</h2><p class="text-sm max-w-2xl mx-auto" style="color:var(--mt)">Suhu 28-36°C, kelembapan 40-65%, curah hujan &lt;100mm/bulan. Tantangan: kekeringan, stres panas, flower drop.</p></div>
+
+<div class="grid lg:grid-cols-3 gap-7 mb-10">
+<div class="lg:col-span-2 space-y-6">
+
+<!-- Penyiraman -->
+<div class="rounded-2xl p-5 sec" style="background:var(--cd);border:1px solid var(--bd)">
+<h3 class="font-bold text-lg mb-3"><i class="fas fa-tint mr-2" style="color:#168AAD"></i>Penyiraman</h3>
+<div class="overflow-x-auto rounded-xl" style="border:1px solid var(--bd)">
+<table class="tbl"><thead><tr><th>Parameter</th><th>Detail</th><th>Catatan</th></tr></thead><tbody>
+<tr><td class="font-medium">Frekuensi</td><td>2x sehari</td><td>Pagi + sore</td></tr>
+<tr><td class="font-medium">Waktu Pagi</td><td>06.00-07.00</td><td>Sebelum panas</td></tr>
+<tr><td class="font-medium">Waktu Sore</td><td>16.00-17.00</td><td>Setelah terik berkurang</td></tr>
+<tr><td class="font-medium">Volume</td><td>8-12 L/m²</td><td>Per kali penyiraman</td></tr>
+<tr><td class="font-medium">Metode Terbaik</td><td>Drip irrigation</td><td>Hemat 40-60% vs gembor</td></tr>
+<tr><td class="font-medium">Cek Kelembapan</td><td>Kering 2-3 cm dari permukaan</td><td>Masukkan jari ke tanah</td></tr>
+<tr style="color:#DC2626"><td class="font-medium">Dihindari</td><td>10.00-15.00</td><td>Penguapan 40-60% terbuang</td></tr>
+</tbody></table></div>
+</div>
+
+<!-- Mulsa -->
+<div class="rounded-2xl p-5 sec" style="background:var(--cd);border:1px solid var(--bd)">
+<h3 class="font-bold text-lg mb-3"><i class="fas fa-layer-group mr-2" style="color:#A0785A"></i>Mulsa & Konservasi Air</h3>
+<p class="text-sm mb-3" style="color:var(--mt)">Teknik penutupan permukaan tanah untuk kurangi penguapan dan jaga kelembapan akar.</p>
+<div class="grid sm:grid-cols-4 gap-3">
+<div class="ch rounded-xl p-3.5 text-center" style="background:var(--bg);border:1px solid var(--bd)"><div class="text-xs font-bold mb-1">Ketebalan</div><div class="text-lg font-extrabold" style="color:var(--ac)">5-8 cm</div></div>
+<div class="ch rounded-xl p-3.5 text-center" style="background:var(--bg);border:1px solid var(--bd)"><div class="text-xs font-bold mb-1">Turunkan Suhu</div><div class="text-lg font-extrabold" style="color:var(--ac)">3-5°C</div></div>
+<div class="ch rounded-xl p-3.5 text-center" style="background:var(--bg);border:1px solid var(--bd)"><div class="text-xs font-bold mb-1">Kurangi Evaporasi</div><div class="text-lg font-extrabold" style="color:var(--ac)">50-70%</div></div>
+<div class="ch rounded-xl p-3.5 text-center" style="background:var(--bg);border:1px solid var(--bd)"><div class="text-xs font-bold mb-1">Bonus Hara</div><div class="text-lg font-extrabold" style="color:var(--ac)">Lambat</div></div>
+</div>
+<div class="mt-4 overflow-x-auto rounded-xl" style="border:1px solid var(--bd)">
+<table class="tbl"><thead><tr><th>Jenis Mulsa</th><th>Kelebihan</th><th>Kekurangan</th></tr></thead><tbody>
+<tr><td class="font-medium">Jerami Padi</td><td>Murah, hara lengkap</td><td>Bisa mengandung benar gulma</td></tr>
+<tr><td class="font-medium">Rumput Kering</td><td>Ringan, mudah diaplikasikan</td><td>Hara rendah, cepat terurai</td></tr>
+<tr><td class="font-medium">Sekam Padi</td><td>Tahan lama, ringan</td><td>C/N tinggi, bisa mengikat N</td></tr>
+<tr><td class="font-medium">Plastik Hitam-Perak</td><td>Hemat air maksimal</td><td>Tidak organik, mahal</td></tr>
+</tbody></table></div>
+</div>
+
+<!-- Pupuk Prioritas Kemarau -->
+<div class="rounded-2xl p-5 sec" style="background:var(--cd);border:1px solid var(--bd)">
+<h3 class="font-bold text-lg mb-3"><i class="fas fa-flask mr-2" style="color:#2D6A4F"></i>Pupuk Prioritas Kemarau</h3>
+<div class="space-y-3 text-sm">
+<div class="rounded-lg p-3" style="border-left:4px solid #2D6A4F;background:var(--bg)"><strong>KCl/SOP (Kalium):</strong> Meningkatkan regulasi stomata, kurangi transpirasi. KCl 60% K₂O (100-200 kg/ha). SOP 50% K₂O + 18% S (150-250 kg/ha) — lebih baik karena tanpa klorida.</div>
+<div class="rounded-lg p-3" style="border-left:4px solid #2D6A4F;background:var(--bg)"><strong>Kompos/Pupuk Kandang:</strong> Tingkatkan kapasitas tahan air tanah 30%, melepas hara lambat 3-4 bulan. Dosis 3-5 ton/ha saat persiapan lahan.</div>
+<div class="rounded-lg p-3" style="border-left:4px solid #2D6A4F;background:var(--bg)"><strong>Mikoriza:</strong> Perluas jangkauan akar 100x. Hifa menjangkau air dan P dari lapisan tanah yang tidak tercapai akar cabai. Dosis 5-10 g/tanaman saat tanam.</div>
+<div class="rounded-lg p-3" style="border-left:4px solid #2D6A4F;background:var(--bg)"><strong>CaNO₃ Foliar:</strong> Cegah blossom-end rot yang meningkat saat kemarau. Kalsium tidak mobile — harus disemprot ke buah. 3-5 g/L saat pembuahan.</div>
+</div>
+</div>
+
+<!-- Hama Kemarau -->
+<div class="rounded-2xl p-5 sec" style="background:var(--cd);border:1px solid var(--bd)">
+<h3 class="font-bold text-lg mb-3"><i class="fas fa-bug mr-2" style="color:#DC2626"></i>Hama Dominan Kemarau</h3>
+<div class="space-y-3 text-sm">
+<div class="rounded-lg p-3" style="border-left:4px solid #DC2626;background:var(--bg)"><strong>Kutu Daun (Aphis gossypii):</strong> Berkumpul di pucuk muda, daun menggulung/kuning, honeydew → jelaga hitam. <span style="color:var(--ac)">Pengendalian: ladybug, sabun 1%, nimba 3-5 ml/L, Imidakloprid.</span></div>
+<div class="rounded-lg p-3" style="border-left:4px solid #DC2626;background:var(--bg)"><strong>Thrips (Thrips parvispinus):</strong> Daun perak/keriting, bunga rusak, tanaman kerdil. <span style="color:var(--ac)">Pengendalian: yellow sticky trap 20 unit/1000m², Abamektin 0.5 ml/L.</span></div>
+<div class="rounded-lg p-3" style="border-left:4px solid #DC2626;background:var(--bg)"><strong>Tungau Merah (Tetranychus urticae):</strong> Jaring halus bawah daun, bintik kuning, daun kering dari bawah. <span style="color:var(--ac)">Pengendalian: Phytoseiulus, minyak neem 2%, Propargite.</span></div>
+<div class="rounded-lg p-3" style="border-left:4px solid #DC2626;background:var(--bg)"><strong>Lalat Buah (Bactrocera spp.):</strong> Telur di dalam buah, belatung memakan dari dalam, buah busuk jatuh. <span style="color:var(--ac)">Pengendalian: perangkap methyl eugenol 40 unit/ha, musnahkan buah terinfeksi.</span></div>
+</div>
+</div>
+
+<!-- Flower Drop -->
+<div class="rounded-2xl p-5 sec" style="background:linear-gradient(135deg,#FFF7ED,#FEF3C7);border:1px solid #FDE68A">
+<h3 class="font-bold text-lg mb-3 text-amber-900"><i class="fas fa-exclamation-circle mr-2"></i>Mencegah Flower Drop</h3>
+<p class="text-sm mb-3" style="color:#78350F">Bunga gugur sebelum jadi buah. Penyebab: suhu >35°C + kekurangan air.</p>
+<div class="grid sm:grid-cols-2 gap-2 text-xs">
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-green-600 mr-1"></i><strong>Siram konsisten 2x/hari</strong></div>
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-green-600 mr-1"></i><strong>Shade net 25-30% saat siang</strong></div>
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-green-600 mr-1"></i><strong>Pupuk KCl/SOP tinggi</strong></div>
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-green-600 mr-1"></i><strong>Hindari N berlebih</strong></div>
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-green-600 mr-1"></i><strong>Mikoriza saat tanam</strong></div>
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-green-600 mr-1"></i><strong>Mulsa tebal 5-8 cm</strong></div>
+</div>
+</div>
+
+</div>
+<aside class="sec space-y-5">
+<div class="rounded-xl p-4 sticky top-20" style="background:var(--cd);border:1px solid var(--bd)">
+<h4 class="font-bold text-sm mb-3"><i class="fas fa-clipboard-check mr-1" style="color:#D97706"></i>Checklist Kemarau</h4>
+<div class="space-y-1.5 text-xs" id="ckK"></div>
+</div>
+<div class="rounded-xl overflow-hidden" style="border:1px solid var(--bd)">
+<div class="p-3" style="background:var(--cd)"><p class="text-[.65rem] font-semibold" style="color:var(--ac)">Penting</p><p class="text-xs" style="color:var(--mt)">Dosis pupuk perlu disesuaikan dengan analisis tanah dan rekomendasi penyuluh setempat.</p></div>
+</div>
+</aside>
+</div>
+</div>
+</section>
+
+<!-- ========== MUSIM HUJAN ========== -->
+<section id="hujan" class="py-14 px-4" style="background:linear-gradient(180deg,var(--bg),#E0F2FE 50%,var(--bg))">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-8 sec"><span class="badge bg-bl mb-2"><i class="fas fa-cloud-rain mr-1"></i>Musim Hujan</span><h2 class="text-2xl sm:text-3xl font-bold mb-2">Strategi Perawatan Cabai Saat Hujan</h2><p class="text-sm max-w-2xl mx-auto" style="color:var(--mt)">Curah hujan 200-400mm/bulan, kelembapan 80-95%. Tantangan: genangan, busuk akar, antraknosa, leaching pupuk.</p></div>
+
+<div class="grid lg:grid-cols-3 gap-7 mb-10">
+<div class="lg:col-span-2 space-y-6">
+
+<!-- Drainase -->
+<div class="rounded-2xl p-5 sec" style="background:var(--cd);border:1px solid var(--bd)">
+<h3 class="font-bold text-lg mb-3"><i class="fas fa-water mr-2" style="color:#168AAD"></i>Drainase & Pengelolaan Air</h3>
+<p class="text-sm mb-3" style="color:var(--mt)">Cabai TIDAK toleran genangan seperti padi. Genangan >24 jam = akar busuk. Drainase adalah hal paling kritis.</p>
+<div class="overflow-x-auto rounded-xl" style="border:1px solid var(--bd)">
+<table class="tbl"><thead><tr><th>Parameter</th><th>Spesifikasi</th><th>Alasan</th></tr></thead><tbody>
+<tr><td class="font-medium">Tinggi Bedengan</td><td>25-30 cm</td><td>Akar tidak boleh tergenang</td></tr>
+<tr><td class="font-medium">Lebar Bedengan</td><td>80-120 cm</td><td>Sesuaikan varietas</td></tr>
+<tr><td class="font-medium">Kedalaman Saluran</td><td>30-40 cm</td><td>Alirkan kelebihan air</td></tr>
+<tr><td class="font-medium" style="color:#DC2626;font-weight:600">Batas Genangan</td><td>Maks 4-6 jam</td><td>>24 jam = akar busuk</td></tr>
+<tr><td class="font-medium">Penyiraman</td><td>Kurangi/hentikan</td><td>Jika hujan >5mm/hari</td></tr>
+<tr><td class="font-medium">Naungan</td><td>Plastik UV di atas bedengan</td><td>Lindungi dari hujan berlebih</td></tr>
+</tbody></table></div>
+</div>
+
+<!-- Pupuk Prioritas Hujan -->
+<div class="rounded-2xl p-5 sec" style="background:var(--cd);border:1px solid var(--bd)">
+<h3 class="font-bold text-lg mb-3"><i class="fas fa-flask mr-2" style="color:#168AAD"></i>Pupuk Prioritas Hujan</h3>
+<div class="space-y-3 text-sm">
+<div class="rounded-lg p-3" style="border-left:4px solid #168AAD;background:var(--bg)"><strong>Dolomit (CaMg(CO₃)₂):</strong> Stabilisasi pH tanah (naikkan 0.5-1 unit), sediakan Ca & Mg, kurangi toksisitas Al/Mn. Dosis 500-1500 kg/ha, 2-4 minggu SEBELUM musim hujan. Efek bertahan 2-3 tahun.</div>
+<div class="rounded-lg p-3" style="border-left:4px solid #168AAD;background:var(--bg)"><strong>Trichoderma spp.:</strong> Jamur antagonis vs Phytophthora, Rhizoctonia, Fusarium. Enzim kitinase melarutkan dinding sel patogen. WAJIB di musim hujan. Dosis 5-10 g/tanaman saat tanam.</div>
+<div class="rounded-lg p-3" style="border-left:4px solid #168AAD;background:var(--bg)"><strong>NPK 12-12-17:</strong> K lebih tinggi memperkuat batang, cegah rebah saat basah. Split kecil-kecilan setiap 10-14 hari untuk kurangi leaching. Dosis 200-300 kg/ha.</div>
+<div class="rounded-lg p-3" style="border-left:4px solid #168AAD;background:var(--bg)"><strong>SP-36 + ZA:</strong> SP-36 (36% P₂O₅, 24% Ca) perkuat akar. ZA (21% N, 24% S) sulfur tinggi untuk ketahanan penyakit. Dosis SP-36 150 kg/ha saat tanam, ZA 150-200 kg/ha split.</div>
+</div>
+</div>
+
+<!-- Anti Leaching -->
+<div class="rounded-2xl p-5 sec" style="background:linear-gradient(135deg,#E0F2FE,#D4EDFC);border:1px solid #A5D8FF">
+<h3 class="font-bold text-lg mb-3" style="color:#0E3B4F"><i class="fas fa-shield-alt mr-2"></i>Tips Anti-Leaching</h3>
+<p class="text-sm mb-3" style="color:#0E6377">Leaching = hara N dan K tercuci air hujan. Efisiensi bisa turun 30-50%.</p>
+<div class="grid sm:grid-cols-2 gap-2 text-xs">
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-blue-600 mr-1"></i><strong>Split 4-5x kecil</strong> tiap 10-14 hari</div>
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-blue-600 mr-1"></i><strong>Aplikasi saat cerah</strong> diprediksi 2-3 hari</div>
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-blue-600 mr-1"></i><strong>Kompos basis</strong> 3-5 ton/ha, hara lambat</div>
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-blue-600 mr-1"></i><strong>NPK granul</strong> lebih tahan pencucian</div>
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-blue-600 mr-1"></i><strong>Dekat akar</strong> 5-10 cm dari batang</div>
+<div class="bg-white/60 rounded-lg p-2.5"><i class="fas fa-check-circle text-blue-600 mr-1"></i><strong>Tunda jika >20mm/hari</strong> tunggu 2-3 hari</div>
+</div>
+</div>
+
+<!-- Penyakit Hujan -->
+<div class="rounded-2xl p-5 sec" style="background:var(--cd);border:1px solid var(--bd)">
+<h3 class="font-bold text-lg mb-3"><i class="fas fa-virus mr-2" style="color:#DC2626"></i>Penyakit Dominan Hujan</h3>
+<div class="space-y-3 text-sm">
+<div class="rounded-lg p-3" style="border-left:4px solid #DC2626;background:var(--bg)"><strong>Antraknosa (Colletotrichum):</strong> Bercak coklat kehitam berkincin pada buah, lunak dan busuk. <span style="color:var(--ac)">Mankozeb 2g/L, Azoksistrobin 0.5ml/L, jaga ventilasi.</span></div>
+<div class="rounded-lg p-3" style="border-left:4px solid #DC2626;background:var(--bg)"><strong>Busuk Akar (Phytophthora capsici):</strong> Batang hitam di pangkal, layu mendadak, akar coklat busuk. Paling destruktif. <span style="color:var(--ac)">Drainase WAJIB, Metalaksil+Mankozeb, Trichoderma preventif.</span></div>
+<div class="rounded-lg p-3" style="border-left:4px solid #DC2626;background:var(--bg)"><strong>Layu Bakteri (Ralstonia):</strong> Layu satu sisi, pembuluh kayu coklat. Disebar via tanah, air, alat. <span style="color:var(--ac)">Varietas tahan, rotasi 2-3 tahun, Streptomisin+Tembaga.</span></div>
+<div class="rounded-lg p-3" style="border-left:4px solid #DC2626;background:var(--bg)"><strong>Bercak Daun (Cercospora):</strong> Bercak bulat coklat + halo kuning, titik hitam (pycnidia). <span style="color:var(--ac)">Klorotalonil 2g/L, pangkas daun tua, jarak tanam cukup.</span></div>
+<div class="rounded-lg p-3" style="border-left:4px solid #DC2626;background:var(--bg)"><strong>Busuk Buah (Phytophthora & Colletotrichum):</strong> Buah lunak, berair, bercak coklat menyebar dari ujung. <span style="color:var(--ac)">Fungisida preventif, mulsa silver black, buah terinfeksi dimusnahkan.</span></div>
+</div>
+</div>
+
+<!-- Genangan Darurat -->
+<div class="rounded-2xl p-5 sec" style="background:linear-gradient(135deg,#FEE2E2,#FECACA);border:1px solid #FCA5A5">
+<h3 class="font-bold text-lg mb-3 text-red-900"><i class="fas fa-exclamation-triangle mr-2"></i>Langkah Darurat Saat Genangan</h3>
+<div class="grid sm:grid-cols-2 gap-2 text-xs">
+<div class="bg-white/60 rounded-lg p-2.5"><span class="font-bold text-red-700">1.</span> <strong>Buat saluran darurat</strong> — alur dari bedengan ke saluran utama</div>
+<div class="bg-white/60 rounded-lg p-2.5"><span class="font-bold text-red-700">2.</span> <strong>Aerasi tanah</strong> — garidi perlahan di pangkal batang setelah air surut</div>
+<div class="bg-white/60 rounded-lg p-2.5"><span class="font-bold text-red-700">3.</span> <strong>Siram Trichoderma</strong> — 5g/tanaman ke pangkal batang</div>
+<div class="bg-white/60 rounded-lg p-2.5"><span class="font-bold text-red-700">4.</span> <strong>Fungisida</strong> — Metalaksil + Mankozeb 2g/L ke pangkal</div>
+<div class="bg-white/60 rounded-lg p-2.5"><span class="font-bold text-red-700">5.</span> <strong>Pangkas daun bawah</strong> — kurangi kelembapan mikro</div>
+<div class="bg-white/60 rounded-lg p-2.5"><span class="font-bold text-red-700">6.</span> <strong>Monitor 3 hari</strong> — cabut tanaman yang sudah tidak terselamatkan</div>
+</div>
+</div>
+
+</div>
+<aside class="sec space-y-5">
+<div class="rounded-xl p-4 sticky top-20" style="background:var(--cd);border:1px solid var(--bd)">
+<h4 class="font-bold text-sm mb-3"><i class="fas fa-clipboard-check mr-1" style="color:#168AAD"></i>Checklist Hujan</h4>
+<div class="space-y-1.5 text-xs" id="ckH"></div>
+</div>
+<div class="rounded-xl overflow-hidden" style="border:1px solid var(--bd)">
+<div class="p-3" style="background:var(--cd)"><p class="text-[.65rem] font-semibold" style="color:#DC2626">Peringatan</p><p class="text-xs" style="color:var(--mt)">Genangan >24 jam = segera buat saluran darurat. Cabai tidak toleran genangan.</p></div>
+</div>
+</aside>
+</div>
+</div>
+</section>
+
+<!-- ========== PUPUK ========== -->
+<section id="pupuk" class="py-14 px-4">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-8 sec"><span class="badge bg-gn mb-2"><i class="fas fa-flask mr-1"></i>Pemupukan</span><h2 class="text-2xl sm:text-3xl font-bold mb-2">Panduan Pupuk Cabai Lengkap</h2><p class="text-sm max-w-2xl mx-auto" style="color:var(--mt)">16 jenis pupuk dengan kandungan hara, dosis, dan keterangan musim prioritas.</p></div>
+<div class="flex flex-wrap gap-2 justify-center mb-7 sec">
+<button class="tab-b on" onclick="swT('all',this)">Semua</button>
+<button class="tab-b" onclick="swT('org',this)">Organik</button>
+<button class="tab-b" onclick="swT('anorg',this)">Anorganik</button>
+<button class="tab-b" onclick="swT('hayati',this)">Hayati</button>
+<button class="tab-b" onclick="swT('cair',this)">Cair</button>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="pG"></div>
+
+<!-- Tabel Dosis -->
+<div class="mt-10 sec">
+<h3 class="text-lg font-bold mb-4 text-center">Dosis Pupuk per Fase Pertumbuhan</h3>
+<div class="overflow-x-auto rounded-2xl" style="background:var(--cd);border:1px solid var(--bd)">
+<table class="tbl"><thead><tr><th>Fase</th><th>Umur (HST)</th><th>Urea</th><th>SP-36</th><th>KCl</th><th>NPK</th><th>Organik</th><th>Catatan</th></tr></thead><tbody>
+<tr><td class="font-medium">Tanam</td><td>0</td><td>-</td><td>150 kg/ha</td><td>-</td><td>-</td><td>3-5 t/ha</td><td>Dasar di lubang tanam</td></tr>
+<tr><td class="font-medium">Veg. Awal</td><td>14</td><td>50</td><td>-</td><td>-</td><td>100</td><td>-</td><td>Susulan pertama</td></tr>
+<tr><td class="font-medium">Vegetatif</td><td>28</td><td>75</td><td>-</td><td>50</td><td>150</td><td>-</td><td>Susulan kedua</td></tr>
+<tr><td class="font-medium">Gen. Awal</td><td>42</td><td>75</td><td>-</td><td>75</td><td>150</td><td>-</td><td>Saat berbunga</td></tr>
+<tr><td class="font-medium">Generatif</td><td>56</td><td>50</td><td>-</td><td>100</td><td>100</td><td>-</td><td>Saat pembuahan</td></tr>
+<tr><td class="font-medium">Panen</td><td>70+</td><td>-</td><td>-</td><td>50</td><td>-</td><td>-</td><td>KCl kualitas buah</td></tr>
+</tbody></table></div>
+<div class="mt-3 rounded-xl p-3 text-xs flex items-start gap-2" style="background:var(--cd);border:1px solid var(--bd);color:var(--mt)"><i class="fas fa-exclamation-triangle text-amber-500 mt-0.5"></i><span><strong>Disclaimer:</strong> Dosis umum. Sesuaikan dengan analisis tanah, varietas, dan rekomendasi penyuluh setempat.</span></div>
+</div>
+</div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section id="faq" class="py-14 px-4" style="background:linear-gradient(180deg,var(--bg),#F0F9F0 50%,var(--bg))">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-8 sec"><span class="badge bg-gn mb-2"><i class="fas fa-question-circle mr-1"></i>FAQ</span><h2 class="text-2xl sm:text-3xl font-bold mb-2">Pertanyaan Umum</h2></div>
+<div id="faqG" class="sec"></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="np" style="background:#1B4332;color:#D8F3DC">
+<div class="max-w-6xl mx-auto px-4 py-10">
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7 mb-7">
+<div><div class="flex items-center gap-2 text-lg font-bold text-white mb-3"><i class="fas fa-pepper-hot text-red-400"></i>CabaiKu</div><p class="text-xs text-green-200 leading-relaxed">Panduan lengkap perawatan tanaman cabai di musim kemarau dan hujan.</p></div>
+<div><h4 class="font-bold text-white text-sm mb-3">Navigasi</h4><ul class="space-y-1.5 text-xs text-green-200"><li><a href="CABAI_START_UP.html" class="hover:text-white transition">Beranda</a></li><li><a href="#kemarau" class="hover:text-white transition">Musim Kemarau</a></li><li><a href="#hujan" class="hover:text-white transition">Musim Hujan</a></li><li><a href="pupuk cabai.html" class="hover:text-white transition">Pupuk</a></li></ul></div>
+<div><h4 class="font-bold text-white text-sm mb-3">Informasi</h4><ul class="space-y-1.5 text-xs text-green-200"><li><a href="#pupuk" class="hover:text-white transition">Jenis Pupuk</a></li><li><a href="#pupuk" class="hover:text-white transition">Dosis per Fase</a></li><li><a href="#faq" class="hover:text-white transition">FAQ</a></li></ul></div>
+<div><h4 class="font-bold text-white text-sm mb-3">Sumber</h4><ul class="space-y-1.5 text-xs text-green-200"><li>Balitbangtan</li><li>Badan Litbang Pertanian</li><li>FAO</li><li>IPB University</li><li>Jurnal Agronomi Indonesia</li></ul></div>
+</div>
+<div class="border-t border-green-700 pt-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-green-300">
+<p>&copy; 2025 CabaiKu. Panduan edukasi tanaman cabai.</p>
+<div class="flex gap-4"><a href="#" class="hover:text-white transition">Privasi</a><a href="#" class="hover:text-white transition">Syarat</a></div>
+</div>
+</div>
+</footer>
+
+<script>
+var PUPUK=[
+{t:'org',nm:'Kompos',hr:'N 1-2%, P 0.5-1%, K 1-2%, Ca, Mg, S, mikro',ds:'3-5 ton/ha saat persiapan lahan',ms:'Kemarau & Hujan',kn:'Memperbaiki struktur tanah, meningkatkan kapasitas tahan air 30%, melepas hara lambat. Sangat penting di musim kemarau.',ic:'fa-leaf',cl:'#2D6A4F'},
+{t:'org',nm:'Pupuk Kandang Sapi Matang',hr:'N 1.5%, P 1%, K 1.5%',ds:'2-4 ton/ha saat pengolahan tanah',ms:'Kemarau & Hujan',kn:'Kaya humus, meningkatkan C-organik, memperbaiki aerasi dan drainase. Wajib matang (>3 bulan).',ic:'fa-cow',cl:'#6B4E31'},
+{t:'org',nm:'Vermikompos',hr:'N 1.5-2.5%, P 1-1.5%, K 1-1.5%',ds:'1-2 ton/ha saat tanam',ms:'Kemarau & Hujan',kn:'Hara seimbang, diperkaya enzim dan hormon dari cacing tanah. Respons cepat dibanding kompos biasa.',ic:'fa-worm',cl:'#4338CA'},
+{t:'anorg',nm:'Urea',hr:'46% N (Nitrogen)',ds:'250 kg/ha (split 4-5x)',ms:'Kemarau (prioritas)',kn:'Mendorong pertumbuhan vegetatif. Di kemarau masukkan ke tanah untuk kurangi volatilisasi. Di hujan split kecil-kecilan.',ic:'fa-flask',cl:'#92400E'},
+{t:'anorg',nm:'SP-36',hr:'36% P2O5, 12% S, 24% Ca',ds:'150 kg/ha saat tanam',ms:'Hujan (prioritas)',kn:'Memperkuat perakaran, meningkatkan pembungaan. Ca membantu mencegah blossom-end rot.',ic:'fa-flask',cl:'#92400E'},
+{t:'anorg',nm:'KCl (Kalium Klorida)',hr:'60% K2O',ds:'100-200 kg/ha (split)',ms:'Kemarau (prioritas)',kn:'Meningkatkan regulasi stomata, kurangi transpirasi. Memperkuat dinding sel, kualitas buah. Cabai sensitif klorida — pertimbangkan SOP.',ic:'fa-flask',cl:'#92400E'},
+{t:'anorg',nm:'SOP (Sulfat Kalium)',hr:'50% K2O, 18% S',ds:'150-250 kg/ha (split)',ms:'Kemarau & Hujan',kn:'Tanpa klorida, lebih baik untuk cabai. Sulfur membantu ketahanan penyakit. Harga 30-40% lebih mahal dari KCl.',ic:'fa-flask',cl:'#92400E'},
+{t:'anorg',nm:'NPK 16-16-16',hr:'16% N, 16% P2O5, 16% K2O',ds:'200-300 kg/ha (split 3-4x)',ms:'Kemarau & Hujan',kn:'Pupuk seimbang fase vegetatif. Mudah diaplikasikan, cocok susulan rutin tiap 15-20 hari.',ic:'fa-cubes',cl:'#4338CA'},
+{t:'anorg',nm:'NPK 12-12-17',hr:'12% N, 12% P2O5, 17% K2O',ds:'200-300 kg/ha (split)',ms:'Hujan (prioritas)',kn:'K lebih tinggi perkuat batang, cegah rebah. Mencegah tanaman rebah saat basah dan berat.',ic:'fa-cubes',cl:'#4338CA'},
+{t:'anorg',nm:'ZA (Amonium Sulfat)',hr:'21% N, 24% S',ds:'150-200 kg/ha',ms:'Hujan (prioritas)',kn:'Sulfur tinggi membentuk protein, tingkatkan ketahanan penyakit. Asamnya membantu turunkan pH tanah alkali.',ic:'fa-flask',cl:'#92400E'},
+{t:'hayati',nm:'Trichoderma spp.',hr:'Jamur antagonis (10^8 cfu/g)',ds:'5-10 g/tanaman saat tanam',ms:'Hujan (sangat penting)',kn:'Mikoparasitisme vs Phytophthora, Rhizoctonia, Fusarium. Enzim kitinase larutkan dinding sel patogen.',ic:'fa-bacterium',cl:'#0E6377'},
+{t:'hayati',nm:'Mikoriza (Glomus spp.)',hr:'Jamur simbion akar (10^4 spora/g)',ds:'5-10 g/tanaman saat tanam',ms:'Kemarau (sangat penting)',kn:'Perluas jangkauan akar 100x. Tingkatkan penyerapan P dan air dramatis. Kunci ketahanan kekeringan.',ic:'fa-bacterium',cl:'#0E6377'},
+{t:'hayati',nm:'PGPR (Pseudomonas fluorescens)',hr:'Bakteri (10^8 cfu/ml)',ds:'10-20 ml/liter, semprot/siram',ms:'Kemarau & Hujan',kn:'Produksi hormon IAA, melarutkan P, induksi resistensi sistemik, antagonis patogen.',ic:'fa-bacterium',cl:'#0E6377'},
+{t:'cair',nm:'Pupuk Daun NPK Cair',hr:'N 12%, P2O5 12%, K2O 36% + mikro',ds:'2-3 ml/liter, 7-10 hari sekali',ms:'Kemarau (saat stres)',kn:'Diserap cepat melalui daun. Efektif saat akar sulit menyerap (kekerengan, stres kekeringan).',ic:'fa-droplet',cl:'#9D174D'},
+{t:'cair',nm:'CaNO3 (Kalsium Nitrat)',hr:'Ca 19%, N 15.5%',ds:'3-5 g/liter, foliar saat buah',ms:'Kemarau (prioritas)',kn:'Cegah blossom-end rot. Kalsium tidak mobile — harus foliar langsung ke buah. Tidak bisa lewat tanah saja.',ic:'fa-droplet',cl:'#9D174D'},
+{t:'anorg',nm:'Dolomit',hr:'CaCO3·MgCO3 (Ca 20-30%, Mg 10-20%)',ds:'500-1500 kg/ha, 2-4 minggu sebelum hujan',ms:'Hujan (wajib)',kn:'Stabilisasi pH (naik 0.5-1 unit), sediakan Ca & Mg, kurangi toksisitas Al & Mn pada tanah asam.',ic:'fa-gem',cl:'#A0785A'}
+];
+
+var CL_K=['Siram pagi 06.00-07.00','Siram sore 16.00-17.00','Cek kelembapan tanah 2-3 cm','Cek hama di bawah daun','Periksa yellow sticky trap','Semprot pestisida nabati','Cek mulsa cukup tebal','Pupuk susulan jika jadwal','Pupuk daun CaNO3 saat buah','Periksa tanda flower drop'];
+var CL_H=['Cek drainase setelah hujan','Buang genangan maks 4 jam','Monitoring bercak buah & daun','Semprot fungisida preventif','Cek kelembapan kanopi','Pangkas daun bawah ventilasi','Periksa batang pangkal','Pupuk susulan setelah hujan deras','Periksa perangkap lalat buah','Kumpulkan buah busuk jatuh'];
+var FAQ=[
+{q:'Mengapa cabai sering layu saat kemarau?',a:'Akar dangkal (60-70% di 0-20 cm) kekurangan air saat lapisan atas kering. Stomata menutup, fotosintesis berhenti. Solusi: mulsa 5-8 cm, drip irrigation, mikoriza.'},
+{q:'Bagaimana mencegah flower drop saat kemarau?',a:'Suhu >35°C + kekurangan air = bunga gugur. Solusi: siram 2x/hari, shade net 25-30%, pupuk K tinggi, hindari N berlebih, mikoriza, mulsa tebal.'},
+{q:'Pupuk apa paling penting saat kemarau?',a:'(1) KCl/SOP — regulasi stomata, hemat air. (2) Kompos — tahan air tanah +30%. (3) Mikoriza — jangkauan akar 100x. (4) CaNO3 foliar — cegah blossom-end rot.'},
+{q:'Mengapa pupuk mudah hilang saat hujan?',a:'Leaching: N dan K larut, tercuci melewati zona perakaran. Solusi: split 4-5x kecil, aplikasi saat cerah, kompos basis (hara lambat), NPK granul.'},
+{q:'Apa pupuk terbaik saat hujan?',a:'(1) Dolomit 500-1500 kg/ha — stabilisasi pH. (2) NPK 12-12-17 — K tinggi perkuat batang. (3) Trichoderma — cegah busuk akar. (4) SP-36 — perkuat akar. (5) SOP lebih baik dari KCl.'},
+{q:'Mengatasi busuk akar pada cabai?',a:'Hampir selalu karena genangan. Langkah: (1) Saluran darurat, (2) Metalaksil+Mankozeb ke pangkal, (3) Trichoderma saat tanam, (4) jaga pH 6.0-6.5 dengan dolomit.'},
+{q:'Berapa dosis NPK per hektar?',a:'Total per musim (90-120 hari): Urea 250 + SP-36 150 + KCl 200-275 kg/ha, atau NPK 16-16-16 sebanyak 400-600 kg/ha dibagi 4-5x. BUKAN sekali aplikasi.'},
+{q:'Kapan waktu terbaik memupuk?',a:'HST 0: SP-36 + organik di lubang. HST 14: NPK susulan 1. HST 28: NPK + KCl susulan 2. HST 42: NPK + KCl saat berbunga. HST 56: KCl saat buah. HST 70+: KCl kualitas. Pagi/sore, bukan saat hujan.'},
+{q:'Perbedaan KCl dan SOP?',a:'KCl: 60% K2O + klorida. SOP: 50% K2O + 18% sulfur, tanpa klorida. Cabai sensitif klorida — SOP lebih baik meskipun 30-40% lebih mahal.'},
+{q:'Mengenal antraknosa pada cabai?',a:'Bercak coklat kehitam BERKINCING (concentric rings) pada buah. Meluas, buah lunak busuk. Sering dari ujung buah. Saat lembap muncul spora pink/oranye.'},
+{q:'Mengendalikan kutu daun tanpa kimia?',a:'(1) Ladybug — makan 50-100/hari. (2) Sabun 1%. (3) Nimba 5 ml/L + sabun. (4) Tembakau 50g/L + sabun. (5) Tanam marigold di sekitar kebun.'},
+{q:'Mengapa buah cabai busuk dari ujung?',a:'Blossom-end rot = defisiensi kalsium. Ca tidak mobile, harus tersedia terus saat buah tumbuh. Pemicu: kekeringan, pH asam, K/Ca ratio tinggi. Solusi: foliar CaNO3 3-5 g/L.'},
+{q:'Kebutuhan air cabai per hari?',a:'Semai 0.1-0.2 L, Vegetatif 0.5-1 L, Generatif 1-2 L, Penuh buah 1.5-2.5 L per tanaman. 1 ha (10.000 tanaman) generatif = 10.000-20.000 L/hari.'},
+{q:'Apakah cabai bisa ditanam saat hujan?',a:'Bisa dengan: bedengan 25-30 cm, drainase dalam, naungan UV, dolomit sebelum tanam, Trichoderma, varietas toleran (Lado F1, TM999), fungisida preventif.'},
+{q:'Cara membuat pestisida nabati?',a:'Nimba: 50g biji rendam 12 jam, blender, peras + 1L air + 1% sabun. Bawang putih: 100g blender + 1L air + sabun. Tembakau: 50g + 1L air panas, rendam 24 jam, filter + sabun. Semprot pagi/sore, ulangi 3-7 hari.'}
+];
+
+function rPupuk(f){var g=document.getElementById('pG');var h='';var items=f==='all'?PUPUK:PUPUK.filter(function(p){return p.t===f});for(var i=0;i<items.length;i++){var p=items[i];var b=p.ms.indexOf('Kemarau')>=0&&p.ms.indexOf('Hujan')>=0?'<span class="badge bg-gn">Kedua</span>':p.ms.indexOf('Kemarau')>=0?'<span class="badge bg-am">Kemarau</span>':'<span class="badge bg-bl">Hujan</span>';h+='<div class="ch rounded-xl p-5 sec" style="background:var(--cd);border:1px solid var(--bd)"><div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:'+p.cl+'20"><i class="fas '+p.ic+'" style="color:'+p.cl+'"></i></div><div><h4 class="font-bold text-sm">'+p.nm+'</h4>'+b+'</div></div><div class="text-xs mb-1.5" style="color:var(--mt)"><strong>Kandungan:</strong> '+p.hr+'</div><div class="text-xs mb-1.5" style="color:var(--mt)"><strong>Dosis:</strong> '+p.ds+'</div><div class="text-xs leading-relaxed" style="color:var(--mt)">'+p.kn+'</div></div>'}g.innerHTML=h;iO()}
+function rCL(a,id,p){var c=document.getElementById(id);var h='';for(var i=0;i<a.length;i++){var k=p+i;var s=localStorage.getItem(k);var d=s==='1'?' style="text-decoration:line-through;opacity:.5"':'';var ck=s==='1'?' checked':'';h+='<label class="flex items-start gap-2 cursor-pointer py-0.5"'+d+'><input type="checkbox"'+ck+' onchange="tCL(\''+k+'\',this)" class="mt-0.5 accent-green-600"><span>'+a[i]+'</span></label>'}c.innerHTML=h}
+function tCL(k,el){var lb=el.parentElement;if(el.checked){localStorage.setItem(k,'1');lb.style.textDecoration='line-through';lb.style.opacity='.5'}else{localStorage.removeItem(k);lb.style.textDecoration='none';lb.style.opacity='1'}}
+function rFAQ(){var g=document.getElementById('faqG');var h='';for(var i=0;i<FAQ.length;i++){h+='<div class="acc-i"><div class="acc-q" onclick="tA(this)"><span>'+FAQ[i].q+'</span><i class="fas fa-chevron-down text-xs" style="color:var(--mt);flex-shrink:0;transition:transform .3s"></i></div><div class="acc-a">'+FAQ[i].a+'</div></div>'}g.innerHTML=h}
+function tA(el){var a=el.nextElementSibling;var ic=el.querySelector('i');var o=a.classList.contains('op');var aa=document.querySelectorAll('.acc-a'),ai=document.querySelectorAll('.acc-q i');for(var i=0;i<aa.length;i++){aa[i].classList.remove('op');ai[i].style.transform='rotate(0)'}if(!o){a.classList.add('op');ic.style.transform='rotate(180deg)'}}
+function swT(f,b){var bs=document.querySelectorAll('.tab-b');for(var i=0;i<bs.length;i++)bs[i].classList.remove('on');b.classList.add('on');rPupuk(f)}
+function iO(){var es=document.querySelectorAll('.sec:not(.v)');var ob=new IntersectionObserver(function(en){for(var i=0;i<en.length;i++){if(en[i].isIntersecting){en[i].target.classList.add('v');ob.unobserve(en[i].target)}}},{threshold:.07});for(var j=0;j<es.length;j++)ob.observe(es[j])}
+document.addEventListener('DOMContentLoaded',function(){rPupuk('all');rCL(CL_K,'ckK','ck_');rCL(CL_H,'ckH','ch_');rFAQ();iO();window.addEventListener('scroll',function(){var n=document.querySelector('nav');n.style.boxShadow=window.scrollY>40?'0 2px 18px rgba(0,0,0,.08)':'none'})});
+</script>
+</body>
+</html>

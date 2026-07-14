@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Perawatan Tanaman Cabai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: {
+                        hijau: { 50:'#f0fdf4', 100:'#dcfce7', 200:'#bbf7d0', 300:'#86efac', 400:'#4ade80', 500:'#22c55e', 600:'#16a34a', 700:'#15803d', 800:'#166534', 900:'#14532d' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+        body { font-family:'Plus Jakarta Sans',sans-serif; background:#f0fdf4; color:#1a1a1a; }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #166534 0%, #15803d 40%, #22c55e 100%);
+            position: relative; overflow: hidden;
+        }
+        .hero-bg::before {
+            content:''; position:absolute; inset:0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .hero-bg::after {
+            content:''; position:absolute; bottom:-2px; left:0; right:0; height:80px;
+            background:#f0fdf4; clip-path:polygon(0 100%,100% 100%,100% 0,0 60%);
+        }
+
+        .nav-glass {
+            background:rgba(255,255,255,0.95);
+            backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+            border-bottom:1px solid rgba(22,163,74,0.15);
+        }
+
+        .card {
+            background:#fff; border-radius:16px;
+            border:1px solid rgba(22,163,74,0.1);
+            box-shadow:0 4px 24px rgba(22,101,52,0.06);
+            transition:all 0.3s ease;
+        }
+        .card:hover { box-shadow:0 12px 40px rgba(22,101,52,0.12); transform:translateY(-2px); }
+
+        .week-btn {
+            transition:all 0.2s ease; cursor:pointer;
+            border:2px solid transparent; border-radius:12px;
+            padding:8px 14px; font-size:13px; font-weight:600;
+            background:#fff; color:#166534;
+        }
+        .week-btn:hover { background:#dcfce7; }
+        .week-btn.active { background:#16a34a; color:#fff; border-color:#16a34a; }
+
+        .check-row { transition:all 0.2s ease; }
+        .check-row:hover { background:#f0fdf4; }
+        .check-row.checked td { color:#9ca3af; }
+        .check-row.checked .task-text { text-decoration:line-through; }
+
+        .custom-check {
+            width:22px; height:22px; border-radius:6px;
+            border:2px solid #bbf7d0; background:#fff;
+            display:flex; align-items:center; justify-content:center;
+            cursor:pointer; transition:all 0.2s ease; flex-shrink:0;
+        }
+        .custom-check.checked { background:#16a34a; border-color:#16a34a; }
+        .custom-check svg { opacity:0; transition:opacity 0.15s; }
+        .custom-check.checked svg { opacity:1; }
+
+        .progress-bar { height:8px; background:#dcfce7; border-radius:99px; overflow:hidden; }
+        .progress-fill { height:100%; background:linear-gradient(90deg,#16a34a,#22c55e); border-radius:99px; transition:width 0.5s ease; }
+
+        .season-card { position:relative; overflow:hidden; border-radius:20px; }
+        .season-card img { transition:transform 0.6s ease; }
+        .season-card:hover img { transform:scale(1.05); }
+
+        .fade-in { opacity:0; transform:translateY(24px); transition:all 0.7s cubic-bezier(0.16,1,0.3,1); }
+        .fade-in.visible { opacity:1; transform:translateY(0); }
+
+        .phase-tag {
+            display:inline-flex; align-items:center; gap:4px;
+            padding:4px 12px; border-radius:99px; font-size:11px; font-weight:700;
+            text-transform:uppercase; letter-spacing:0.05em;
+        }
+
+        .scroll-top {
+            position:fixed; bottom:24px; right:24px; z-index:50;
+            width:48px; height:48px; border-radius:14px;
+            background:#16a34a; color:#fff; border:none; cursor:pointer;
+            display:flex; align-items:center; justify-content:center;
+            box-shadow:0 8px 24px rgba(22,163,74,0.3);
+            opacity:0; transform:translateY(16px);
+            transition:all 0.3s ease; pointer-events:none;
+        }
+        .scroll-top.show { opacity:1; transform:translateY(0); pointer-events:auto; }
+        .scroll-top:hover { background:#15803d; transform:translateY(-2px); }
+
+        @media(max-width:768px) {
+            .week-grid { display:grid !important; grid-template-columns:repeat(4,1fr) !important; gap:6px !important; }
+            .week-btn { padding:6px 8px !important; font-size:11px !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="#beranda" class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-hijau-600 flex items-center justify-center">
+                <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
+            </div>
+            <span class="font-bold text-hijau-800 text-lg">CabaiKu</span>
+        </a>
+        <div class="flex items-center gap-1">
+            <a href="CABAI_START_UP.html" class="px-4 py-2 rounded-xl text-sm font-600 text-hijau-800 hover:bg-hijau-50 transition-colors">Beranda</a>
+            <a href="#jadwal" class="px-4 py-2 rounded-xl text-sm font-600 text-hijau-800 hover:bg-hijau-50 transition-colors">Jadwal</a>
+            <a href="#musim" class="px-4 py-2 rounded-xl text-sm font-600 text-hijau-800 hover:bg-hijau-50 transition-colors">Musim</a>
+            <a href="#ceklis" class="px-4 py-2 rounded-xl text-sm font-600 text-hijau-800 hover:bg-hijau-50 transition-colors">Ceklis</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="beranda" class="hero-bg pt-32 pb-32 md:pt-40 md:pb-40 relative">
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="phase-tag bg-white/20 text-white mb-6">
+                    <i data-lucide="sprout" class="w-3.5 h-3.5"></i> Panduan Lengkap
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-800 text-white leading-[1.08] tracking-tight mb-6">
+                    Jadwal Perawatan <br>Tanaman Cabai
+                </h1>
+                <p class="text-white/75 text-lg leading-relaxed mb-8 max-w-md">
+                    Panduan lengkap dari masa tanam hingga panen. Dilengkapi ceklist harian, rekomendasi musim kemarau & hujan.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="#ceklis" class="inline-flex items-center gap-2 bg-white text-hijau-800 px-6 py-3.5 rounded-xl font-600 text-sm hover:bg-hijau-50 transition-colors">
+                        <i data-lucide="check-square" class="w-4 h-4"></i> Mulai Ceklis
+                    </a>
+                    <a href="#jadwal" class="inline-flex items-center gap-2 bg-white/15 text-white px-6 py-3.5 rounded-xl font-600 text-sm hover:bg-white/25 transition-colors border border-white/20">
+                        <i data-lucide="calendar" class="w-4 h-4"></i> Lihat Jadwal
+                    </a>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <div class="relative">
+                    <img src="./FOTO/1 (jadwal).jpg" alt="Tanaman Cabai" class="rounded-2xl shadow-2xl w-full object-cover h-[420px] border-4 border-white/20">
+                    <div class="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-lg flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-hijau-100 flex items-center justify-center">
+                            <i data-lucide="calendar-check" class="w-5 h-5 text-hijau-600"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 font-500">Durasi Tanam</div>
+                            <div class="text-sm font-700 text-hijau-800">16 Minggu</div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-3 -right-3 bg-white rounded-xl p-4 shadow-lg flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+                            <i data-lucide="target" class="w-5 h-5 text-red-500"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 font-500">Target Panen</div>
+                            <div class="text-sm font-700 text-hijau-800">1.5 - 2.5 kg/tanaman</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OVERVIEW STATISTIK -->
+<section class="py-12 -mt-8 relative z-20">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="card p-5 text-center">
+                <div class="w-10 h-10 rounded-xl bg-hijau-100 flex items-center justify-center mx-auto mb-3">
+                    <i data-lucide="clock" class="w-5 h-5 text-hijau-600"></i>
+                </div>
+                <div class="text-2xl font-800 text-hijau-800">16</div>
+                <div class="text-xs text-gray-500 font-500 mt-1">Minggu</div>
+            </div>
+            <div class="card p-5 text-center">
+                <div class="w-10 h-10 rounded-xl bg-hijau-100 flex items-center justify-center mx-auto mb-3">
+                    <i data-lucide="droplets" class="w-5 h-5 text-hijau-600"></i>
+                </div>
+                <div class="text-2xl font-800 text-hijau-800">2x</div>
+                <div class="text-xs text-gray-500 font-500 mt-1">Penyiraman/Hari</div>
+            </div>
+            <div class="card p-5 text-center">
+                <div class="w-10 h-10 rounded-xl bg-hijau-100 flex items-center justify-center mx-auto mb-3">
+                    <i data-lucide="flask-round" class="w-5 h-5 text-hijau-600"></i>
+                </div>
+                <div class="text-2xl font-800 text-hijau-800">8x</div>
+                <div class="text-xs text-gray-500 font-500 mt-1">Pemupukan</div>
+            </div>
+            <div class="card p-5 text-center">
+                <div class="w-10 h-10 rounded-xl bg-hijau-100 flex items-center justify-center mx-auto mb-3">
+                    <i data-lucide="scissors" class="w-5 h-5 text-hijau-600"></i>
+                </div>
+                <div class="text-2xl font-800 text-hijau-800">4x</div>
+                <div class="text-xs text-gray-500 font-500 mt-1">Pemangkasan</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JADWAL PERAWATAN -->
+<section id="jadwal" class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14 fade-in">
+            <div class="phase-tag bg-hijau-100 text-hijau-700 mx-auto mb-4">
+                <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Timeline
+            </div>
+            <h2 class="text-3xl md:text-4xl font-800 text-hijau-900 tracking-tight mb-4">Jadwal Perawatan Cabai</h2>
+            <p class="text-gray-500 max-w-xl mx-auto">Tahapan perawatan tanaman cabai dari awal penanaman hingga masa panen selama 16 minggu.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <!-- Fase 1 -->
+            <div class="card p-6 fade-in">
+                <div class="w-12 h-12 rounded-2xl bg-amber-100 flex items-center justify-center mb-4">
+                    <i data-lucide="sprout" class="w-6 h-6 text-amber-600"></i>
+                </div>
+                <div class="phase-tag bg-amber-100 text-amber-700 mb-3">Minggu 1-2</div>
+                <h3 class="font-700 text-hijau-900 text-lg mb-2">Fase Semai</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Siram benih 2x sehari</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Jaga kelembaban media</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Hindari sinar matahari langsung</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Pantau perkecambahan</li>
+                </ul>
+            </div>
+            <!-- Fase 2 -->
+            <div class="card p-6 fade-in" style="transition-delay:0.1s">
+                <div class="w-12 h-12 rounded-2xl bg-hijau-100 flex items-center justify-center mb-4">
+                    <i data-lucide="leaf" class="w-6 h-6 text-hijau-600"></i>
+                </div>
+                <div class="phase-tag bg-hijau-100 text-hijau-700 mb-3">Minggu 3-6</div>
+                <h3 class="font-700 text-hijau-900 text-lg mb-2">Fase Vegetatif</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Pindah tanam ke lahan</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Pupuk NPK 2 minggu sekali</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Pangkas tunas air</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Pengendalian hama awal</li>
+                </ul>
+            </div>
+            <!-- Fase 3 -->
+            <div class="card p-6 fade-in" style="transition-delay:0.2s">
+                <div class="w-12 h-12 rounded-2xl bg-pink-100 flex items-center justify-center mb-4">
+                    <i data-lucide="flower-2" class="w-6 h-6 text-pink-600"></i>
+                </div>
+                <div class="phase-tag bg-pink-100 text-pink-700 mb-3">Minggu 7-10</div>
+                <h3 class="font-700 text-hijau-900 text-lg mb-2">Fase Berbunga</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Kurangi siram (pagi saja)</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Pupuk fosfor & kalium</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Waspadai kutu daun & thrips</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Bantu penyerbukan</li>
+                </ul>
+            </div>
+            <!-- Fase 4 -->
+            <div class="card p-6 fade-in" style="transition-delay:0.3s">
+                <div class="w-12 h-12 rounded-2xl bg-red-100 flex items-center justify-center mb-4">
+                    <i data-lucide="cherry" class="w-6 h-6 text-red-500"></i>
+                </div>
+                <div class="phase-tag bg-red-100 text-red-600 mb-3">Minggu 11-16</div>
+                <h3 class="font-700 text-hijau-900 text-lg mb-2">Fase Buah & Panen</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Siram teratur & konsisten</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Pupuk KCl untuk ukuran buah</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Kendalikan lalat buah</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Panen buah yang merah penuh</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Gambar Ilustrasi -->
+        <div class="mt-14 fade-in">
+            <div class="grid md:grid-cols-2 gap-5">
+                <div class="rounded-2xl overflow-hidden h-64 relative">
+                    <img src="./FOTO/cabai sehat (jadwal).jpg" alt="Tanaman cabai di kebun" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-hijau-900/70 to-transparent flex items-end p-6">
+                        <div>
+                            <div class="text-white font-700 text-lg">Tanaman Cabai Sehat</div>
+                            <div class="text-white/70 text-sm">Hasil perawatan yang konsisten</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden h-64 relative">
+                    <img src="./FOTO/mp (jadwal).jpg" alt="Panen cabai" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-hijau-900/70 to-transparent flex items-end p-6">
+                        <div>
+                            <div class="text-white font-700 text-lg">Masa Panen</div>
+                            <div class="text-white/70 text-sm">Buah cabai merah siap dipetik</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- REKOMENDASI MUSIM -->
+<section id="musim" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14 fade-in">
+            <div class="phase-tag bg-hijau-100 text-hijau-700 mx-auto mb-4">
+                <i data-lucide="cloud-sun" class="w-3.5 h-3.5"></i> Tips Musim
+            </div>
+            <h2 class="text-3xl md:text-4xl font-800 text-hijau-900 tracking-tight mb-4">Rekomendasi Per Musim</h2>
+            <p class="text-gray-500 max-w-xl mx-auto">Penyesuaian perawatan penting dilakukan sesuai kondisi musim untuk hasil panen optimal.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Musim Kemarau -->
+            <div class="season-card fade-in shadow-xl">
+                <div class="h-56 overflow-hidden">
+                    <img src="./FOTO/mk (jadwal).jpg" alt="Musim Kemarau" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-white p-7 border border-t-0 border-gray-100 rounded-b-2xl" style="margin-top:-12px; position:relative; z-index:2;">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-11 h-11 rounded-xl bg-amber-100 flex items-center justify-center">
+                            <i data-lucide="sun" class="w-5 h-5 text-amber-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-700 text-hijau-900 text-xl">Musim Kemarau</h3>
+                            <p class="text-xs text-gray-400 font-500">Suhu tinggi & kelembaban rendah</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-amber-50/60">
+                            <i data-lucide="droplets" class="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0"></i>
+                            <div class="text-sm text-gray-700"><span class="font-600 text-hijau-800">Penyiraman:</span> Siram 2-3x sehari (pagi, siang sedikit, sore). Gunakan mulsa untuk menjaga kelembaban tanah.</div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-amber-50/60">
+                            <i data-lucide="clock" class="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0"></i>
+                            <div class="text-sm text-gray-700"><span class="font-600 text-hijau-800">Waktu Siram:</span> Pagi hari (06.00-07.00) dan sore hari (15.00-16.00). Hindari siang hari agar akar tidak mati.</div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-amber-50/60">
+                            <i data-lucide="flask-round" class="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0"></i>
+                            <div class="text-sm text-gray-700"><span class="font-600 text-hijau-800">Pemupukan:</span> Tambah pupuk organik cair setiap 10 hari. Pupuk lebih sering karena cepat tersapu panas.</div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-amber-50/60">
+                            <i data-lucide="shield" class="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0"></i>
+                            <div class="text-sm text-gray-700"><span class="font-600 text-hijau-800">Perlindungan:</span> Pasang paranet 25-35% untuk mengurangi intensitas matahari. Waspadai kutu daun & tungau yang berkembang pesat.</div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-amber-50/60">
+                            <i data-lucide="layers" class="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0"></i>
+                            <div class="text-sm text-gray-700"><span class="font-600 text-hijau-800">Mulsa:</span> Gunakan jerami atau rumput kering setebal 3-5 cm untuk mempertahankan kelembaban tanah.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Musim Hujan -->
+            <div class="season-card fade-in shadow-xl" style="transition-delay:0.15s">
+                <div class="h-56 overflow-hidden">
+                    <img src="./FOTO/mh (jadwal).jpg" alt="Musim Hujan" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-white p-7 border border-t-0 border-gray-100 rounded-b-2xl" style="margin-top:-12px; position:relative; z-index:2;">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center">
+                            <i data-lucide="cloud-rain" class="w-5 h-5 text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-700 text-hijau-900 text-xl">Musim Hujan</h3>
+                            <p class="text-xs text-gray-400 font-500">Kelembaban tinggi & curah hujan banyak</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-blue-50/60">
+                            <i data-lucide="droplets" class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0"></i>
+                            <div class="text-sm text-gray-700"><span class="font-600 text-hijau-800">Penyiraman:</span> Kurangi atau hentikan jika hujan cukup. Siram hanya saat tanah kering permukaannya.</div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-blue-50/60">
+                            <i data-lucide="waves" class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0"></i>
+                            <div class="text-sm text-gray-700"><span class="font-600 text-hijau-800">Drainase:</span> Pastikan saluran drainase lancar. Buat bedengan/guludan setinggi 20-30 cm agar tidak tergenang.</div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-blue-50/60">
+                            <i data-lucide="bug" class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0"></i>
+                            <div class="text-sm text-gray-700"><span class="font-600 text-hijau-800">Hama & Penyakit:</span> Waspadai jamur (antraknosa, busuk batang), kutu daun, dan lalat buah. Semprot fungisida preventif.</div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-blue-50/60">
+                            <i data-lucide="tent" class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0"></i>
+                            <div class="text-sm text-gray-700"><span class="font-600 text-hijau-800">Naungan:</span> Pasang atap plastik transparan atau greenhouse sederhana untuk melindungi dari hujan berlebih.</div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-blue-50/60">
+                            <i data-lucide="scissors" class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0"></i>
+                            <div class="text-sm text-gray-700"><span class="font-600 text-hijau-800">Pemangkasan:</span> Pangkas daun bawah yang rimbun untuk sirkulasi udara. Buang tunas air yang tidak perlu.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabel Perbandingan -->
+        <div class="mt-12 card p-6 md:p-8 fade-in overflow-x-auto">
+            <h3 class="font-700 text-hijau-900 text-xl mb-6 flex items-center gap-2">
+                <i data-lucide="table-2" class="w-5 h-5 text-hijau-600"></i> Perbandingan Perawatan
+            </h3>
+            <table class="w-full text-sm min-w-[500px]">
+                <thead>
+                    <tr class="border-b-2 border-hijau-200">
+                        <th class="text-left py-3 px-4 font-700 text-hijau-800">Aspek</th>
+                        <th class="text-left py-3 px-4 font-700 text-amber-700">☀️ Musim Kemarau</th>
+                        <th class="text-left py-3 px-4 font-700 text-blue-700">🌧️ Musim Hujan</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600">
+                    <tr class="border-b border-gray-100"><td class="py-3 px-4 font-600">Penyiraman</td><td class="py-3 px-4">2-3x sehari</td><td class="py-3 px-4">Sesuaikan / tidak perlu</td></tr>
+                    <tr class="border-b border-gray-100"><td class="py-3 px-4 font-600">Pemupukan</td><td class="py-3 px-4">Lebih sering (organik cair)</td><td class="py-3 px-4">Normal, hindari saat hujan</td></tr>
+                    <tr class="border-b border-gray-100"><td class="py-3 px-4 font-600">Drainase</td><td class="py-3 px-4">Normal</td><td class="py-3 px-4">Wajib diperhatikan</td></tr>
+                    <tr class="border-b border-gray-100"><td class="py-3 px-4 font-600">Hama Utama</td><td class="py-3 px-4">Kutu daun, tungau</td><td class="py-3 px-4">Jamur, lalat buah, kutu daun</td></tr>
+                    <tr class="border-b border-gray-100"><td class="py-3 px-4 font-600">Naungan</td><td class="py-3 px-4">Paranet 25-35%</td><td class="py-3 px-4">Atap plastik / greenhouse</td></tr>
+                    <tr><td class="py-3 px-4 font-600">Mulsa</td><td class="py-3 px-4">Wajib (jaga kelembaban)</td><td class="py-3 px-4">Opsional</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- CEKLIS MINGGUAN -->
+<section id="ceklis" class="py-20">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-10 fade-in">
+            <div class="phase-tag bg-hijau-100 text-hijau-700 mx-auto mb-4">
+                <i data-lucide="check-square" class="w-3.5 h-3.5"></i> Checklist
+            </div>
+            <h2 class="text-3xl md:text-4xl font-800 text-hijau-900 tracking-tight mb-4">Ceklis Harian Minggu 1-16</h2>
+            <p class="text-gray-500 max-w-xl mx-auto">Klik pada kotak untuk menandai kegiatan yang sudah selesai. Data tersimpan otomatis di browser Anda.</p>
+        </div>
+
+        <!-- Progress -->
+        <div class="card p-5 mb-8 fade-in">
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-sm font-600 text-hijau-800">Progress Keseluruhan</span>
+                <span class="text-sm font-700 text-hijau-600" id="progressText">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width:0%"></div>
+            </div>
+            <div class="flex items-center justify-between mt-3">
+                <span class="text-xs text-gray-400" id="progressDetail">0 dari 112 kegiatan selesai</span>
+                <button onclick="resetAll()" class="text-xs text-red-500 hover:text-red-700 font-600 flex items-center gap-1 transition-colors">
+                    <i data-lucide="rotate-ccw" class="w-3 h-3"></i> Reset Semua
+                </button>
+            </div>
+        </div>
+
+        <!-- Week Selector -->
+        <div class="flex flex-wrap gap-2 justify-center mb-8 week-grid fade-in" id="weekSelector">
+        </div>
+
+        <!-- Phase Info -->
+        <div class="card p-5 mb-6 fade-in" id="phaseInfo">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center" id="phaseIcon"></div>
+                <div>
+                    <div class="font-700 text-hijau-900" id="phaseTitle">-</div>
+                    <div class="text-sm text-gray-500" id="phaseDesc">-</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checklist Table -->
+        <div class="card overflow-hidden fade-in">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-hijau-50 border-b border-hijau-100">
+                        <th class="text-left py-3.5 px-4 w-12 font-700 text-hijau-700">Status</th>
+                        <th class="text-left py-3.5 px-4 w-20 font-700 text-hijau-700">Hari</th>
+                        <th class="text-left py-3.5 px-4 font-700 text-hijau-700">Kegiatan</th>
+                    </tr>
+                </thead>
+                <tbody id="checklistBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Navigasi Minggu -->
+        <div class="flex items-center justify-between mt-6 fade-in">
+            <button onclick="changeWeek(-1)" id="prevBtn" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-hijau-200 text-hijau-700 font-600 text-sm hover:bg-hijau-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                <i data-lucide="chevron-left" class="w-4 h-4"></i> Minggu Sebelumnya
+            </button>
+            <span class="text-sm text-gray-400 font-500" id="weekIndicator">Minggu 1 dari 16</span>
+            <button onclick="changeWeek(1)" id="nextBtn" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-hijau-600 text-white font-600 text-sm hover:bg-hijau-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                Minggu Selanjutnya <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-hijau-900 text-white py-12">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-hijau-700 flex items-center justify-center">
+                    <i data-lucide="leaf" class="w-5 h-5 text-hijau-300"></i>
+                </div>
+                <span class="font-bold text-lg">CabaiKu</span>
+            </div>
+            <p class="text-hijau-400 text-sm text-center">Panduan perawatan tanaman cabai dari penanaman hingga panen.</p>
+            <div class="flex items-center gap-4">
+                <a href="#beranda" class="text-hijau-400 hover:text-white text-sm transition-colors">kembali ke atas</a>
+                <a href="#jadwal" class="text-hijau-400 hover:text-white text-sm transition-colors">Jadwal</a>
+                <a href="#musim" class="text-hijau-400 hover:text-white text-sm transition-colors">Musim</a>
+                <a href="#ceklis" class="text-hijau-400 hover:text-white text-sm transition-colors">Ceklis</a>
+            </div>
+        </div>
+        <div class="border-t border-hijau-800 mt-8 pt-8 text-center">
+            <p class="text-hijau-500 text-xs">&copy; 2025 CabaiKu. Dibuat untuk membantu petani cabai Indonesia.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+</button>
+
+<script>
+// DATA CEKLIS 16 MINGGU
+const weekData = {
+    1: {
+        phase: "Fase Semai", phaseColor: "amber", icon: "sprout",
+        desc: "Benih baru ditanam, membutuhkan kelembaban tinggi & teduh",
+        days: [
+            "Siram benih 2x (pagi & sore), pastikan media lembab",
+            "Siram 2x, pantau apakah ada benih yang mulai berkecambah",
+            "Siram 2x, pastikan suhu media tidak terlalu panas",
+            "Siram 2x, cek kondisi media tanam jangan sampai becek",
+            "Siram 2x, bersihkan area sekitar persemaian",
+            "Siram 2x, cek perkecambahan (biasanya mulai muncul)",
+            "Siram 2x, catat jumlah benih yang sudah tumbuh"
+        ]
+    },
+    2: {
+        phase: "Fase Semai", phaseColor: "amber", icon: "sprout",
+        desc: "Semai mulai tumbuh, daun cotyledon muncul",
+        days: [
+            "Siram 2x, perhatikan pertumbuhan daun pertama",
+            "Siram 2x, buang benih yang tidak tumbuh (mati)",
+            "Siram 2x, berikan sedikit cahaya matahari pagi",
+            "Siram 2x, pantau serangan hama (lalat/semut)",
+            "Siram 2x, pastikan jarak antar semai cukup",
+            "Siram 2x, bersihkan gulma di sekitar persemaian",
+            "Siram 2x, evaluasi kesehatan semai untuk dipindah tanam"
+        ]
+    },
+    3: {
+        phase: "Fase Vegetatif Awal", phaseColor: "green", icon: "leaf",
+        desc: "Pindah tanam ke lahan/pot, tanaman mulai beradaptasi",
+        days: [
+            "Pindah tanam ke lahan/pot pada pagi hari, siram segera",
+            "Siram pagi & sore, pantau tanaman yang layu (stres pindah)",
+            "Siram pagi & sore, berikan naungan jika terlalu terik",
+            "Siram pagi & sore, cek apakah tanaman mulai segar kembali",
+            "Siram pagi & sore, pupuk NPK susulan (1 sendok makan/tanaman)",
+            "Siram pagi & sore, penyiangan gulma di sekitar tanaman",
+            "Siram pagi & sore, catat tanaman yang hidup/mati"
+        ]
+    },
+    4: {
+        phase: "Fase Vegetatif Awal", phaseColor: "green", icon: "leaf",
+        desc: "Tanaman beradaptasi, mulai menumbuhkan daun baru",
+        days: [
+            "Siram pagi & sore, pantau pertumbuhan daun baru",
+            "Siram pagi & sore, semprot pestisida organik (neem oil) preventif",
+            "Siram pagi & sore, pangkas tunas air yang muncul di ketiak daun",
+            "Siram pagi & sore, buang gulma di sekitar pangkal batang",
+            "Siram pagi & sore, pupuk kandang cair (1:10) di sekitar perakaran",
+            "Siram pagi & sore, cek ada tidaknya kutu daun di bawah daun",
+            "Siram pagi & sore, revisi ajir/tiang penyangga jika perlu"
+        ]
+    },
+    5: {
+        phase: "Fase Vegetatif", phaseColor: "green", icon: "leaf",
+        desc: "Pertumbuhan pesat, tanaman membutuhkan nutrisi lebih",
+        days: [
+            "Siram pagi & sore, pupuk NPK (16:16:16) 2 sendok/tanaman",
+            "Siram pagi & sore, semprot pupuk daun (mutiara/eka) jika daun pucat",
+            "Siram pagi & sore, pangkas tunas air & daun bawah yang kuning",
+            "Siram pagi & sore, cek hama: ulat, kutu daun, tungau",
+            "Siram pagi & sore, pengairan tambahan jika tanah kering",
+            "Siram pagi & sore, siram pupuk organik cair di pangkal batang",
+            "Siram pagi & sore, periksa batang & daun dari gejala penyakit"
+        ]
+    },
+    6: {
+        phase: "Fase Vegetatif", phaseColor: "green", icon: "leaf",
+        desc: "Tanaman mulai besar, persiapan masuk fase berbunga",
+        days: [
+            "Siram pagi & sore, semprot pestisida jika ada hama",
+            "Siram pagi & sore, pupuk NPK sekali lagi, kurangi dosis N",
+            "Siram pagi & sore, pangkas cabang yang terlalu rimbun",
+            "Siram pagi & sore, cek kuncup bunga pertama (biasanya mulai muncul)",
+            "Siram pagi & sore, pastikan penyangga kuat menopang tanaman",
+            "Siram pagi & sore, bersihkan gulma & sisa tanaman mati",
+            "Siram pagi & sore, evaluasi keseluruhan kesehatan tanaman"
+        ]
+    },
+    7: {
+        phase: "Fase Berbunga", phaseColor: "pink", icon: "flower-2",
+        desc: "Bunga mulai bermekaran, nutrisi difokuskan ke P & K",
+        days: [
+            "Siram pagi saja (kurangi), pupuk NPK 12:12:17 + KCl",
+            "Siram pagi saja, pantau bunga yang mekar, hindari sentuhan berlebih",
+            "Siram pagi saja, semprot fungisida preventif (bawasil/Dithane)",
+            "Siram pagi saja, bantu penyerbukan: goyang batang pelan-pelan",
+            "Siram pagi saja, cek kutu daun & thrips pada bunga",
+            "Siram pagi saja, pangkas daun yang menutupi bunga",
+            "Siram pagi saja, catat jumlah bunga yang mekar"
+        ]
+    },
+    8: {
+        phase: "Fase Berbunga", phaseColor: "pink", icon: "flower-2",
+        desc: "Puncak berbunga, banyak bunga yang perlu diserbuki",
+        days: [
+            "Siram pagi saja, goyang batang untuk penyerbukan",
+            "Siram pagi saja, semprot pestisida jika ada hama pada bunga",
+            "Siram pagi saja, pupuk fosfor (TSP/SP-36) sedikit di pangkal",
+            "Siram pagi saja, buang bunga yang layu / tidak berkembang",
+            "Siram pagi saja, cek ada tidaknya buah muda yang mulai terbentuk",
+            "Siram pagi saja, kontrol kelembaban (jangan terlalu lembab)",
+            "Siram pagi saja, evaluasi: berapa bunga yang berhasil jadi buah"
+        ]
+    },
+    9: {
+        phase: "Fase Berbunga & Buah", phaseColor: "pink", icon: "flower-2",
+        desc: "Bunga mulai berubah menjadi buah muda",
+        days: [
+            "Siram pagi saja, pantau buah muda yang terbentuk",
+            "Siram pagi saja, pupuk KCl (kalium) untuk pertumbuhan buah",
+            "Siram pagi saja, semprot insektisida untuk lalat buah",
+            "Siram pagi saja, buang bunga yang gugur & tidak produktif",
+            "Siram pagi saja, pastikan tanaman mendapat cukup cahaya",
+            "Siram pagi saja, cek buah dari serangan ulat/buah",
+            "Siram pagi saja, catat jumlah buah yang sedang tumbuh"
+        ]
+    },
+    10: {
+        phase: "Fase Buah", phaseColor: "red", icon: "cherry",
+        desc: "Buah mulai membesar, perlu nutrisi kalium",
+        days: [
+            "Siram pagi & sore (kembali 2x), pupuk KCl lagi",
+            "Siram pagi & sore, semprot pupuk daun berkalium",
+            "Siram pagi & sore, periksa setiap buah dari tanda penyakit",
+            "Siram pagi & sore, pasang perangkap lalat buah (trap)",
+            "Siram pagi & sore, pangkas daun yang terlalu rimbun",
+            "Siram pagi & sore, siram pupuk organik cair untuk recovery",
+            "Siram pagi & sore, pastikan buah tidak menyentuh tanah"
+        ]
+    },
+    11: {
+        phase: "Fase Buah", phaseColor: "red", icon: "cherry",
+        desc: "Buah tumbuh optimal, mulai ada yang berwarna",
+        days: [
+            "Siram pagi & sore, pantau perubahan warna buah",
+            "Siram pagi & sore, semprot pestisida untuk lalat buah & antraknosa",
+            "Siram pagi & sore, pupuk KCl terakhir untuk ukuran maksimal",
+            "Siram pagi & sore, bersihkan buah yang busuk / sakit",
+            "Siram pagi & sore, cek kekuatan penyangga, buah makin berat",
+            "Siram pagi & sore, siram pupuk organik cair",
+            "Siram pagi & sore, evaluasi ukuran & kesehatan buah"
+        ]
+    },
+    12: {
+        phase: "Fase Pematangan", phaseColor: "red", icon: "cherry",
+        desc: "Buah mulai berwarna merah, persiapan panen pertama",
+        days: [
+            "Siram pagi saja, identifikasi buah yang siap panen (merah 80-100%)",
+            "Siram pagi saja, kurangi pupuk, fokus pada kualitas buah",
+            "Siram pagi saja, semprot fungisida jika ada busuk pada buah",
+            "Siram pagi saja, panen buah yang sudah merah penuh!",
+            "Siram pagi saja, setelah panen pertama, pupuk recovery NPK",
+            "Siram pagi saja, bersihkan sisa tangkai bunga/buah yang gugur",
+            "Siram pagi saja, catat hasil panen pertama"
+        ]
+    },
+    13: {
+        phase: "Fase Panen", phaseColor: "red", icon: "cherry",
+        desc: "Panen rutin setiap 3-4 hari, tanaman masih berproduksi",
+        days: [
+            "Siram pagi saja, panen buah merah",
+            "Siram pagi saja, pupuk NPK dosis ringan untuk merangsang buah baru",
+            "Siram pagi saja, pantau bunga & buah baru yang muncul",
+            "Siram pagi saja, panen buah merah lagi",
+            "Siram pagi saja, semprot pestisida jika perlu",
+            "Siram pagi saja, panen buah merah",
+            "Siram pagi saja, evaluasi total panen minggu ini"
+        ]
+    },
+    14: {
+        phase: "Fase Panen", phaseColor: "red", icon: "cherry",
+        desc: "Puncak panen, produksi buah paling banyak",
+        days: [
+            "Siram pagi saja, panen buah merah",
+            "Siram pagi saja, pupuk organik cair untuk menjaga stamina tanaman",
+            "Siram pagi saja, panen buah merah",
+            "Siram pagi saja, cek hama/penyakit, semprot jika perlu",
+            "Siram pagi saja, panen buah merah",
+            "Siram pagi saja, pangkas daun tua & cabang yang tidak produktif",
+            "Siram pagi saja, panen buah merah, catat akumulasi panen"
+        ]
+    },
+    15: {
+        phase: "Fase Panen Akhir", phaseColor: "red", icon: "cherry",
+        desc: "Panen mulai berkurang, perawatan maintenance",
+        days: [
+            "Siram pagi saja, panen buah merah yang tersisa",
+            "Siram pagi saja, pupuk NPK ringan untuk panen sisa",
+            "Siram pagi saja, panen jika ada buah merah",
+            "Siram pagi saja, bersihkan tanaman dari daun mati & sisa buah",
+            "Siram pagi saja, evaluasi: apakah lanjut atau akhiri siklus?",
+            "Siram pagi saja, panen buah terakhir jika ada",
+            "Siram pagi saja, catat total panen keseluruhan"
+        ]
+    },
+    16: {
+        phase: "Fase Akhir / Evaluasi", phaseColor: "gray", icon: "clipboard-check",
+        desc: "Evaluasi total, persiapan siklus tanam berikutnya",
+        days: [
+            "Siram pagi saja, panen sisa buah yang masih ada",
+            "Bersihkan lahan dari sisa tanaman & gulma",
+            "Analisis hasil: total panen, hama yang muncul, apa yang bisa diperbaiki",
+            "Olah tanah: balik tanah & tambah pupuk kandang dasar",
+            "Siram lahan yang sudah diolah, biarkan istirahat 1-2 minggu",
+            "Rencanakan tanam berikutnya: varietas apa, kapan mulai",
+            "Catat seluruh pembelajaran untuk siklus berikutnya"
+        ]
+    }
+};
+
+const hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
+const colorMap = {
+    amber: { bg: "bg-amber-100", text: "text-amber-700", tag: "bg-amber-100 text-amber-700" },
+    green: { bg: "bg-hijau-100", text: "text-hijau-700", tag: "bg-hijau-100 text-hijau-700" },
+    pink: { bg: "bg-pink-100", text: "text-pink-700", tag: "bg-pink-100 text-pink-700" },
+    red: { bg: "bg-red-100", text: "text-red-600", tag: "bg-red-100 text-red-600" },
+    gray: { bg: "bg-gray-100", text: "text-gray-600", tag: "bg-gray-100 text-gray-600" }
+};
+
+let currentWeek = 1;
+
+function getChecked() {
+    try { return JSON.parse(localStorage.getItem('cabaiChecklist') || '{}'); } catch(e) { return {}; }
+}
+function saveChecked(data) {
+    localStorage.setItem('cabaiChecklist', JSON.stringify(data));
+}
+function isChecked(week, day) {
+    const d = getChecked();
+    return d[`${week}-${day}`] === true;
+}
+function toggleCheck(week, day) {
+    const d = getChecked();
+    const key = `${week}-${day}`;
+    d[key] = !d[key];
+    saveChecked(d);
+    renderChecklist();
+    updateProgress();
+}
+
+function renderWeekSelector() {
+    const el = document.getElementById('weekSelector');
+    el.innerHTML = '';
+    for (let i = 1; i <= 16; i++) {
+        const btn = document.createElement('button');
+        btn.className = `week-btn ${i === currentWeek ? 'active' : ''}`;
+        btn.textContent = `M${i}`;
+        btn.onclick = () => { currentWeek = i; renderAll(); };
+        el.appendChild(btn);
+    }
+}
+
+function renderPhaseInfo() {
+    const data = weekData[currentWeek];
+    const c = colorMap[data.phaseColor];
+    document.getElementById('phaseIcon').className = `w-10 h-10 rounded-xl flex items-center justify-center ${c.bg}`;
+    document.getElementById('phaseIcon').innerHTML = `<i data-lucide="${data.icon}" class="w-5 h-5 ${c.text}"></i>`;
+    document.getElementById('phaseTitle').innerHTML = `Minggu ${currentWeek} — <span class="${c.text}">${data.phase}</span>`;
+    document.getElementById('phaseDesc').textContent = data.desc;
+    lucide.createIcons();
+}
+
+function renderChecklist() {
+    const tbody = document.getElementById('checklistBody');
+    const data = weekData[currentWeek];
+    tbody.innerHTML = '';
+    data.days.forEach((task, i) => {
+        const checked = isChecked(currentWeek, i);
+        const tr = document.createElement('tr');
+        tr.className = `check-row border-b border-gray-50 ${checked ? 'checked' : ''}`;
+        tr.innerHTML = `
+            <td class="py-3.5 px-4">
+                <div class="custom-check ${checked ? 'checked' : ''}" onclick="toggleCheck(${currentWeek},${i})">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+            </td>
+            <td class="py-3.5 px-4">
+                <span class="inline-flex items-center justify-center w-16 py-1 rounded-lg bg-hijau-50 text-hijau-700 text-xs font-700">${hari[i]}</span>
+            </td>
+            <td class="py-3.5 px-4 task-text text-gray-700 leading-relaxed">${task}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function updateProgress() {
+    const d = getChecked();
+    let total = 0, done = 0;
+    for (let w = 1; w <= 16; w++) {
+        for (let i = 0; i < 7; i++) {
+            total++;
+            if (d[`${w}-${i}`]) done++;
+        }
+    }
+    const pct = Math.round((done / total) * 100);
+    document.getElementById('progressText').textContent = pct + '%';
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressDetail').textContent = `${done} dari ${total} kegiatan selesai`;
+}
+
+function updateNav() {
+    document.getElementById('weekIndicator').textContent = `Minggu ${currentWeek} dari 16`;
+    document.getElementById('prevBtn').disabled = currentWeek === 1;
+    document.getElementById('nextBtn').disabled = currentWeek === 16;
+}
+
+function changeWeek(dir) {
+    const next = currentWeek + dir;
+    if (next >= 1 && next <= 16) {
+        currentWeek = next;
+        renderAll();
+        document.getElementById('ceklis').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+function resetAll() {
+    if (confirm('Yakin ingin mereset semua ceklis? Data yang sudah ditandai akan hilang.')) {
+        localStorage.removeItem('cabaiChecklist');
+        renderAll();
+    }
+}
+
+function renderAll() {
+    renderWeekSelector();
+    renderPhaseInfo();
+    renderChecklist();
+    updateProgress();
+    updateNav();
+}
+
+// SCROLL TOP
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTopBtn');
+    btn.classList.toggle('show', window.scrollY > 400);
+});
+
+// FADE IN OBSERVER
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// INIT
+document.addEventListener('DOMContentLoaded', () => {
+    renderAll();
+    lucide.createIcons();
+});
+</script>
+</body>
+</html>

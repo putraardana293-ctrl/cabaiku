@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Hama Utama Tanaman Cabai — Panduan Pengendalian Lengkap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hijau: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            950: '#052e16',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+
+        @keyframes float-up {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-float-up {
+            animation: float-up 0.7s ease-out forwards;
+        }
+        .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
+
+        @keyframes leaf-sway {
+            0%, 100% { transform: rotate(-3deg) translateY(0); }
+            50% { transform: rotate(3deg) translateY(-8px); }
+        }
+        .leaf-sway { animation: leaf-sway 4s ease-in-out infinite; }
+        .leaf-sway-reverse { animation: leaf-sway 5s ease-in-out infinite reverse; }
+
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(22, 163, 74, 0); }
+        }
+        .pulse-green { animation: pulse-green 2s ease-in-out infinite; }
+
+        .pest-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pest-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgba(22, 163, 74, 0.15);
+        }
+        .pest-card:hover .pest-img {
+            transform: scale(1.05);
+        }
+
+        .control-tab {
+            transition: all 0.3s ease;
+        }
+        .control-tab.active {
+            background-color: #16a34a;
+            color: white;
+            box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 40%),
+                              radial-gradient(circle at 60% 80%, rgba(255,255,255,0.04) 0%, transparent 45%);
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .scroll-indicator {
+            animation: bounce-down 2s ease-in-out infinite;
+        }
+        @keyframes bounce-down {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        .grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(22,163,74,0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(22,163,74,0.04) 1px, transparent 1px);
+        }
+
+        .section-visible .anim-item {
+            animation: float-up 0.6s ease-out forwards;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f0fdf4; }
+        ::-webkit-scrollbar-thumb { background: #86efac; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #22c55e; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)">
+    <div class="max-w-6xl mx-auto px-4"><div class="flex items-center justify-between h-14">
+        <a href="#beranda" class="flex items-center gap-2 text-lg font-bold" style="color:var(--ac)"><i class="fas fa-pepper-hot text-xl"></i>CabaiKu</a>
+            <div class="hidden md:flex items-center gap-5 text-xs font-medium">
+                </div>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="CABAI_START_UP.html" class="text-black/80 hover:text-white text-sm font-medium transition-colors">Beranda</a>
+                <a href="TENTANG CABAI.html" class="text-black/80 hover:text-white text-sm font-medium transition-colors">Tentang</a>
+                <a href="CABAI_START_UP.html#visimisi" class="text-black/80 hover:text-white text-sm font-medium transition-colors">Visi & Misi</a>
+                <a href="musim hujan.html" class="text-black/80 hover:text-white text-sm font-medium transition-colors">Musim Kemarau</a>
+                <a href="musim hujan.html" class="text-black/80 hover:text-white text-sm font-medium transition-colors">Musim Hujan</a>
+                <a href="pupuk cabai.html" class="text-black/80 hover:text-white text-sm font-medium transition-colors">Pupuk</a>
+                <a href="hama cabai.html" class="text-black/80 hover:text-white text-sm font-medium transition-colors">Hama</a>
+                <a href="penyakit cabai.html" class="text-black/80 hover:text-white text-sm font-medium transition-colors">Penyakit</a>
+                <a href="jadwal cabai.html" class="text-black/80 hover:text-white text-sm font-medium transition-colors">Jadwal</a>
+                <a href="CABAI_START_UP.html#faq" class="text-black/80 hover:text-white text-sm font-medium transition-colors">FAQ</a>
+                <a href="BLOG CABAIKU.html" class="text-black/80 hover:text-white text-sm font-medium transition-colors">Blog</a>
+                <a href="CABAI_START_UP.html#kontak" class="text-black/80 hover:text-white text-sm font-medium transition-colors">Kontak</a>
+            </div>
+            <button id="mobileMenuBtn" class="md:hidden text-white p-2">
+                <span class="iconify text-2xl" data-icon="mdi:menu"></span>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-hijau-800 border-t border-hijau-600">
+            <div class="px-6 py-4 flex flex-col gap-3">
+                <a href="CABAI_START_UP.html" class="text-black/80 hover:text-white text-sm py-2 mobile-link">Beranda</a>
+                <a href="TENTANG CABAI.html" class="text-black/80 hover:text-white text-sm py-2 mobile-link">Tentang</a>
+                <a href="CABAI_START_UP.html#visimisi" class="text-black/80 hover:text-white text-sm py-2 mobile-link">Visi & Misi</a>
+                <a href="musim hujan.html" class="text-black/80 hover:text-white text-sm py-2 mobile-link">Musim Kemarau</a>
+                <a href="musim hujan.html" class="text-black/80 hover:text-white text-sm py-2 mobile-link">Musim Hujan</a>
+                <a href="pupuk cabai.html" class="text-black/80 hover:text-white text-sm py-2 mobile-linkk">Pupuk</a>
+                <a href="hama cabai.html" class="text-black/80 hover:text-white text-sm py-2 mobile-link">Hama</a>
+                <a href="penyakit cabai.html" class="text-black/80 hover:text-white text-sm py-2 mobile-link">Penyakit</a>
+                <a href="jadwal cabai.html" class="text-black/80 hover:text-white text-sm py-2 mobile-link">Jadwal</a>
+                <a href="CABAI_START_UP.html#faq" class="text-black/80 hover:text-white text-sm py-2 mobile-link">FAQ</a>
+                <a href="BLOG CABAIKU.html" class="text-black/80 hover:text-white text-sm py-2 mobile-link">Blog</a>
+                <a href="CABAI_START_UP.html#kontak" class="text-black/80 hover:text-white text-sm py-2 mobile-link">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-hijau-800 via-hijau-700 to-hijau-900 hero-pattern overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-20 left-10 text-white/10 leaf-sway">
+            <span class="iconify text-7xl" data-icon="mdi:leaf"></span>
+        </div>
+        <div class="absolute top-40 right-16 text-white/10 leaf-sway-reverse">
+            <span class="iconify text-9xl" data-icon="mdi:leaf"></span>
+        </div>
+        <div class="absolute bottom-20 left-1/4 text-white/5">
+            <span class="iconify text-[12rem]" data-icon="mdi:chili-mild"></span>
+        </div>
+        <div class="absolute bottom-32 right-10 text-white/10 leaf-sway">
+            <span class="iconify text-6xl" data-icon="mdi:flower-outline"></span>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <div class="animate-float-up">
+                <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2 text-sm text-hijau-200 mb-8">
+                    <span class="iconify" data-icon="mdi:shield-check"></span>
+                    Panduan Pengendalian Hama Terlengkap
+                </span>
+            </div>
+            <h1 class="animate-float-up animate-delay-1 font-display text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight mb-6">
+                6 Hama Utama<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-hijau-300 to-hijau-100">Tanaman Cabai</span>
+            </h1>
+            <p class="animate-float-up animate-delay-2 text-lg md:text-xl text-hijau-200/90 font-light max-w-3xl mx-auto mb-10 leading-relaxed">
+                Kenali gejala serangan, pahami cara pengendalian secara <strong class="font-medium text-white">fisik</strong>, <strong class="font-medium text-white">mekanik</strong>, <strong class="font-medium text-white">biologi</strong>, dan <strong class="font-medium text-white">kimia</strong> untuk menjaga hasil panen cabai Anda tetap optimal.
+            </p>
+            <div class="animate-float-up animate-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#hama" class="group bg-white text-hijau-800 font-semibold px-8 py-4 rounded-2xl hover:bg-hijau-100 transition-all duration-300 hover:shadow-lg hover:shadow-white/10 flex items-center gap-2">
+                    Mulai Pelajari
+                    <span class="iconify group-hover:translate-x-1 transition-transform" data-icon="mdi:arrow-down"></span>
+                </a>
+                <a href="#ringkasan" class="group border border-white/30 text-white font-medium px-8 py-4 rounded-2xl hover:bg-white/10 transition-all duration-300 flex items-center gap-2">
+                    Lihat Ringkasan
+                    <span class="iconify group-hover:translate-x-1 transition-transform" data-icon="mdi:table"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+            <span class="iconify text-white/50 text-3xl" data-icon="mdi:chevron-double-down"></span>
+        </div>
+    </section>
+
+    <!-- Quick Nav / Overview Section -->
+    <section id="hama" class="py-24 bg-hijau-50 grid-pattern">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-flex items-center gap-2 bg-hijau-100 text-hijau-700 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider mb-4">
+                    <span class="iconify" data-icon="mdi:bug-outline"></span>
+                    Overview Hama
+                </span>
+                <h2 class="font-display text-3xl md:text-5xl font-bold text-hijau-900 tracking-tight mb-4">Kenali Musuh Tanaman Cabai</h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Klik salah satu kartu di bawah untuk langsung menuju informasi lengkap hama tersebut.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <a href="#kutu-kebul" class="group bg-white rounded-2xl p-5 text-center hover:shadow-xl hover:shadow-hijau-100 transition-all duration-400 border border-hijau-100 hover:border-hijau-300">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-hijau-100 rounded-2xl flex items-center justify-center group-hover:bg-hijau-200 transition-colors">
+                        <span class="iconify text-3xl text-hijau-700" data-icon="mdi:fly"></span>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-hijau-900">Kutu Kebul</h3>
+                    <p class="text-xs text-gray-400 mt-1">Bemisia tabaci</p>
+                </a>
+                <a href="#kutu-daun" class="group bg-white rounded-2xl p-5 text-center hover:shadow-xl hover:shadow-hijau-100 transition-all duration-400 border border-hijau-100 hover:border-hijau-300">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-hijau-100 rounded-2xl flex items-center justify-center group-hover:bg-hijau-200 transition-colors">
+                        <span class="iconify text-3xl text-hijau-700" data-icon="mdi:bug"></span>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-hijau-900">Kutu Daun</h3>
+                    <p class="text-xs text-gray-400 mt-1">Myzus persicae</p>
+                </a>
+                <a href="#trips" class="group bg-white rounded-2xl p-5 text-center hover:shadow-xl hover:shadow-hijau-100 transition-all duration-400 border border-hijau-100 hover:border-hijau-300">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-hijau-100 rounded-2xl flex items-center justify-center group-hover:bg-hijau-200 transition-colors">
+                        <span class="iconify text-3xl text-hijau-700" data-icon="mdi:ladybug"></span>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-hijau-900">Trips</h3>
+                    <p class="text-xs text-gray-400 mt-1">Thrips parvispinus</p>
+                </a>
+                <a href="#tungau" class="group bg-white rounded-2xl p-5 text-center hover:shadow-xl hover:shadow-hijau-100 transition-all duration-400 border border-hijau-100 hover:border-hijau-300">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-hijau-100 rounded-2xl flex items-center justify-center group-hover:bg-hijau-200 transition-colors">
+                        <span class="iconify text-3xl text-hijau-700" data-icon="mdi:spider"></span>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-hijau-900">Tungau</h3>
+                    <p class="text-xs text-gray-400 mt-1">Tetranychus spp.</p>
+                </a>
+                <a href="#ulat-grayak" class="group bg-white rounded-2xl p-5 text-center hover:shadow-xl hover:shadow-hijau-100 transition-all duration-400 border border-hijau-100 hover:border-hijau-300">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-hijau-100 rounded-2xl flex items-center justify-center group-hover:bg-hijau-200 transition-colors">
+                        <span class="iconify text-3xl text-hijau-700" data-icon="mdi:snake"></span>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-hijau-900">Ulat Grayak</h3>
+                    <p class="text-xs text-gray-400 mt-1">Spodoptera litura</p>
+                </a>
+                <a href="#lalat-buah" class="group bg-white rounded-2xl p-5 text-center hover:shadow-xl hover:shadow-hijau-100 transition-all duration-400 border border-hijau-100 hover:border-hijau-300">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-hijau-100 rounded-2xl flex items-center justify-center group-hover:bg-hijau-200 transition-colors">
+                        <span class="iconify text-3xl text-hijau-700" data-icon="mdi:fly"></span>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-hijau-900">Lalat Buah</h3>
+                    <p class="text-xs text-gray-400 mt-1">Bactrocera spp.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HAMA 1: KUTU KEBUL ==================== -->
+    <section id="kutu-kebul" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="pest-card bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
+                <div class="grid lg:grid-cols-2">
+                    <!-- Image -->
+                    <div class="relative h-[350px] md:h-[500px] overflow-hidden">
+                        <img src="./FOTO/kutu kebul.jpg" alt="Kutu Kebul" class="pest-img w-full h-full object-cover transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-hijau-900/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="inline-block bg-hijau-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">Hama #1</span>
+                            <h2 class="font-display text-3xl md:text-4xl font-bold text-white">Kutu Kebul</h2>
+                            <p class="text-white/70 text-sm italic mt-1">Bemisia tabaci</p>
+                        </div>
+                    </div>
+                    <!-- Info -->
+                    <div class="p-8 md:p-12 flex flex-col">
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-hijau-600" data-icon="mdi:information-outline"></span>
+                                Deskripsi Hama
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed text-sm">Kutu kebul adalah serangga kecil berukuran ±1-2 mm dengan tubuh berwarna kuning pucat dan sayap putih berlapis lilin. Hama ini hidup di balik daun dan menghisap cairan tanaman, serta menjadi vektor virus Gemini yang sangat merugikan.</p>
+                        </div>
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-red-500" data-icon="mdi:alert-circle-outline"></span>
+                                Ciri-ciri Tanaman Terserang
+                            </h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Daun menguning (klorosis) dan menggulung ke bawah</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Terdapat embun tepung (honeydew) pada permukaan daun</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Tumbuh jamur jelaga hitam (sooty mold) di permukaan daun</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Pertumbuhan kerdil, daun mengerut, dan buah tidak berkembang</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Serangga kecil terbang saat tanaman digoyang</li>
+                            </ul>
+                        </div>
+                        <!-- Control Tabs -->
+                        <div class="flex-1">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-4">
+                                <span class="iconify text-hijau-600" data-icon="mdi:shield-sword-outline"></span>
+                                Cara Pengendalian
+                            </h3>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <button onclick="switchTab(this, 'kebul-fisik')" class="control-tab active text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Fisik</button>
+                                <button onclick="switchTab(this, 'kebul-mekanik')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Mekanik</button>
+                                <button onclick="switchTab(this, 'kebul-biologi')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Biologi</button>
+                                <button onclick="switchTab(this, 'kebul-kimia')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Kimia</button>
+                            </div>
+                            <div id="kebul-fisik" class="tab-content bg-hijau-50 rounded-2xl p-5">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:water-outline"></span> Pengendalian Fisik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Semprotkan air bertekanan pada permukaan bawah daun untuk menghilangkan kutu kebul</li>
+                                    <li>• Gunakan perangkap kuning berlem (yellow sticky trap) yang diletakkan di sekitar tanaman</li>
+                                    <li>• Pasang mulsa plastik berwarna perak untuk memantulkan cahaya dan mengusir kutu kebul</li>
+                                </ul>
+                            </div>
+                            <div id="kebul-mekanik" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:hand-back-right-outline"></span> Pengendalian Mekanik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Cabut dan musnahkan tanaman yang sudah terinfeksi virus berat</li>
+                                    <li>• Gunakan jaring penutup tanaman (screen/net) dengan ukuran mata jaring 40-50 mesh</li>
+                                    <li>• Lakukan rotasi tanaman dengan tanaman non-inang</li>
+                                    <li>• Bersihkan gulma di sekitar lahan yang menjadi inang alternatif</li>
+                                </ul>
+                            </div>
+                            <div id="kebul-biologi" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:leaf-circle-outline"></span> Pengendalian Biologi</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Pelepasan parasitoid <em>Encarsia formosa</em> yang menyerang nimfa kutu kebul</li>
+                                    <li>• Pelepasan predator <em>Eretmocerus mundus</em></li>
+                                    <li>• Aplikasi jamur entomopatogen <em>Beauveria bassiana</em> dengan konsentrasi 10⁸ spora/ml</li>
+                                    <li>• Pertahankan populasi musuh alami seperti kumbang koksi (<em>Coccinellidae</em>)</li>
+                                </ul>
+                            </div>
+                            <div id="kebul-kimia" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:flask-outline"></span> Pengendalian Kimia</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Insektisida grup neonicotinoid: Imidakloprid 0,3-0,5 ml/l atau Tiametoksam 0,2-0,4 g/l</li>
+                                    <li>• Insektisida biologis: Abamektin 0,5-1 ml/l</li>
+                                    <li>• Pertumbangan tanaman: Spirotetramat 0,5-0,75 ml/l (sistemik, efektif pada telur & nimfa)</li>
+                                    <li>• Lakukan aplikasi pada pagi/sore hari, semprot pada bagian bawah daun</li>
+                                    <li>• Rotasi bahan aktif untuk mencegah resistensi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HAMA 2: KUTU DAUN ==================== -->
+    <section id="kutu-daun" class="py-24 bg-hijau-50/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="pest-card bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
+                <div class="grid lg:grid-cols-2">
+                    <div class="p-8 md:p-12 flex flex-col order-2 lg:order-1">
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-hijau-600" data-icon="mdi:information-outline"></span>
+                                Deskripsi Hama
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed text-sm">Kutu daun adalah serangga kecil berukuran 1-2 mm dengan warna tubuh hijau atau hitam, bertubuh lunak dan berbentuk lonjong. Hidup berkoloni pada tunas muda, kuncup bunga, dan permukaan bawah daun. Berkembang biak sangat cepat melalui partenogenesis (tanpa kawin).</p>
+                        </div>
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-red-500" data-icon="mdi:alert-circle-outline"></span>
+                                Ciri-ciri Tanaman Terserang
+                            </h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Daun muda menggulung dan mengkerut (kuncup daun tidak normal)</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Permukaan daun mengkilap/lengket karena embun tepung</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Pertumbuhan tanaman terhambat, kerdil, dan daun berwarna pucat</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Bunga rontok sebelum meksepenuh, buah kecil dan cacat</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Terlihat koloni kutu daun pada pucuk dan bawah daun secara langsung</li>
+                            </ul>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-4">
+                                <span class="iconify text-hijau-600" data-icon="mdi:shield-sword-outline"></span>
+                                Cara Pengendalian
+                            </h3>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <button onclick="switchTab(this, 'daun-fisik')" class="control-tab active text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Fisik</button>
+                                <button onclick="switchTab(this, 'daun-mekanik')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Mekanik</button>
+                                <button onclick="switchTab(this, 'daun-biologi')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Biologi</button>
+                                <button onclick="switchTab(this, 'daun-kimia')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Kimia</button>
+                            </div>
+                            <div id="daun-fisik" class="tab-content bg-hijau-50 rounded-2xl p-5">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:water-outline"></span> Pengendalian Fisik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Semprot air bertekanan kuat untuk mengetuk kutu daun dari tanaman</li>
+                                    <li>• Pasang perangkap kuning berlem (yellow sticky trap) di sekitar tanaman</li>
+                                    <li>• Gunakan mulsa reflektif (perak) untuk mengurangi kemampuan kutu daun mengenali inang</li>
+                                </ul>
+                            </div>
+                            <div id="daun-mekanik" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:hand-back-right-outline"></span> Pengendalian Mekanik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Pemangkasan tunas yang terserang berat dan musnahkan</li>
+                                    <li>• Penyiangan gulma di sekitar lahan sebagai sumber inang alternatif</li>
+                                    <li>• Gunakan jaring pelindung dengan ukuran 50 mesh pada persemaian</li>
+                                </ul>
+                            </div>
+                            <div id="daun-biologi" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:leaf-circle-outline"></span> Pengendalian Biologi</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Konservasi predator alami: kumbang koksi (<em>Coccinella spp.</em>), larva lacewing (<em>Chrysoperla</em>)</li>
+                                    <li>• Parasitoid <em>Aphidius colemani</em> yang menyerang kutu daun</li>
+                                    <li>• Aplikasi jamur <em>Beauveria bassiana</em> atau <em>Metarhizium anisopliae</em></li>
+                                    <li>• Semprot ekstrak neem (Azadirachtin) yang mengganggu perkembangan nimfa</li>
+                                </ul>
+                            </div>
+                            <div id="daun-kimia" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:flask-outline"></span> Pengendalian Kimia</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Imidakloprid 0,3-0,5 ml/l — sistemik, efektif untuk koloni besar</li>
+                                    <li>• Deltametrin 1-2 ml/l — kontak, membunuh kutu daun dewasa</li>
+                                    <li>• Pirimikarb 0,5-1 g/l — selektif terhadap kutu daun, aman bagi predator</li>
+                                    <li>• Pymetrozin 0,3-0,5 g/l — menghambat perkembangan nimfa</li>
+                                    <li>• Lakukan rotasi bahan aktif setiap 2-3 kali aplikasi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative h-[350px] md:h-[500px] overflow-hidden order-1 lg:order-2">
+                        <img src="./FOTO/kutu daun.jpg" alt="Kutu Daun" class="pest-img w-full h-full object-cover transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-hijau-900/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="inline-block bg-hijau-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">Hama #2</span>
+                            <h2 class="font-display text-3xl md:text-4xl font-bold text-white">Kutu Daun</h2>
+                            <p class="text-white/70 text-sm italic mt-1">Myzus persicae</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HAMA 3: TRIPS ==================== -->
+    <section id="trips" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="pest-card bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
+                <div class="grid lg:grid-cols-2">
+                    <div class="relative h-[350px] md:h-[500px] overflow-hidden">
+                        <img src="./FOTO/trips.jpg" alt="Trips" class="pest-img w-full h-full object-cover transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-hijau-900/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="inline-block bg-hijau-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">Hama #3</span>
+                            <h2 class="font-display text-3xl md:text-4xl font-bold text-white">Trips</h2>
+                            <p class="text-white/70 text-sm italic mt-1">Thrips parvispinus</p>
+                        </div>
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col">
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-hijau-600" data-icon="mdi:information-outline"></span>
+                                Deskripsi Hama
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed text-sm">Trips adalah serangga sangat kecil berukuran 0,5-1,5 mm dengan tubuh ramping dan sayap berpita (fringe wing). Warna tubuh kuning kecoklatan hingga hitam. Hama ini mengikis permukaan daun dan menghisap cairan sel, serta menjadi vektor virus TSWV (Tomato Spotted Wilt Virus).</p>
+                        </div>
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-red-500" data-icon="mdi:alert-circle-outline"></span>
+                                Ciri-ciri Tanaman Terserang
+                            </h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Bercak keperakan pada permukaan daun akibat pengikisan sel epidermis</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Daun menggulung ke atas, kasar, dan kering dari ujung</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Bunga menjadi abnormal, bercak putih pada kelopak, dan rontok</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Buah cabai muncul bercak perak kecoklatan dan berdistorsi</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Titik-titik hitam (feses trips) terlihat pada permukaan daun</li>
+                            </ul>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-4">
+                                <span class="iconify text-hijau-600" data-icon="mdi:shield-sword-outline"></span>
+                                Cara Pengendalian
+                            </h3>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <button onclick="switchTab(this, 'trips-fisik')" class="control-tab active text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Fisik</button>
+                                <button onclick="switchTab(this, 'trips-mekanik')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Mekanik</button>
+                                <button onclick="switchTab(this, 'trips-biologi')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Biologi</button>
+                                <button onclick="switchTab(this, 'trips-kimia')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Kimia</button>
+                            </div>
+                            <div id="trips-fisik" class="tab-content bg-hijau-50 rounded-2xl p-5">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:water-outline"></span> Pengendalian Fisik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Pasang perangkap berwarna biru (blue sticky trap) yang sangat menarik trips</li>
+                                    <li>• Gunakan mulsa plastik perak untuk memantulkan cahaya UV</li>
+                                    <li>• Penyiraman dengan air bertekanan pada pucuk tanaman</li>
+                                </ul>
+                            </div>
+                            <div id="trips-mekanik" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:hand-back-right-outline"></span> Pengendalian Mekanik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Buang dan musnahkan bagian tanaman yang terserang berat</li>
+                                    <li>• Bersihkan sisa tanaman dan gulma setelah panen</li>
+                                    <li>• Gunakan barrier/jaring pada nursery untuk mencegah infestasi awal</li>
+                                </ul>
+                            </div>
+                            <div id="trips-biologi" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:leaf-circle-outline"></span> Pengendalian Biologi</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Predator <em>Orius spp.</em> (flower bug) yang memangsa trips dewasa dan nimfa</li>
+                                    <li>• Jamur entomopatogen <em>Metarhizium anisopliae</em> dan <em>Beauveria bassiana</em></li>
+                                    <li>• Aplikasi <em>Lecanicillium lecanii</em> khusus untuk trips</li>
+                                    <li>• Pertahankan populasi predator alami di sekitar lahan</li>
+                                </ul>
+                            </div>
+                            <div id="trips-kimia" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:flask-outline"></span> Pengendalian Kimia</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Abamektin 0,5-1 ml/l — efektif pada semua stadium</li>
+                                    <li>• Spinosad 0,25-0,5 g/l — ramah lingkungan, golongan spinosyn</li>
+                                    <li>• Fipronil 0,5-1 g/l — kontak & lambung, efektif untuk trips</li>
+                                    <li>• Tiametoksam 0,2-0,4 g/l — sistemik, translaminar</li>
+                                    <li>• Aplikasi pada sore hari saat trips paling aktif</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HAMA 4: TUNGAU ==================== -->
+    <section id="tungau" class="py-24 bg-hijau-50/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="pest-card bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
+                <div class="grid lg:grid-cols-2">
+                    <div class="p-8 md:p-12 flex flex-col order-2 lg:order-1">
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-hijau-600" data-icon="mdi:information-outline"></span>
+                                Deskripsi Hama
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed text-sm">Tungau (mites) adalah arachnida berukuran sangat kecil (< 0,5 mm), hampir tidak terlihat mata telanjang. Warna tubuh kuning, hijau pucat, hingga kemerahan. Hidup di permukaan bawah daun dan menenun jaring halus (webbing). Berkembang sangat pesat pada kondisi kering dan panas.</p>
+                        </div>
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-red-500" data-icon="mdi:alert-circle-outline"></span>
+                                Ciri-ciri Tanaman Terserang
+                            </h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Bercak-bercak kuning keputihan (tutupan) pada permukaan daun (stippling)</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Daun berubah menjadi kuning kebronzean, mengering, dan rontok</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Terdapat jaring-jaring halus (webbing) pada bawah daun dan antar cabang</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Tanaman terlihat layu meski kebutuhan air terpenuhi</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Buah menjadi kecil, keras, dan tidak berkembang normal</li>
+                            </ul>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-4">
+                                <span class="iconify text-hijau-600" data-icon="mdi:shield-sword-outline"></span>
+                                Cara Pengendalian
+                            </h3>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <button onclick="switchTab(this, 'tungau-fisik')" class="control-tab active text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Fisik</button>
+                                <button onclick="switchTab(this, 'tungau-mekanik')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Mekanik</button>
+                                <button onclick="switchTab(this, 'tungau-biologi')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Biologi</button>
+                                <button onclick="switchTab(this, 'tungau-kimia')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Kimia</button>
+                            </div>
+                            <div id="tungau-fisik" class="tab-content bg-hijau-50 rounded-2xl p-5">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:water-outline"></span> Pengendalian Fisik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Tingkatkan kelembaban sekitar tanaman dengan penyiraman rutin (tungau suka kering)</li>
+                                    <li>• Semprot air bertekanan pada bawah daun untuk menghilangkan tungau</li>
+                                    <li>• Gunakan mulsa organik untuk menjaga kelembaban tanah</li>
+                                </ul>
+                            </div>
+                            <div id="tungau-mekanik" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:hand-back-right-outline"></span> Pengendalian Mekanik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Pangkas dan musnahkan daun yang terserang berat</li>
+                                    <li>• Bersihkan sisa tanaman dan rumput liar di sekitar lahan</li>
+                                    <li>• Hindari penanaman tanaman inang berdekatan (tomat, kacang, jagung)</li>
+                                </ul>
+                            </div>
+                            <div id="tungau-biologi" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:leaf-circle-outline"></span> Pengendalian Biologi</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Predator <em>Phytoseiulus persimilis</em> — predator tungau khusus, sangat efektif</li>
+                                    <li>• Predator <em>Amblyseius californicus</em> — tahan terhadap kondisi kering</li>
+                                    <li>• Jamur <em>Hirsutella thompsonii</em> — patogen khusus tungau</li>
+                                    <li>• Aplikasi <em>Beauveria bassiana</em> pada populasi tinggi</li>
+                                </ul>
+                            </div>
+                            <div id="tungau-kimia" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:flask-outline"></span> Pengendalian Kimia</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Abamektin 0,5-1 ml/l — akarisida utama, efektif pada semua stadium</li>
+                                    <li>• Fenpropathrin 1-2 ml/l — piretroid, kontak & translaminar</li>
+                                    <li>• Spiromesifen 0,25-0,5 ml/l — efektif pada telur dan nimfa</li>
+                                    <li>• Dikofol 1,5-2 ml/l — akarisida kontak spesifik</li>
+                                    <li>• Rotasi dengan bahan aktif berbeda golongan, hindari piretroid berulang</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative h-[350px] md:h-[500px] overflow-hidden order-1 lg:order-2">
+                        <img src="./FOTO/tungau.jpg" alt="Tungau" class="pest-img w-full h-full object-cover transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-hijau-900/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="inline-block bg-hijau-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">Hama #4</span>
+                            <h2 class="font-display text-3xl md:text-4xl font-bold text-white">Tungau</h2>
+                            <p class="text-white/70 text-sm italic mt-1">Tetranychus spp.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HAMA 5: ULAT GRAYAK ==================== -->
+    <section id="ulat-grayak" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="pest-card bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
+                <div class="grid lg:grid-cols-2">
+                    <div class="relative h-[350px] md:h-[500px] overflow-hidden">
+                        <img src="./FOTO/grayak.avif" alt="Ulat Grayak" class="pest-img w-full h-full object-cover transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-hijau-900/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="inline-block bg-hijau-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">Hama #5</span>
+                            <h2 class="font-display text-3xl md:text-4xl font-bold text-white">Ulat Grayak</h2>
+                            <p class="text-white/70 text-sm italic mt-1">Spodoptera litura</p>
+                        </div>
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col">
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-hijau-600" data-icon="mdi:information-outline"></span>
+                                Deskripsi Hama
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed text-sm">Ulat grayak adalah larva ngengat <em>Spodoptera litura</em> yang berukuran 30-40 mm saat dewasa. Warna tubuh hitam kecoklatan dengan garis-garis samping kuning. Ulat ini bersifat defoliator (pemakan daun) dan bergerak dalam kelompok (armyworm) dari satu tanaman ke tanaman lain terutama pada malam hari.</p>
+                        </div>
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-red-500" data-icon="mdi:alert-circle-outline"></span>
+                                Ciri-ciri Tanaman Terserang
+                            </h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Bekas gigitan besar pada daun, hanya tersisa tulang daun (skeletonisasi)</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Lubang-lubang besar pada buah cabai muda</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Terlihat feses (kotoran) berwarna hijau kehitaman di sekitar tanaman</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Ulat terlihat pada malam hari di permukaan daun dan batang</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Daun muda habis terkikis, tanaman gundul pada serangan berat</li>
+                            </ul>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-4">
+                                <span class="iconify text-hijau-600" data-icon="mdi:shield-sword-outline"></span>
+                                Cara Pengendalian
+                            </h3>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <button onclick="switchTab(this, 'ulat-fisik')" class="control-tab active text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Fisik</button>
+                                <button onclick="switchTab(this, 'ulat-mekanik')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Mekanik</button>
+                                <button onclick="switchTab(this, 'ulat-biologi')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Biologi</button>
+                                <button onclick="switchTab(this, 'ulat-kimia')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Kimia</button>
+                            </div>
+                            <div id="ulat-fisik" class="tab-content bg-hijau-50 rounded-2xl p-5">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:water-outline"></span> Pengendalian Fisik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Pasang lampu perangkap (light trap) untuk menangkap ngengat dewasa pada malam hari</li>
+                                    <li>• Gunakan perangkap feromon seks <em>S. litura</em> untuk memantau dan menangkap ngengat jantan</li>
+                                    <li>• Siram tanaman pada malam hari untuk mengganggu aktivitas makan ulat</li>
+                                </ul>
+                            </div>
+                            <div id="ulat-mekanik" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:hand-back-right-outline"></span> Pengendalian Mekanik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Pungut ulat secara manual pada pagi/sore hari dan musnahkan</li>
+                                    <li>• Buang dan bakar daun/buah yang sudah berlubang berat</li>
+                                    <li>• Olah tanah (pengolahan lahan) untuk menggali dan memusnahkan pupa di dalam tanah</li>
+                                    <li>• Sanitasi lahan dari sisa tanaman dan gulma inang</li>
+                                </ul>
+                            </div>
+                            <div id="ulat-biologi" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:leaf-circle-outline"></span> Pengendalian Biologi</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Bakteri <em>Bacillus thuringiensis</em> (Bt) — sangat efektif pada ulat instar 1-3</li>
+                                    <li>• Virus NPV (<em>Nucleopolyhedrovirus</em>) — spesifik untuk <em>Spodoptera</em></li>
+                                    <li>• Parasitoid telur <em>Trichogramma spp.</em> dan <em>Telenomus remus</em></li>
+                                    <li>• Parasitoid larva <em>Microplitis manilae</em></li>
+                                    <li>• Jamur <em>Metarhizium anisopliae</em> untuk ulat dan pupa</li>
+                                </ul>
+                            </div>
+                            <div id="ulat-kimia" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:flask-outline"></span> Pengendalian Kimia</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Klorfenapir 1,5-2 ml/l — efektif pada semua instar ulat</li>
+                                    <li>• Indoksakarb 0,5-1 ml/l — golongan oksadiazin, ramah predator</li>
+                                    <li>• Emamektin benzoat 0,3-0,5 g/l — efektif pada ulat instar muda</li>
+                                    <li>• Sipermetrin 1-2 ml/l — kontak & lambung</li>
+                                    <li>• Aplikasi pada sore/malam hari saat ulat aktif makan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HAMA 6: LALAT BUAH ==================== -->
+    <section id="lalat-buah" class="py-24 bg-hijau-50/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="pest-card bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
+                <div class="grid lg:grid-cols-2">
+                    <div class="p-8 md:p-12 flex flex-col order-2 lg:order-1">
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-hijau-600" data-icon="mdi:information-outline"></span>
+                                Deskripsi Hama
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed text-sm">Lalat buah adalah lalat berukuran 5-8 mm dengan sayap berbintik gelap dan kuning. Betina bertelur di dalam buah cabai yang masih hijau/mengkal. Larva (belatung) berkembang di dalam buah dan memakan daging buah dari dalam, menyebabkan pembusukan dan kerontokan.</p>
+                        </div>
+                        <div class="mb-8">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-3">
+                                <span class="iconify text-red-500" data-icon="mdi:alert-circle-outline"></span>
+                                Ciri-ciri Tanaman Terserang
+                            </h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Titik-titik bekas tusukan ovipositor (alat bertelur) pada permukaan buah</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Buah cabai berwarna kekuningan lebih awal (premature ripening)</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Buah menjadi lunak, busuk, dan mudah rontok</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Jika dipotong, terlihat belatung putih di dalam buah</li>
+                                <li class="flex items-start gap-2 text-sm text-gray-600"><span class="iconify text-hijau-500 mt-0.5 shrink-0" data-icon="mdi:check-circle"></span>Buah yang jatuh berlubang dan mengeluarkan cairan</li>
+                            </ul>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-display text-lg font-bold text-hijau-800 flex items-center gap-2 mb-4">
+                                <span class="iconify text-hijau-600" data-icon="mdi:shield-sword-outline"></span>
+                                Cara Pengendalian
+                            </h3>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <button onclick="switchTab(this, 'lalat-fisik')" class="control-tab active text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Fisik</button>
+                                <button onclick="switchTab(this, 'lalat-mekanik')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Mekanik</button>
+                                <button onclick="switchTab(this, 'lalat-biologi')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Biologi</button>
+                                <button onclick="switchTab(this, 'lalat-kimia')" class="control-tab text-xs font-semibold px-4 py-2 rounded-xl border border-hijau-200 text-hijau-700">Kimia</button>
+                            </div>
+                            <div id="lalat-fisik" class="tab-content bg-hijau-50 rounded-2xl p-5">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:water-outline"></span> Pengendalian Fisik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Pasang perangkap STE (Sexual Trap with Enzyme) berbait methyl eugenol</li>
+                                    <li>• Gunakan perangkap protein hidrolisat (food bait trap)</li>
+                                    <li>• Bungkus buah cabai dengan kertas/bag individual sejak buah muda</li>
+                                </ul>
+                            </div>
+                            <div id="lalat-mekanik" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:hand-back-right-outline"></span> Pengendalian Mekanik</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Kumpulkan dan musnahkan buah yang terserang (jatuh/berlubang) secara rutin</li>
+                                    <li>• Buang dan bakar atau rendam buah terserang dalam air panas</li>
+                                    <li>• Sanitasi lahan dari buah rontok yang menjadi sumber infestasi</li>
+                                    <li>• Gunakan jaring penutup (bagging) pada tandan buah</li>
+                                </ul>
+                            </div>
+                            <div id="lalat-biologi" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:leaf-circle-outline"></span> Pengendalian Biologi</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Parasitoid <em>Fopius arisanus</em> — menyerang telur lalat buah di dalam buah</li>
+                                    <li>• Parasitoid <em>Diachasmimorpha longicaudata</em> — menyerang larva</li>
+                                    <li>• Pelepasan lalat buah jantan steril (SIT — Sterile Insect Technique)</li>
+                                    <li>• Aplikasi jamur <em>Metarhizium anisopliae</em> pada tanah untuk memusnahkan pupa</li>
+                                </ul>
+                            </div>
+                            <div id="lalat-kimia" class="tab-content bg-hijau-50 rounded-2xl p-5 hidden">
+                                <h4 class="font-semibold text-hijau-800 text-sm mb-2 flex items-center gap-2"><span class="iconify" data-icon="mdi:flask-outline"></span> Pengendalian Kimia</h4>
+                                <ul class="space-y-1.5 text-sm text-gray-600">
+                                    <li>• Sipermetrin 1-2 ml/l — kontak, semprot pada buah dan daun</li>
+                                    <li>• Deltametrin 1-2 ml/l — efektif pada lalat dewasa</li>
+                                    <li>• Fipronil 0,5-1 g/l — kontak & lambung untuk lalat dewasa</li>
+                                    <li>• Aplikasi bait (umpan racun): campur protein hidrolisat + insektisida, semprot pada batang/daun</li>
+                                    <li>• Aplikasi pada pagi hari saat lalat dewasa paling aktif</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative h-[350px] md:h-[500px] overflow-hidden order-1 lg:order-2">
+                        <img src="./FOTO/lalat buah.jpg" alt="Lalat Buah" class="pest-img w-full h-full object-cover transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-hijau-900/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="inline-block bg-hijau-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">Hama #6</span>
+                            <h2 class="font-display text-3xl md:text-4xl font-bold text-white">Lalat Buah</h2>
+                            <p class="text-white/70 text-sm italic mt-1">Bactrocera spp.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RINGKASAN TABEL ==================== -->
+    <section id="ringkasan" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-flex items-center gap-2 bg-hijau-100 text-hijau-700 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider mb-4">
+                    <span class="iconify" data-icon="mdi:table-large"></span>
+                    Tabel Ringkasan
+                </span>
+                <h2 class="font-display text-3xl md:text-5xl font-bold text-hijau-900 tracking-tight mb-4">Perbandingan Cepat</h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Ringkasan gejala utama dan pengendalian kunci untuk setiap hama tanaman cabai.</p>
+            </div>
+
+            <div class="overflow-x-auto rounded-2xl border border-hijau-100 shadow-sm">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-hijau-700 text-white">
+                            <th class="text-left px-6 py-4 font-display font-semibold">Hama</th>
+                            <th class="text-left px-6 py-4 font-display font-semibold">Gejala Utama</th>
+                            <th class="text-left px-6 py-4 font-display font-semibold">Fisik/Mekanik</th>
+                            <th class="text-left px-6 py-4 font-display font-semibold">Biologi</th>
+                            <th class="text-left px-6 py-4 font-display font-semibold">Kimia (Bahan Aktif)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-hijau-50">
+                        <tr class="hover:bg-hijau-50/50 transition-colors">
+                            <td class="px-6 py-4 font-semibold text-hijau-800 whitespace-nowrap">🪰 Kutu Kebul</td>
+                            <td class="px-6 py-4 text-gray-600">Daun kuning, gulung, embun tepung, jamur jelaga</td>
+                            <td class="px-6 py-4 text-gray-600">Sticky trap kuning, mulsa perak, jaring 40-50 mesh</td>
+                            <td class="px-6 py-4 text-gray-600"><em>Encarsia formosa</em>, <em>Beauveria</em></td>
+                            <td class="px-6 py-4 text-gray-600">Imidakloprid, Spirotetramat</td>
+                        </tr>
+                        <tr class="hover:bg-hijau-50/50 transition-colors bg-hijau-50/30">
+                            <td class="px-6 py-4 font-semibold text-hijau-800 whitespace-nowrap">🐛 Kutu Daun</td>
+                            <td class="px-6 py-4 text-gray-600">Kuncup mengkerut, daun lengket, pertumbuhan kerdil</td>
+                            <td class="px-6 py-4 text-gray-600">Semprot air tekanan, sticky trap, jaring nursery</td>
+                            <td class="px-6 py-4 text-gray-600">Koksi, <em>Aphidius</em>, ekstrak neem</td>
+                            <td class="px-6 py-4 text-gray-600">Imidakloprid, Pirimikarb, Pymetrozin</td>
+                        </tr>
+                        <tr class="hover:bg-hijau-50/50 transition-colors">
+                            <td class="px-6 py-4 font-semibold text-hijau-800 whitespace-nowrap">🪲 Trips</td>
+                            <td class="px-6 py-4 text-gray-600">Bercak perak, daun kasar menggulung, bunga rontok</td>
+                            <td class="px-6 py-4 text-gray-600">Blue sticky trap, mulsa reflektif</td>
+                            <td class="px-6 py-4 text-gray-600"><em>Orius</em>, <em>Metarhizium</em>, <em>Lecanicillium</em></td>
+                            <td class="px-6 py-4 text-gray-600">Abamektin, Spinosad, Fipronil</td>
+                        </tr>
+                        <tr class="hover:bg-hijau-50/50 transition-colors bg-hijau-50/30">
+                            <td class="px-6 py-4 font-semibold text-hijau-800 whitespace-nowrap">🕷️ Tungau</td>
+                            <td class="px-6 py-4 text-gray-600">Bercak stippling, daun kebronzean, jaring halus</td>
+                            <td class="px-6 py-4 text-gray-600">Tingkatkan kelembaban, semprot air tekanan</td>
+                            <td class="px-6 py-4 text-gray-600"><em>Phytoseiulus</em>, <em>Hirsutella</em></td>
+                            <td class="px-6 py-4 text-gray-600">Abamektin, Spiromesifen, Dikofol</td>
+                        </tr>
+                        <tr class="hover:bg-hijau-50/50 transition-colors">
+                            <td class="px-6 py-4 font-semibold text-hijau-800 whitespace-nowrap">🐛 Ulat Grayak</td>
+                            <td class="px-6 py-4 text-gray-600">Daun skeletonisasi, lubang buah, feses hijau</td>
+                            <td class="px-6 py-4 text-gray-600">Light trap, feromon, pungut ulat manual</td>
+                            <td class="px-6 py-4 text-gray-600">Bt, NPV, <em>Trichogramma</em></td>
+                            <td class="px-6 py-4 text-gray-600">Klorfenapir, Indoksakarb, Emamektin</td>
+                        </tr>
+                        <tr class="hover:bg-hijau-50/50 transition-colors bg-hijau-50/30">
+                            <td class="px-6 py-4 font-semibold text-hijau-800 whitespace-nowrap">🪰 Lalat Buah</td>
+                            <td class="px-6 py-4 text-gray-600">Bekas tusukan, buah busuk/rontok, belatung di buah</td>
+                            <td class="px-6 py-4 text-gray-600">STE/methyl eugenol, bagging buah, sanitasi</td>
+                            <td class="px-6 py-4 text-gray-600"><em>Fopius</em>, SIT, <em>Metarhizium</em></td>
+                            <td class="px-6 py-4 text-gray-600">Sipermetrin, Deltametrin, bait racun</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tips Box -->
+            <div class="mt-12 bg-gradient-to-br from-hijau-700 to-hijau-900 rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 text-white/5">
+                    <span class="iconify text-[12rem]" data-icon="mdi:lightbulb-on-outline"></span>
+                </div>
+                <div class="relative z-10">
+                    <h3 class="font-display text-2xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+                            <span class="iconify text-xl" data-icon="mdi:lightbulb-on-outline"></span>
+                        </span>
+                        Tips Penting Pengendalian Hama Terpadu (PHT)
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="flex items-start gap-3 bg-white/10 rounded-xl p-4">
+                            <span class="iconify text-hijau-300 text-xl mt-0.5 shrink-0" data-icon="mdi:numeric-1-circle"></span>
+                            <p class="text-sm text-white/90"><strong class="text-white">Monitoring rutin</strong> — Lakukan pengamatan mingguan sejak awal tanam untuk deteksi dini serangan hama.</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-white/10 rounded-xl p-4">
+                            <span class="iconify text-hijau-300 text-xl mt-0.5 shrink-0" data-icon="mdi:numeric-2-circle"></span>
+                            <p class="text-sm text-white/90"><strong class="text-white">Prioritaskan non-kimia</strong> — Gunakan cara fisik, mekanik, dan biologi terlebih dahulu sebelum beralih ke pestisida.</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-white/10 rounded-xl p-4">
+                            <span class="iconify text-hijau-300 text-xl mt-0.5 shrink-0" data-icon="mdi:numeric-3-circle"></span>
+                            <p class="text-sm text-white/90"><strong class="text-white">Rotasi bahan aktif</strong> — Jangan gunakan insektisida golongan sama berulang kali untuk mencegah resistensi.</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-white/10 rounded-xl p-4">
+                            <span class="iconify text-hijau-300 text-xl mt-0.5 shrink-0" data-icon="mdi:numeric-4-circle"></span>
+                            <p class="text-sm text-white/90"><strong class="text-white">Waktu aplikasi tepat</strong> — Semprot pada pagi (sebelum jam 9) atau sore (setelah jam 4) untuk efektivitas maksimal.</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-white/10 rounded-xl p-4">
+                            <span class="iconify text-hijau-300 text-xl mt-0.5 shrink-0" data-icon="mdi:numeric-5-circle"></span>
+                            <p class="text-sm text-white/90"><strong class="text-white">Jaga musuh alami</strong> — Hindari penggunaan insektisida ber spektrum luas jika populasinya masih rendah.</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-white/10 rounded-xl p-4">
+                            <span class="iconify text-hijau-300 text-xl mt-0.5 shrink-0" data-icon="mdi:numeric-6-circle"></span>
+                            <p class="text-sm text-white/90"><strong class="text-white">Kebersihan lahan</strong> — Sanitasi rutin, buang sisa tanaman, dan kelola gulma untuk mengurangi sumber infestasi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-hijau-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-hijau-600 rounded-xl flex items-center justify-center">
+                            <span class="iconify text-white text-xl" data-icon="mdi:chili-mild"></span>
+                        </div>
+                        <span class="font-display font-bold text-lg">HamaCabai<span class="text-hijau-400">.id</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Panduan informasi lengkap tentang hama utama tanaman cabai dan cara pengendaliannya secara terpadu untuk petani Indonesia.</p>
+                </div>
+                <div>
+                    <h4 class="font-display font-semibold mb-4 text-hijau-300">Navigasi Hama</h4>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="#kutu-kebul" class="text-gray-400 hover:text-white text-sm transition-colors">Kutu Kebul</a>
+                        <a href="#kutu-daun" class="text-gray-400 hover:text-white text-sm transition-colors">Kutu Daun</a>
+                        <a href="#trips" class="text-gray-400 hover:text-white text-sm transition-colors">Trips</a>
+                        <a href="#tungau" class="text-gray-400 hover:text-white text-sm transition-colors">Tungau</a>
+                        <a href="#ulat-grayak" class="text-gray-400 hover:text-white text-sm transition-colors">Ulat Grayak</a>
+                        <a href="#lalat-buah" class="text-gray-400 hover:text-white text-sm transition-colors">Lalat Buah</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-display font-semibold mb-4 text-hijau-300">Referensi</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><span class="iconify text-hijau-500" data-icon="mdi:book-open-variant"></span> Kementerian Pertanian RI</li>
+                        <li class="flex items-center gap-2"><span class="iconify text-hijau-500" data-icon="mdi:book-open-variant"></span> Balai Proteksi Tanaman</li>
+                        <li class="flex items-center gap-2"><span class="iconify text-hijau-500" data-icon="mdi:book-open-variant"></span> IRRI — PHT Guidelines</li>
+                        <li class="flex items-center gap-2"><span class="iconify text-hijau-500" data-icon="mdi:book-open-variant"></span> CABI Invasive Species Compendium</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-hijau-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-500 text-sm">© 2025 HamaCabai.id — Informasi edukasi untuk petani Indonesia.</p>
+                <div class="flex items-center gap-2 text-gray-500 text-sm">
+                    <span class="iconify text-hijau-600" data-icon="mdi:leaf"></span>
+                    Dibuat dengan <span class="text-hijau-400 font-medium">Pengendalian Hama Terpadu (PHT)</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-8 right-8 w-12 h-12 bg-hijau-600 text-white rounded-2xl shadow-lg shadow-hijau-600/30 flex items-center justify-center hover:bg-hijau-700 transition-all duration-300 opacity-0 pointer-events-none z-50 hover:scale-110">
+        <span class="iconify text-xl" data-icon="mdi:chevron-up"></span>
+    </button>
+
+    <script>
+        // Tab Switching
+        function switchTab(btn, tabId) {
+            const parent = btn.closest('.flex-1') || btn.parentElement.parentElement;
+            const tabs = parent.querySelectorAll('.control-tab');
+            const contents = parent.querySelectorAll('.tab-content');
+
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.add('hidden'));
+
+            btn.classList.add('active');
+            document.getElementById(tabId).classList.remove('hidden');
+        }
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.innerHTML = menuOpen
+                ? '<span class="iconify text-2xl" data-icon="mdi:close"></span>'
+                : '<span class="iconify text-2xl" data-icon="mdi:menu"></span>';
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuOpen = false;
+                mobileMenuBtn.innerHTML = '<span class="iconify text-2xl" data-icon="mdi:menu"></span>';
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-hijau-800/95', 'shadow-lg');
+                navbar.classList.remove('bg-hijau-700/90');
+                backToTop.classList.remove('opacity-0', 'pointer-events-none');
+                backToTop.classList.add('opacity-100');
+            } else {
+                navbar.classList.remove('bg-hijau-800/95', 'shadow-lg');
+                navbar.classList.add('bg-hijau-700/90');
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+                backToTop.classList.remove('opacity-100');
+            }
+        });
+
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-visible');
+                    const items = entry.target.querySelectorAll('.anim-item');
+                    items.forEach((item, i) => {
+                        item.style.animationDelay = `${i * 0.1}s`;
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.pest-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Active nav link highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-white');
+                link.classList.add('text-white/80');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-white');
+                    link.classList.remove('text-white/80');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

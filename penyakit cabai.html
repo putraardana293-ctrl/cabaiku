@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penyakit Utama Tanaman Cabai - Panduan Lengkap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { inter: ['Inter', 'sans-serif'] },
+                    colors: {
+                        hijau: {
+                            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
+                            400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d',
+                            800: '#166534', 900: '#14532d', 950: '#052e16'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .disease-card:hover .disease-img { transform: scale(1.08); }
+        .disease-img { transition: transform 0.5s ease; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .tab-btn.active { background: #16a34a; color: white; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        @keyframes pulse-green { 0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); } 70% { box-shadow: 0 0 0 12px rgba(22, 163, 74, 0); } }
+        .pulse-green { animation: pulse-green 2s infinite; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #16a34a; transition: width 0.3s; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        @media (max-width: 768px) {
+            .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+            .mobile-menu.open { transform: translateX(0); }
+        }
+        .toast { transform: translateY(100px); opacity: 0; transition: all 0.4s ease; }
+        .toast.show { transform: translateY(0); opacity: 1; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-inter">
+
+    <!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)">
+    <div class="max-w-6xl mx-auto px-4"><div class="flex items-center justify-between h-14">
+        <a href="#beranda" class="flex items-center gap-2 text-lg font-bold" style="color:var(--ac)"><i class="fas fa-pepper-hot text-xl"></i>CabaiKu</a>
+            <div class="hidden md:flex items-center gap-5 text-xs font-medium">
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="CABAI_START_UP.html" class="nav-link text-sm font-medium text-hijau-700 hover:text-hijau-600">Beranda</a>
+                    <a href="TENTANG CABAI.html" class="nav-link text-sm font-medium text-gray-600 hover:text-hijau-600">Tentang</a>
+                    <a href="CABAI_START_UP.html#visimisi" class="nav-link text-sm font-medium text-gray-600 hover:text-hijau-600">Visi & Misi</a>
+                    <a href="musim hujan.html" class="nav-link text-sm font-medium text-gray-600 hover:text-hijau-600">Musim Kemarau</a>
+                    <a href="musim hujan.html" class="nav-link text-sm font-medium text-gray-600 hover:text-hijau-600">Musim Hujan</a>
+                    <a href="pupuk cabai.html" class="nav-link text-sm font-medium text-gray-600 hover:text-hijau-600">Pupuk</a>
+                    <a href="hama cabai.html" class="nav-link text-sm font-medium text-gray-600 hover:text-hijau-600">Hama</a>
+                    <a href="penyakit cabai.html" class="nav-link text-sm font-medium text-gray-600 hover:text-hijau-600">Penyakit</a>
+                    <a href="jadwal cabai.html" class="nav-link text-sm font-medium text-gray-600 hover:text-hijau-600">Jadwal</a>
+                    <a href="CABAI_START_UP.html#faq" class="nav-link text-sm font-medium text-gray-600 hover:text-hijau-600">FAQ</a>
+                    <a href="BLOG CABAIKU.html" class="nav-link text-sm font-medium text-gray-600 hover:text-hijau-600">Blog</a>
+                    <a href="CABAI_START_UP.html#kontak" class="nav-link text-sm font-medium text-gray-600 hover:text-hijau-600">Kontak</a>
+                    
+                </div>
+                <button id="menuToggle" class="md:hidden p-2 rounded-lg hover:bg-hijau-50">
+                    <i data-lucide="menu" class="w-6 h-6 text-hijau-700"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-16 right-0 bottom-0 w-72 bg-white shadow-2xl md:hidden z-50 border-l border-hijau-100">
+            <div class="flex flex-col p-6 gap-4">
+                <a href="CABAI_START_UP.html" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">Beranda</a>
+                <a href="TENTANG CABAI.html" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">Tentang</a>
+                <a href="CABAI_START_UP.html#visimisi" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">Visi & Misi</a>
+                <a href="musim hujan.html" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">Musim Kemarau</a>
+                <a href="musim hujan.html" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">Musim Hujan</a>
+                <a href="pupuk cabai.html" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">Pupuk</a>
+                <a href="hama cabai.html" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">Hama</a>
+                <a href="penyakit cabai.html" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">Penyakit</a>
+                <a href="jadwal cabai.html" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">Jadwal</a>
+                <a href="CABAI_START_UP.html#faq" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">FAQ</a>
+                <a href="BLOG CABAIKU.html" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">Blog</a>
+                <a href="CABAI_START_UP.html#kontak" class="mobile-link text-base font-medium text-hijau-700 hover:bg-hijau-50 px-4 py-3 rounded-lg">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Beranda / Hero -->
+    <section id="beranda" class="relative min-h-screen flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-hijau-900 via-hijau-800 to-hijau-700"></div>
+        <div class="absolute inset-0 opacity-10" style="background-image: url('https://picsum.photos/seed/chilifarm/1920/1080.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-hijau-950/80 to-transparent"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-hijau-500/20 border border-hijau-400/30 rounded-full px-4 py-1.5 mb-6">
+                    <span class="w-2 h-2 bg-hijau-400 rounded-full pulse-green"></span>
+                    <span class="text-hijau-200 text-xs font-medium tracking-wide uppercase">Panduan Lengkap 2026</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                    Penyakit Utama<br>
+                    <span class="text-hijau-300">Tanaman Cabai</span>
+                </h1>
+                <p class="text-lg text-hijau-100/80 font-light leading-relaxed mb-8 max-w-xl">
+                    Kenali, cegah, dan atasi berbagai penyakit yang menyerang tanaman cabai Anda. Panduan lengkap dengan rekomendasi pengendalian biologi, fisik, dan kimia.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#penyakit" class="inline-flex items-center gap-2 bg-white text-hijau-800 px-6 py-3 rounded-lg font-semibold hover:bg-hijau-50 transition-colors">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                        Lihat Penyakit
+                    </a>
+                    <a href="#pengendalian" class="inline-flex items-center gap-2 border border-hijau-300/40 text-hijau-100 px-6 py-3 rounded-lg font-medium hover:bg-hijau-500/20 transition-colors">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        Cara Pengendalian
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+    </section>
+
+    <!-- Statistik -->
+    <section class="py-12 bg-white relative z-10 -mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white rounded-xl p-5 shadow-lg shadow-hijau-100/50 border border-hijau-100 text-center">
+                    <div class="text-3xl font-bold text-hijau-600">6</div>
+                    <div class="text-sm text-gray-500 mt-1">Penyakit Utama</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 shadow-lg shadow-hijau-100/50 border border-hijau-100 text-center">
+                    <div class="text-3xl font-bold text-hijau-600">3</div>
+                    <div class="text-sm text-gray-500 mt-1">Metode Pengendalian</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 shadow-lg shadow-hijau-100/50 border border-hijau-100 text-center">
+                    <div class="text-3xl font-bold text-hijau-600">80%</div>
+                    <div class="text-sm text-gray-500 mt-1">Kerugian Maksimal</div>
+                </div>
+                <div class="bg-white rounded-xl p-5 shadow-lg shadow-hijau-100/50 border border-hijau-100 text-center">
+                    <div class="text-3xl font-bold text-hijau-600">24</div>
+                    <div class="text-sm text-gray-500 mt-1">Jam Respons</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Penyakit Utama -->
+    <section id="penyakit" class="py-20 bg-hijau-50/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="inline-block bg-hijau-100 text-hijau-700 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">Identifikasi Penyakit</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-hijau-900 mb-4">6 Penyakit Utama Cabai</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Kenali gejala dan tanda-tanda awal setiap penyakit untuk penanganan yang tepat dan cepat.</p>
+            </div>
+
+            <!-- Disease 1: Antraknosa -->
+            <div class="disease-card bg-white rounded-2xl shadow-lg shadow-hijau-900/5 overflow-hidden mb-10 fade-in">
+                <div class="grid md:grid-cols-2">
+                    <div class="overflow-hidden h-64 md:h-auto">
+                        <img src="./FOTO/patek.jpeg" alt="Antraknosa pada Cabai" class="disease-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 md:p-10">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-red-100 text-red-700 text-xs font-bold px-3 py-1 rounded-full">KEJADIAN TINGGI</span>
+                            <span class="bg-hijau-100 text-hijau-700 text-xs font-bold px-3 py-1 rounded-full">JAMUR</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-hijau-900 mb-2">1. Antraknosa</h3>
+                        <p class="text-sm text-gray-400 mb-4 italic">Penyebab: <em>Colletotrichum spp.</em></p>
+                        <div class="space-y-3 text-gray-600 text-sm leading-relaxed">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala pada Buah:</strong> Bercak coklat kehitaman berair, melingkar, cekung di tengah dengan bercak hitam (akervulus) yang mengandung spora berwarna merah muda/jingga.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala pada Daun:</strong> Bercak bulat coklat muda dengan tepi gelap, dapat bergabung membentuk area nekrotik luas.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="cloud-rain" class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Favorit:</strong> Musim hujan, kelembaban tinggi (>90%), suhu 25-28°C. Kerugian bisa mencapai 80%.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disease 2: Busuk Buah / Phytophthora -->
+            <div class="disease-card bg-white rounded-2xl shadow-lg shadow-hijau-900/5 overflow-hidden mb-10 fade-in">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-8 md:p-10 order-2 md:order-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-red-100 text-red-700 text-xs font-bold px-3 py-1 rounded-full">KEJADIAN TINGGI</span>
+                            <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1 rounded-full">OOMYCETE</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-hijau-900 mb-2">2. Busuk Buah (Layu Phytophthora)</h3>
+                        <p class="text-sm text-gray-400 mb-4 italic">Penyebab: <em>Phytophthora capsici</em></p>
+                        <div class="space-y-3 text-gray-600 text-sm leading-relaxed">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala pada Buah:</strong> Bercak coklat kehitaman berair yang cepat membusuk, ditutupi lapisan putih halus (miselium) pada kondisi lembab.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala pada Batang:</strong> Bercak coklat gelap memanjang di batang, layu mendadak pada satu sisi tanaman.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="cloud-rain" class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Favorit:</strong> Tanah tergenang, drainase buruk, musim hujan. Penyebaran sangat cepat, bisa menghancurkan seluruh petakan dalam hitungan hari.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden h-64 md:h-auto order-1 md:order-2">
+                        <img src="./FOTO/busuk buah.jpeg" alt="Busuk Buah Phytophthora" class="disease-img w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disease 3: Embun Tepung -->
+            <div class="disease-card bg-white rounded-2xl shadow-lg shadow-hijau-900/5 overflow-hidden mb-10 fade-in">
+                <div class="grid md:grid-cols-2">
+                    <div class="overflow-hidden h-64 md:h-auto">
+                        <img src="./FOTO/embun tepung.jpeg" alt="Embun Tepung" class="disease-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 md:p-10">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1 rounded-full">KEJADIAN SEDANG</span>
+                            <span class="bg-hijau-100 text-hijau-700 text-xs font-bold px-3 py-1 rounded-full">JAMUR</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-hijau-900 mb-2">3. Embun Tepung (Powdery Mildew)</h3>
+                        <p class="text-sm text-gray-400 mb-4 italic">Penyebab: <em>Leveillula taurica</em></p>
+                        <div class="space-y-3 text-gray-600 text-sm leading-relaxed">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala pada Daun:</strong> Bercak kuning pucat di permukaan atas daun, dengan tepuk putih halus di permukaan bawah. Daun menguning, menggulung ke atas, dan rontok.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala pada Tanaman:</strong> Pertumbuhan kerdil, buah tidak berkembang sempurna, penurunan hasil hingga 50%.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="sun" class="w-4 h-4 text-yellow-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Favorit:</strong> Musim kemarau, suhu hangat (25-30°C), kelembaban relatif sedang (60-75%), malam yang sejuk.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disease 4: Layu Bakteri -->
+            <div class="disease-card bg-white rounded-2xl shadow-lg shadow-hijau-900/5 overflow-hidden mb-10 fade-in">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-8 md:p-10 order-2 md:order-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-red-100 text-red-700 text-xs font-bold px-3 py-1 rounded-full">KEJADIAN TINGGI</span>
+                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full">BAKTERI</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-hijau-900 mb-2">4. Layu Bakteri</h3>
+                        <p class="text-sm text-gray-400 mb-4 italic">Penyebab: <em>Ralstonia solanacearum</em></p>
+                        <div class="space-y-3 text-gray-600 text-sm leading-relaxed">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala Utama:</strong> Layu mendadak tanpa kuning daun terlebih dahulu. Satu sisi tanaman layu lebih dulu, kemudian seluruh tanaman.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala Batang:</strong> Jika batang dipotong melintang, terlihat pembuluh berwarna coklat. Jika direndam air, keluar lendir putih kekuningan.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="cloud-rain" class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Favorit:</strong> Tanah lembab, suhu 28-32°C, tanah yang pernah terinfeksi. Bakteri bertahan di tanah hingga bertahun-tahun.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden h-64 md:h-auto order-1 md:order-2">
+                        <img src="./FOTO/layu bakteri.jpeg" alt="Layu Bakteri" class="disease-img w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disease 5: Mozaik Tembakau -->
+            <div class="disease-card bg-white rounded-2xl shadow-lg shadow-hijau-900/5 overflow-hidden mb-10 fade-in">
+                <div class="grid md:grid-cols-2">
+                    <div class="overflow-hidden h-64 md:h-auto">
+                        <img src="./FOTO/mozaik cabai.jpeg" alt="Mozaik Tembakau" class="disease-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 md:p-10">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1 rounded-full">KEJADIAN SEDANG</span>
+                            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">VIRUS</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-hijau-900 mb-2">5. Mozaik Tembakau (TMV)</h3>
+                        <p class="text-sm text-gray-400 mb-4 italic">Penyebab: <em>Tobacco Mosaic Virus (TMV)</em></p>
+                        <div class="space-y-3 text-gray-600 text-sm leading-relaxed">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala pada Daun:</strong> Pola mozaik (hijau muda dan hijau tua bergantian), daun mengkerut, bergelombang, dan menyempit. Kadang muncul bercak nekrotik.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala pada Tanaman:</strong> Kerdil, pertumbuhan terhambat, buah kecil dan tidak normal, jumlah buah berkurang drastis.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="bug" class="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Vektor:</strong> Ditularkan secara mekanis (peralatan, tangan), kutu daun, dan benih terinfeksi. Virus sangat tahan lama di peralatan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disease 6: Bercak Daun Cercospora -->
+            <div class="disease-card bg-white rounded-2xl shadow-lg shadow-hijau-900/5 overflow-hidden mb-10 fade-in">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-8 md:p-10 order-2 md:order-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1 rounded-full">KEJADIAN SEDANG</span>
+                            <span class="bg-hijau-100 text-hijau-700 text-xs font-bold px-3 py-1 rounded-full">JAMUR</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-hijau-900 mb-2">6. Bercak Daun (Cercospora)</h3>
+                        <p class="text-sm text-gray-400 mb-4 italic">Penyebab: <em>Cercospora capsici</em></p>
+                        <div class="space-y-3 text-gray-600 text-sm leading-relaxed">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala pada Daun:</strong> Bercak bulat kecil (2-5mm) berwarna coklat muda dengan tepi gelap, bagian tengah abu-abu keputihan. Bercak dapat bergabung.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="circle-alert" class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Gejala Lanjut:</strong> Daun tua menguning dan rontok prematur, mengurangi area fotosintesis sehingga buah tidak maksimal.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="cloud-rain" class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                                <p><strong>Favorit:</strong> Kelembaban tinggi, hujan sering, suhu 25-30°C. Sering ditemukan bersamaan dengan antraknosa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden h-64 md:h-auto order-1 md:order-2">
+                        <img src="./FOTO/bercak daun.jpeg" alt="Bercak Daun Cercospora" class="disease-img w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengendalian -->
+    <section id="pengendalian" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <span class="inline-block bg-hijau-100 text-hijau-700 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">Metode Pengendalian</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-hijau-900 mb-4">3 Pendekatan Pengendalian</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Pengendalian Terpadu (PHT) yang menggabungkan biologis, fisik, dan kimia untuk hasil optimal.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <button onclick="switchTab('biologi')" class="tab-btn active px-6 py-3 rounded-xl text-sm font-semibold border-2 border-hijau-200 transition-all">
+                    <span class="flex items-center gap-2"><i data-lucide="bug" class="w-4 h-4"></i> Biologi</span>
+                </button>
+                <button onclick="switchTab('fisik')" class="tab-btn px-6 py-3 rounded-xl text-sm font-semibold border-2 border-hijau-200 text-hijau-700 hover:bg-hijau-50 transition-all">
+                    <span class="flex items-center gap-2"><i data-lucide="hand" class="w-4 h-4"></i> Fisik/Mekanis</span>
+                </button>
+                <button onclick="switchTab('kimia')" class="tab-btn px-6 py-3 rounded-xl text-sm font-semibold border-2 border-hijau-200 text-hijau-700 hover:bg-hijau-50 transition-all">
+                    <span class="flex items-center gap-2"><i data-lucide="flask-conical" class="w-4 h-4"></i> Kimia</span>
+                </button>
+            </div>
+
+            <!-- Tab: Biologi -->
+            <div id="tab-biologi" class="tab-content active fade-in">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="microscope" class="w-6 h-6 text-hijau-600"></i>
+                        </div>
+                        <h4 class="font-bold text-hijau-900 mb-2">Trichoderma harzianum</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-3">Jamur antagonis yang menghambat pertumbuhan <em>Colletotrichum</em>, <em>Phytophthora</em>, dan <em>Cercospora</em>. Dapat ditambahkan ke media semaian atau dikocor ke pangkal batang.</p>
+                        <span class="text-xs bg-hijau-200/60 text-hijau-800 px-2 py-1 rounded font-medium">Untuk: Antraknosa, Busuk Buah, Cercospora</span>
+                    </div>
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="shield" class="w-6 h-6 text-hijau-600"></i>
+                        </div>
+                        <h4 class="font-bold text-hijau-900 mb-2">Bacillus subtilis</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-3">Bakteri menghasilkan antibiotik alami (iturin, surfactin) yang menekan pertumbuhan patogen jamur dan bakteri pada daun serta akar.</p>
+                        <span class="text-xs bg-hijau-200/60 text-hijau-800 px-2 py-1 rounded font-medium">Untuk: Antraknosa, Embun Tepung, Layu Bakteri</span>
+                    </div>
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="zap" class="w-6 h-6 text-hijau-600"></i>
+                        </div>
+                        <h4 class="font-bold text-hijau-900 mb-2">Paecilomyces lilacinus</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-3">Parasit telur nematoda yang membantu mengurangi kerusakan akar sehingga tanaman lebih tahan terhadap infeksi sekunder patogen tanah.</p>
+                        <span class="text-xs bg-hijau-200/60 text-hijau-800 px-2 py-1 rounded font-medium">Untuk: Pendukung ketahanan tanaman</span>
+                    </div>
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="flower-2" class="w-6 h-6 text-hijau-600"></i>
+                        </div>
+                        <h4 class="font-bold text-hijau-900 mb-2">Pestisida Nabati</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-3">Ekstrak daun nimba (azadirachtin), sereh wangi, dan bawang putih sebagai fungisida dan bakterisida alami. Spray 2x seminggu secara preventif.</p>
+                        <span class="text-xs bg-hijau-200/60 text-hijau-800 px-2 py-1 rounded font-medium">Untuk: Semua penyakit (pencegahan)</span>
+                    </div>
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="beetle" class="w-6 h-6 text-hijau-600"></i>
+                        </div>
+                        <h4 class="font-bold text-hijau-900 mb-2">Predator Alami</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-3">Kumbang koksi (<em>Coccinellidae</em>) untuk mengendalikan kutu daun penular virus. Larva syrphid fly juga predator efektif bagi aphid.</p>
+                        <span class="text-xs bg-hijau-200/60 text-hijau-800 px-2 py-1 rounded font-medium">Untuk: Mencegah penularan TMV</span>
+                    </div>
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="scan-line" class="w-6 h-6 text-hijau-600"></i>
+                        </div>
+                        <h4 class="font-bold text-hijau-900 mb-2">PGPR (Plant Growth-Promoting Rhizobacteria)</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-3">Kelompok bakteri menguntungkan di zona perakaran yang meningkatkan ketahanan sistemik tanaman (ISR) terhadap berbagai patogen.</p>
+                        <span class="text-xs bg-hijau-200/60 text-hijau-800 px-2 py-1 rounded font-medium">Untuk: Peningkatan imunitas tanaman</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Fisik -->
+            <div id="tab-fisik" class="tab-content fade-in">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="flame" class="w-6 h-6 text-hijau-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-hijau-900 mb-2">Solarisasi Tanah</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed">Tutup tanah dengan plastik transparan selama 4-6 minggu di musim kemarau. Suhu tanah naik hingga 50-60°C, membunuh sumber infeksi <em>Phytophthora</em>, <em>Ralstonia</em>, dan resting spora jamur di tanah.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="scissors" class="w-6 h-6 text-hijau-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-hijau-900 mb-2">Sanitasi & Pemangkasan</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed">Buang dan musnahkan segera bagian tanaman yang terinfeksi (bakar atau tanam dalam). Pangkas daun bawah yang terlalu rimbun untuk meningkatkan sirkulasi udara dan pencahayaan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="rotate-ccw" class="w-6 h-6 text-hijau-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-hijau-900 mb-2">Rotasi Tanaman</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed">Jangan menanam cabai atau solanaceae (tomat, terong, kentang) di lahan yang sama selama 2-3 tahun. Gilir dengan padi, jagung, atau kacang-kacangan untuk memutus siklus patogen.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="droplets" class="w-6 h-6 text-hijau-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-hijau-900 mb-2">Pengairan & Drainase</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed">Gunakan irigasi tetes (drip) untuk menghindari percikan air ke daun. Pastikan saluran drainase baik. Hindari penyiraman di sore/malam untuk mencegah kelembaban berlebih semalaman.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="fence" class="w-6 h-6 text-hijau-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-hijau-900 mb-2">Mulsa & Peredam Gulma</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed">Gunakan mulsa plastik perak-hitam untuk mencegah percikan tanah ke batang dan buah. Gulma sekitar tanaman harus dibersihkan karena bisa menjadi inang alternatif patogen.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-hijau-50 rounded-2xl p-6 border border-hijau-100 hover:shadow-lg transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-hijau-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="hand-metal" class="w-6 h-6 text-hijau-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-hijau-900 mb-2">Higienitas Perkakas</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed">Sterilkan gunting, pisau, dan alat lain dengan alkohol 70% atau larutan bleach 10% sebelum dan sesudah digunakan. Cuci tangan dengan sabun sebelum menangani tanaman sehat setelah kontak dengan tanaman sakit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Kimia -->
+            <div id="tab-kimia" class="tab-content fade-in">
+                <div class="overflow-x-auto no-scrollbar">
+                    <table class="w-full text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-hijau-800 text-white">
+                                <th class="px-4 py-3 text-left rounded-tl-xl font-semibold">Penyakit</th>
+                                <th class="px-4 py-3 text-left font-semibold">Bahan Aktif</th>
+                                <th class="px-4 py-3 text-left font-semibold">Merk Contoh</th>
+                                <th class="px-4 py-3 text-center font-semibold">Golongan</th>
+                                <th class="px-4 py-3 text-left rounded-tr-xl font-semibold">Cara Kerja</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-hijau-100 hover:bg-hijau-50/50">
+                                <td class="px-4 py-3 font-medium text-hijau-800">Antraknosa</td>
+                                <td class="px-4 py-3">Mancozeb + Metalaksil</td>
+                                <td class="px-4 py-3 text-gray-500">Ridomil Gold, Dithane M-45</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full">Karbamat + Fenilamida</span></td>
+                                <td class="px-4 py-3">Kontak + Sistemik, multi-situs</td>
+                            </tr>
+                            <tr class="border-b border-hijau-100 hover:bg-hijau-50/50">
+                                <td class="px-4 py-3 font-medium text-hijau-800">Antraknosa</td>
+                                <td class="px-4 py-3">Azoksistrobin</td>
+                                <td class="px-4 py-3 text-gray-500">Amistar, Ortiva</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full">Strobilurin</span></td>
+                                <td class="px-4 py-3">Sistemik, inhibisi respirasi</td>
+                            </tr>
+                            <tr class="border-b border-hijau-100 hover:bg-hijau-50/50">
+                                <td class="px-4 py-3 font-medium text-hijau-800">Busuk Buah</td>
+                                <td class="px-4 py-3">Fosetil-Aluminium</td>
+                                <td class="px-4 py-3 text-gray-500">Aliette, Racuza</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full">Fosfonat</span></td>
+                                <td class="px-4 py-3">Sistemik, stimulasi pertahanan</td>
+                            </tr>
+                            <tr class="border-b border-hijau-100 hover:bg-hijau-50/50">
+                                <td class="px-4 py-3 font-medium text-hijau-800">Busuk Buah</td>
+                                <td class="px-4 py-3">Propamokarb HCl + Fluopicolide</td>
+                                <td class="px-4 py-3 text-gray-500">Infinito</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded-full">Karbamat + Amida</span></td>
+                                <td class="px-4 py-3">Translaminar + sistemik</td>
+                            </tr>
+                            <tr class="border-b border-hijau-100 hover:bg-hijau-50/50">
+                                <td class="px-4 py-3 font-medium text-hijau-800">Embun Tepung</td>
+                                <td class="px-4 py-3">Sulfur (belerang)</td>
+                                <td class="px-4 py-3 text-gray-500">Cosavet, Sulfur WP</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-yellow-100 text-yellow-700 text-xs px-2 py-0.5 rounded-full">Anorganik</span></td>
+                                <td class="px-4 py-3">Kontak, inhibisi respirasi jamur</td>
+                            </tr>
+                            <tr class="border-b border-hijau-100 hover:bg-hijau-50/50">
+                                <td class="px-4 py-3 font-medium text-hijau-800">Embun Tepung</td>
+                                <td class="px-4 py-3">Trifloksistrobin</td>
+                                <td class="px-4 py-3 text-gray-500">Flint, Stratego</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full">Strobilurin</span></td>
+                                <td class="px-4 py-3">Sistemik, translaminar</td>
+                            </tr>
+                            <tr class="border-b border-hijau-100 hover:bg-hijau-50/50">
+                                <td class="px-4 py-3 font-medium text-hijau-800">Layu Bakteri</td>
+                                <td class="px-4 py-3">Streptomisin sulfat</td>
+                                <td class="px-4 py-3 text-gray-500">Agrept, Bacterin</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full">Antibiotik</span></td>
+                                <td class="px-4 py-3">Kontak, hambat sintesis protein</td>
+                            </tr>
+                            <tr class="border-b border-hijau-100 hover:bg-hijau-50/50">
+                                <td class="px-4 py-3 font-medium text-hijau-800">Layu Bakteri</td>
+                                <td class="px-4 py-3">Tembaga hidroksida</td>
+                                <td class="px-4 py-3 text-gray-500">Kocide, Cupravit</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-cyan-100 text-cyan-700 text-xs px-2 py-0.5 rounded-full">Tembaga</span></td>
+                                <td class="px-4 py-3">Kontak, denaturasi protein bakteri</td>
+                            </tr>
+                            <tr class="hover:bg-hijau-50/50">
+                                <td class="px-4 py-3 font-medium text-hijau-800">Cercospora</td>
+                                <td class="px-4 py-3">Benomil / Karbendazim</td>
+                                <td class="px-4 py-3 text-gray-500">Benlate, Derosal</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full">Benzimidazol</span></td>
+                                <td class="px-4 py-3">Sistemik, hambat pembelahan sel</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-6 bg-yellow-50 border border-yellow-200 rounded-xl p-4 flex items-start gap-3">
+                    <i data-lucide="triangle-alert" class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"></i>
+                    <div class="text-sm text-yellow-800">
+                        <strong>Peringatan:</strong> Untuk TMV (virus), TIDAK ada pestisida kimia yang efektif. Pengendalian sepenuhnya bergantung pada pencegahan: gunakan varietas tahan virus, eliminasi tanaman terinfeksi, dan kendalikan vektor kutu daun. Gunakan pestisida kimia sebagai pilihan terakhir setelah metode biologis dan fisik gagal.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dosis & Aplikasi -->
+    <section id="dosis" class="py-20 bg-hijau-50/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <span class="inline-block bg-hijau-100 text-hijau-700 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">Dosis & Aplikasi</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-hijau-900 mb-4">Dosis Sesuai Musim</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Dosis dan frekuensi berbeda antara musim kemarau dan musim hujan. Ikuti petunjuk berikut untuk efektivitas optimal.</p>
+            </div>
+
+            <!-- Season Toggle -->
+            <div class="flex justify-center mb-10">
+                <div class="bg-white rounded-xl p-1.5 shadow-md border border-hijau-100 inline-flex">
+                    <button onclick="switchSeason('kemarau')" id="btn-kemarau" class="season-btn px-6 py-2.5 rounded-lg text-sm font-semibold bg-hijau-600 text-white transition-all flex items-center gap-2">
+                        <i data-lucide="sun" class="w-4 h-4"></i> Musim Kemarau
+                    </button>
+                    <button onclick="switchSeason('hujan')" id="btn-hujan" class="season-btn px-6 py-2.5 rounded-lg text-sm font-semibold text-hijau-700 hover:bg-hijau-50 transition-all flex items-center gap-2">
+                        <i data-lucide="cloud-rain" class="w-4 h-4"></i> Musim Hujan
+                    </button>
+                </div>
+            </div>
+
+            <!-- Musim Kemarau -->
+            <div id="season-kemarau" class="season-content fade-in">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-hijau-100">
+                    <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-4 flex items-center gap-3">
+                        <i data-lucide="sun" class="w-6 h-6 text-white"></i>
+                        <div>
+                            <h3 class="text-white font-bold">Musim Kemarau</h3>
+                            <p class="text-yellow-100 text-xs">Suhu tinggi, kelembaban rendah, evaporasi cepat</p>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto no-scrollbar">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-hijau-50 border-b border-hijau-100">
+                                    <th class="px-5 py-3 text-left font-bold text-hijau-800">Penyakit</th>
+                                    <th class="px-5 py-3 text-left font-bold text-hijau-800">Bahan Aktif</th>
+                                    <th class="px-5 py-3 text-center font-bold text-hijau-800">Dosis/Liter Air</th>
+                                    <th class="px-5 py-3 text-center font-bold text-hijau-800">Volume/Hektar</th>
+                                    <th class="px-5 py-3 text-center font-bold text-hijau-800">Interval</th>
+                                    <th class="px-5 py-3 text-left font-bold text-hijau-800">Cara Aplikasi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-5 py-3 font-medium">Antraknosa</td>
+                                    <td class="px-5 py-3">Mancozeb 80% WP</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-hijau-100 text-hijau-800 font-bold px-2 py-0.5 rounded">2 g</span></td>
+                                    <td class="px-5 py-3 text-center">500-600 L</td>
+                                    <td class="px-5 py-3 text-center">7-10 hari</td>
+                                    <td class="px-5 py-3 text-xs">Semprot merata ke seluruh permukaan daun terutama bagian bawah, pagi hari (07.00-09.00). Tambahkan perekat 0.5 ml/L.</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50/50">
+                                    <td class="px-5 py-3 font-medium">Antraknosa</td>
+                                    <td class="px-5 py-3">Azoksistrobin 25% SC</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-hijau-100 text-hijau-800 font-bold px-2 py-0.5 rounded">0.5 ml</span></td>
+                                    <td class="px-5 py-3 text-center">500-600 L</td>
+                                    <td class="px-5 py-3 text-center">10-14 hari</td>
+                                    <td class="px-5 py-3 text-xs">Semprot sistemik, cukup bagian atas kanopi. Aplikasi saat suhu tidak terlalu panas (>35°C sebaiknya dihindari).</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-5 py-3 font-medium">Embun Tepung</td>
+                                    <td class="px-5 py-3">Sulfur 80% WP</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-hijau-100 text-hijau-800 font-bold px-2 py-0.5 rounded">2.5 g</span></td>
+                                    <td class="px-5 py-3 text-center">500-600 L</td>
+                                    <td class="px-5 py-3 text-center">7 hari</td>
+                                    <td class="px-5 py-3 text-xs">Semprot merata ke permukaan bawah daun. <strong>Jangan</strong> aplikasi saat suhu >35°C (risiko fitotoksitas).</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50/50">
+                                    <td class="px-5 py-3 font-medium">Busuk Buah</td>
+                                    <td class="px-5 py-3">Fosetil-Al 80% WP</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-hijau-100 text-hijau-800 font-bold px-2 py-0.5 rounded">2 g</span></td>
+                                    <td class="px-5 py-3 text-center">500-600 L</td>
+                                    <td class="px-5 py-3 text-center">10-14 hari</td>
+                                    <td class="px-5 py-3 text-xs">Semprot ke daun + kocor ke pangkal batang. Efektif sebagai protektif dan kuratif.</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-5 py-3 font-medium">Layu Bakteri</td>
+                                    <td class="px-5 py-3">Streptomisin sulfat 15% WP</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-hijau-100 text-hijau-800 font-bold px-2 py-0.5 rounded">1.5 g</span></td>
+                                    <td class="px-5 py-3 text-center">500-600 L</td>
+                                    <td class="px-5 py-3 text-center">5-7 hari</td>
+                                    <td class="px-5 py-3 text-xs">Kocor ke pangkal batang + semprot daun. Lakukan 3-4 kali berturut-turut. <strong>Maks 3 kali per musim</strong> untuk cegah resistensi.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-medium">Cercospora</td>
+                                    <td class="px-5 py-3">Karbendazim 50% WP</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-hijau-100 text-hijau-800 font-bold px-2 py-0.5 rounded">1 g</span></td>
+                                    <td class="px-5 py-3 text-center">500-600 L</td>
+                                    <td class="px-5 py-3 text-center">10-14 hari</td>
+                                    <td class="px-5 py-3 text-xs">Semprot merata ke seluruh daun. Bergantian dengan Mancozeb untuk mencegah resistensi.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bg-yellow-50 p-4 flex items-start gap-3 border-t border-yellow-100">
+                        <i data-lucide="info" class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"></i>
+                        <p class="text-xs text-yellow-800"><strong>Catatan Kemarau:</strong> Semprot di pagi hari (07.00-09.00) agar partikel pestisida tidak cepat menguap. Gunakan nozzle yang menghasilkan droplet sedang (tidak terlalu halus agar tidak menguap, tidak terlalu kasar agar merata). Volume air bisa dikurangi 10-15% jika daun tidak terlalu lebat.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Musim Hujan -->
+            <div id="season-hujan" class="season-content hidden fade-in">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-hijau-100">
+                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 p-4 flex items-center gap-3">
+                        <i data-lucide="cloud-rain" class="w-6 h-6 text-white"></i>
+                        <div>
+                            <h3 class="text-white font-bold">Musim Hujan</h3>
+                            <p class="text-blue-100 text-xs">Kelembaban tinggi, hujan frekuensi tinggi, risiko pencucian pestisida</p>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto no-scrollbar">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-blue-50 border-b border-blue-100">
+                                    <th class="px-5 py-3 text-left font-bold text-blue-800">Penyakit</th>
+                                    <th class="px-5 py-3 text-left font-bold text-blue-800">Bahan Aktif</th>
+                                    <th class="px-5 py-3 text-center font-bold text-blue-800">Dosis/Liter Air</th>
+                                    <th class="px-5 py-3 text-center font-bold text-blue-800">Volume/Hektar</th>
+                                    <th class="px-5 py-3 text-center font-bold text-blue-800">Interval</th>
+                                    <th class="px-5 py-3 text-left font-bold text-blue-800">Cara Aplikasi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-5 py-3 font-medium">Antraknosa</td>
+                                    <td class="px-5 py-3">Mancozeb 80% WP</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded">2.5 g</span></td>
+                                    <td class="px-5 py-3 text-center">750-1000 L</td>
+                                    <td class="px-5 py-3 text-center">5-7 hari</td>
+                                    <td class="px-5 py-3 text-xs">Dosis naik 25% dari kemarau. Tambahkan perekat <strong>1 ml/L</strong> (naik dari 0.5). Volume air naik. Semprot saat daun kering setelah hujan.</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50/50">
+                                    <td class="px-5 py-3 font-medium">Antraknosa</td>
+                                    <td class="px-5 py-3">Azoksistrobin 25% SC</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded">0.6 ml</span></td>
+                                    <td class="px-5 py-3 text-center">750-1000 L</td>
+                                    <td class="px-5 py-3 text-center">7-10 hari</td>
+                                    <td class="px-5 py-3 text-xs">Interval diperpendek. Karena SC (suspension concentrate), kocok sebelum digunakan. Pastikan semprot 4-6 jam sebelum hujan.</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-5 py-3 font-medium">Busuk Buah</td>
+                                    <td class="px-5 py-3">Metalaksil + Mancozeb</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded">2.5 g</span></td>
+                                    <td class="px-5 py-3 text-center">750-1000 L</td>
+                                    <td class="px-5 py-3 text-center">5-7 hari</td>
+                                    <td class="px-5 py-3 text-xs">Prioritas utama di musim hujan. Kocor ke pangkal batang + semprot daun. Perbaiki drainase terlebih dahulu agar obat tidak sia-sia.</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50/50">
+                                    <td class="px-5 py-3 font-medium">Busuk Buah</td>
+                                    <td class="px-5 py-3">Propamokarb + Fluopicolide</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded">2.5 ml</span></td>
+                                    <td class="px-5 py-3 text-center">750-1000 L</td>
+                                    <td class="px-5 py-3 text-center">7-10 hari</td>
+                                    <td class="px-5 py-3 text-xs">Sangat efektif untuk <em>Phytophthora</em> di musim hujan. Rainfast setelah 2 jam. Rotasi dengan Metalaksil.</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-5 py-3 font-medium">Embun Tepung</td>
+                                    <td class="px-5 py-3">Trifloksistrobin 50% WG</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded">0.4 g</span></td>
+                                    <td class="px-5 py-3 text-center">750-1000 L</td>
+                                    <td class="px-5 py-3 text-center">10-14 hari</td>
+                                    <td class="px-5 py-3 text-xs">Gunakan WG (water dispersible granule) yang lebih tahan pencucian. Hindari Sulfur di musim hujan (kurang efektif).</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50/50">
+                                    <td class="px-5 py-3 font-medium">Layu Bakteri</td>
+                                    <td class="px-5 py-3">Tembaga Hidroksida 77% WP</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded">1.5 g</span></td>
+                                    <td class="px-5 py-3 text-center">750-1000 L</td>
+                                    <td class="px-5 py-3 text-center">5-7 hari</td>
+                                    <td class="px-5 py-3 text-xs">Lebih disukai di musim hujan karena sifat kontak yang tahan pencucian. Semprot ke pangkal batang dan tanah sekitar.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-medium">Cercospora</td>
+                                    <td class="px-5 py-3">Mancozeb 80% WP</td>
+                                    <td class="px-5 py-3 text-center"><span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded">2.5 g</span></td>
+                                    <td class="px-5 py-3 text-center">750-1000 L</td>
+                                    <td class="px-5 py-3 text-center">5-7 hari</td>
+                                    <td class="px-5 py-3 text-xs">Di musim hujan, prioritas Mancozeb (kontak) daripada Karbendazim karena lebih tahan pencucian hujan ringan. Rotasi tetap diperlukan.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bg-blue-50 p-4 flex items-start gap-3 border-t border-blue-100">
+                        <i data-lucide="info" class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5"></i>
+                        <p class="text-xs text-blue-800"><strong>Catatan Hujan:</strong> Dosis naik 20-25% dari musim kemarau karena risiko pencucian oleh hujan. Volume air naik menjadi 750-1000 L/ha. WAJIB tambahkan perekat/adheren 1 ml/L. Semprot saat cuaca cerah (periksa prakiraan cuaca, pastikan 4-6 jam tanpa hujan setelah aplikasi). Gunakan formulasi yang lebih rainfast (SC, WG, EC lebih baik daripada WP di musim hujan).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perbandingan Visual -->
+            <div class="mt-10 grid md:grid-cols-2 gap-6 fade-in">
+                <div class="bg-white rounded-2xl p-6 border border-yellow-200 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="sun" class="w-5 h-5 text-yellow-600"></i>
+                        </div>
+                        <h4 class="font-bold text-hijau-900">Tips Musim Kemarau</h4>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Semprot pagi hari (07.00-09.00)</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Hindari aplikasi saat suhu >35°C</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Volume air lebih sedikit (500-600 L/ha)</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Perekat cukup 0.5 ml/L</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Waspada Embun Tepung dominan</li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-blue-200 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="cloud-rain" class="w-5 h-5 text-blue-600"></i>
+                        </div>
+                        <h4 class="font-bold text-hijau-900">Tips Musim Hujan</h4>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Dosis naik 20-25% dari normal</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Perekat WAJIB 1 ml/L</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Volume air 750-1000 L/ha</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Pastikan 4-6 jam tanpa hujan</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-hijau-500 mt-0.5 flex-shrink-0"></i>Waspada Antraknosa & Phytophthora dominan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tindakan Darurat -->
+    <section id="tindakan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">Tindakan Darurat</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-hijau-900 mb-4">Apa Yang Harus Dilakukan?</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Langkah-langkah segera saat pertama kali mendeteksi gejala penyakit pada tanaman cabai.</p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative max-w-4xl mx-auto">
+                <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-hijau-200 md:-translate-x-px"></div>
+
+                <!-- Step 1 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12 fade-in">
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-16 md:pl-0">
+                        <div class="bg-red-50 border border-red-200 rounded-2xl p-6">
+                            <div class="flex items-center gap-2 md:justify-end mb-3">
+                                <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">MENIT 0-30</span>
+                            </div>
+                            <h4 class="font-bold text-hijau-900 text-lg mb-2">1. Identifikasi & Isolasi</h4>
+                            <ul class="text-sm text-gray-600 space-y-2 md:text-right">
+                                <li>✅ Foto gejala dari berbagai sisi untuk dokumentasi</li>
+                                <li>✅ Tandai tanaman terinfeksi dengan tali/plastik berwarna</li>
+                                <li>✅ JANGAN menyentuh tanaman sehat setelah menyentuh tanaman sakit</li>
+                                <li>✅ Tentukan apakah penyakit jamur, bakteri, atau virus</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="absolute left-3.5 md:left-1/2 md:-translate-x-1/2 w-5 h-5 bg-red-600 rounded-full border-4 border-white shadow-md z-10"></div>
+                    <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12 fade-in">
+                    <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+                    <div class="absolute left-3.5 md:left-1/2 md:-translate-x-1/2 w-5 h-5 bg-orange-500 rounded-full border-4 border-white shadow-md z-10"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-16">
+                        <div class="bg-orange-50 border border-orange-200 rounded-2xl p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full">JAM 1-3</span>
+                            </div>
+                            <h4 class="font-bold text-hijau-900 text-lg mb-2">2. Buang Sumber Infeksi</h4>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li>✅ Cabut dan musnahkan tanaman yang sangat parah (bakar/tanam dalam)</li>
+                                <li>✅ Pangkas daun dan buah yang terinfeksi, masukkan kantong plastik</li>
+                                <li>✅ Bersihkan gulma di sekitar tanaman (potensi inang)</li>
+                                <li>✅ Sterilkan gunting/pisau dengan alkohol 70% setelah dipakai</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12 fade-in">
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-16 md:pl-0">
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-2xl p-6">
+                            <div class="flex items-center gap-2 md:justify-end mb-3">
+                                <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1 rounded-full">JAM 3-6</span>
+                            </div>
+                            <h4 class="font-bold text-hijau-900 text-lg mb-2">3. Perbaiki Lingkungan</h4>
+                            <ul class="text-sm text-gray-600 space-y-2 md:text-right">
+                                <li>✅ Perbaiki drainase jika ada genangan air</li>
+                                <li>✅ Pangkas daun bawah yang terlalu rimbun</li>
+                                <li>✅ Pastikan jarak tanam tidak terlalu rapat</li>
+                                <li>✅ Kurangi kelembaban dengan meningkatkan ventilasi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="absolute left-3.5 md:left-1/2 md:-translate-x-1/2 w-5 h-5 bg-yellow-500 rounded-full border-4 border-white shadow-md z-10"></div>
+                    <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12 fade-in">
+                    <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+                    <div class="absolute left-3.5 md:left-1/2 md:-translate-x-1/2 w-5 h-5 bg-blue-500 rounded-full border-4 border-white shadow-md z-10"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-16">
+                        <div class="bg-blue-50 border border-blue-200 rounded-2xl p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">JAM 6-12</span>
+                            </div>
+                            <h4 class="font-bold text-hijau-900 text-lg mb-2">4. Aplikasi Pengendalian</h4>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li>✅ Mulai dengan agen biologis (Trichoderma/Bacillus) jika infeksi ringan</li>
+                                <li>✅ Jika infeksi sedang-berat, gunakan pestisida kimia sesuai dosis</li>
+                                <li>✅ Untuk virus: cabut tanaman, kendalikan vektor (kutu daun) dengan imidakloprid</li>
+                                <li>✅ Tambahkan perekat untuk kemarau (0.5ml/L) atau hujan (1ml/L)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative flex flex-col md:flex-row items-start fade-in">
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-16 md:pl-0">
+                        <div class="bg-hijau-50 border border-hijau-200 rounded-2xl p-6">
+                            <div class="flex items-center gap-2 md:justify-end mb-3">
+                                <span class="bg-hijau-600 text-white text-xs font-bold px-3 py-1 rounded-full">HARI 1-14</span>
+                            </div>
+                            <h4 class="font-bold text-hijau-900 text-lg mb-2">5. Pemantauan & Follow-up</h4>
+                            <ul class="text-sm text-gray-600 space-y-2 md:text-right">
+                                <li>✅ Pantau setiap 2-3 hari, catat perkembangan penyakit</li>
+                                <li>✅ Ulangi aplikasi sesuai interval (5-14 hari tergantung musim)</li>
+                                <li>✅ Rotasi bahan aktif BERBEDA golongan untuk cegah resistensi</li>
+                                <li>✅ Jika tidak ada perbaikan setelah 2-3 aplikasi, konsultasi ahli</li>
+                                <li>✅ Setelah panen, lakukan solarisasi tanah untuk musim berikutnya</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="absolute left-3.5 md:left-1/2 md:-translate-x-1/2 w-5 h-5 bg-hijau-600 rounded-full border-4 border-white shadow-md z-10"></div>
+                    <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rotasi Pestisida -->
+    <section class="py-16 bg-hijau-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Contoh Program Rotasi Pestisida</h2>
+                <p class="text-hijau-200 text-sm max-w-xl mx-auto">Contoh rotasi untuk pengendalian Antraknosa di musim hujan selama 6 minggu:</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10">
+                    <div class="text-hijau-300 text-xs font-bold mb-2">MINGGU 1</div>
+                    <div class="text-white font-semibold text-sm mb-1">Mancozeb</div>
+                    <div class="text-hijau-300 text-xs">Kontak</div>
+                    <div class="text-hijau-200 text-xs mt-2">2.5 g/L</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10">
+                    <div class="text-hijau-300 text-xs font-bold mb-2">MINGGU 2</div>
+                    <div class="text-white font-semibold text-sm mb-1">Azoksistrobin</div>
+                    <div class="text-hijau-300 text-xs">Strobilurin</div>
+                    <div class="text-hijau-200 text-xs mt-2">0.6 ml/L</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10">
+                    <div class="text-hijau-300 text-xs font-bold mb-2">MINGGU 3</div>
+                    <div class="text-white font-semibold text-sm mb-1">Mancozeb + Metalaksil</div>
+                    <div class="text-hijau-300 text-xs">Karbamat+Phenylamide</div>
+                    <div class="text-hijau-200 text-xs mt-2">2.5 g/L</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10">
+                    <div class="text-hijau-300 text-xs font-bold mb-2">MINGGU 4</div>
+                    <div class="text-white font-semibold text-sm mb-1">Karbendazim</div>
+                    <div class="text-hijau-300 text-xs">Benzimidazol</div>
+                    <div class="text-hijau-200 text-xs mt-2">1.5 g/L</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10">
+                    <div class="text-hijau-300 text-xs font-bold mb-2">MINGGU 5</div>
+                    <div class="text-white font-semibold text-sm mb-1">Mancozeb</div>
+                    <div class="text-hijau-300 text-xs">Kontak</div>
+                    <div class="text-hijau-200 text-xs mt-2">2.5 g/L</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10">
+                    <div class="text-hijau-300 text-xs font-bold mb-2">MINGGU 6</div>
+                    <div class="text-white font-semibold text-sm mb-1">Trifloksistrobin</div>
+                    <div class="text-hijau-300 text-xs">Strobilurin</div>
+                    <div class="text-hijau-200 text-xs mt-2">0.4 g/L</div>
+                </div>
+            </div>
+            <div class="mt-6 bg-white/5 border border-white/10 rounded-xl p-4 flex items-start gap-3 max-w-3xl mx-auto">
+                <i data-lucide="lightbulb" class="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5"></i>
+                <p class="text-xs text-hijau-200"><strong class="text-white">Prinsip Rotasi:</strong> Jangan gunakan bahan aktif dari golongan yang sama secara berturut-turut. Mancozeb (kontak) sebagai "wash out" di antara aplikasi sistemik. Selalu tambahkan perekat. Perhatikan Masa Tunggu (Pre-Harvest Interval) sebelum panen — umumnya 7-14 hari tergantung bahan aktif.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-hijau-950 text-hijau-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-hijau-600 rounded-lg flex items-center justify-center">
+                            <i data-lucide="leaf" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white">CabaiSehat</span>
+                    </div>
+                    <p class="text-sm text-hijau-400 leading-relaxed">Panduan lengkap pengendalian penyakit tanaman cabai untuk petani Indonesia. Informasi berbasis riset dan pengalaman lapangan.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navigasi</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="CABAI_START_UP.html" class="hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="#penyakit" class="hover:text-white transition-colors">Penyakit Utama</a></li>
+                        <li><a href="#pengendalian" class="hover:text-white transition-colors">Metode Pengendalian</a></li>
+                        <li><a href="#dosis" class="hover:text-white transition-colors">Dosis & Aplikasi</a></li>
+                        <li><a href="#tindakan" class="hover:text-white transition-colors">Tindakan Darurat</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Disclaimer</h4>
+                    <p class="text-sm text-hijau-400 leading-relaxed">Informasi ini bersifat panduan umum. Selalu ikuti label kemasan produk pestisida dan konsultasikan dengan penyuluh pertanian setempat sebelum aplikasi.</p>
+                </div>
+            </div>
+            <div class="border-t border-hijau-800 pt-6 text-center text-xs text-hijau-500">
+                © 2024 CabaiSehat — Panduan Penyakit Tanaman Cabai Indonesia
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-hijau-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-hijau-700 transition-all opacity-0 pointer-events-none z-40" style="transition: opacity 0.3s, transform 0.3s;">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Toast -->
+    <div id="toast" class="toast fixed bottom-6 left-6 bg-hijau-800 text-white px-5 py-3 rounded-xl shadow-xl z-50 flex items-center gap-3 max-w-sm">
+        <i data-lucide="check-circle-2" class="w-5 h-5 text-hijau-300 flex-shrink-0"></i>
+        <span id="toastMsg" class="text-sm"></span>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open', menuOpen);
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOpen = false;
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Tab switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active');
+                b.classList.add('text-hijau-700');
+            });
+            document.getElementById('tab-' + tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+            event.currentTarget.classList.remove('text-hijau-700');
+            lucide.createIcons();
+            showToast('Menampilkan pengendalian ' + tabName.charAt(0).toUpperCase() + tabName.slice(1));
+        }
+
+        // Season switching
+        function switchSeason(season) {
+            document.querySelectorAll('.season-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.season-btn').forEach(b => {
+                b.classList.remove('bg-hijau-600', 'text-white');
+                b.classList.add('text-hijau-700');
+            });
+            document.getElementById('season-' + season).classList.remove('hidden');
+            const btn = document.getElementById('btn-' + season);
+            btn.classList.add('bg-hijau-600', 'text-white');
+            btn.classList.remove('text-hijau-700');
+            lucide.createIcons();
+            showToast('Menampilkan dosis musim ' + season.charAt(0).toUpperCase() + season.slice(1));
+        }
+
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.style.opacity = '1';
+                backToTop.style.pointerEvents = 'auto';
+                backToTop.style.transform = 'translateY(0)';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.pointerEvents = 'none';
+                backToTop.style.transform = 'translateY(20px)';
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Toast notification
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        // Fade in on scroll
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        fadeEls.forEach(el => observer.observe(el));
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active', 'text-hijau-700');
+                link.classList.add('text-gray-600');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active', 'text-hijau-700');
+                    link.classList.remove('text-gray-600');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

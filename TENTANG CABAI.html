@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Tentang — CabaiKu</title>
+<meta name="description" content="Mengapa cabai butuh perawatan berbeda di setiap musim. Syarat tumbuh optimal dan pengantar budidaya cabai.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{g:{DEFAULT:'#2D6A4F',l:'#52B788',d:'#1B4332',50:'#D8F3DC',100:'#B7E4C7'},e:{DEFAULT:'#A0785A',l:'#D4A574'},w:{DEFAULT:'#168AAD',l:'#76C8D0',d:'#0E6377'}},fontFamily:{p:['Poppins','sans-serif']}}}
+</script>
+<style>
+  :root{--bg:#F0F9F0;--fg:#1A1A1A;--mt:#5F6B6A;--ac:#2D6A4F;--cd:#FFFFFF;--bd:#D1E7DD}
+  .dark{--bg:#0C1F10;--fg:#E0F2E0;--mt:#8FA89A;--ac:#52B788;--cd:#132A17;--bd:#1E3D24}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--fg);transition:background .35s,color .35s;overflow-x:hidden}
+  .sec{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .sec.v{opacity:1;transform:translateY(0)}
+  .ch{transition:transform .3s,box-shadow .3s}
+  .ch:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(45,106,79,.12)}
+  .dark .ch:hover{box-shadow:0 12px 28px rgba(0,0,0,.35)}
+  .tbl{border-collapse:separate;border-spacing:0;width:100%}
+  .tbl thead th{background:#2D6A4F;color:#fff;padding:.6rem .8rem;text-align:left;font-weight:600;font-size:.75rem}
+  .dark .tbl thead th{background:#1B4332}
+  .tbl tbody td{padding:.5rem .8rem;border-bottom:1px solid var(--bd);font-size:.78rem}
+  .tbl tbody tr{transition:background .2s}
+  .tbl tbody tr:hover{background:rgba(82,183,136,.06)}
+  .glass{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.13)}
+  .dark .glass{background:rgba(0,0,0,.2);border-color:rgba(255,255,255,.07)}
+  .badge{display:inline-block;padding:.15rem .5rem;border-radius:999px;font-size:.65rem;font-weight:600}
+  .bg-gn{background:#D8F3DC;color:#1B4332}.bg-am{background:#FEF3C7;color:#92400E}.bg-bl{background:#D4EDFC;color:#0E6377}.bg-rd{background:#FEE2E2;color:#991B1B}
+  .dark .bg-gn{background:#1B4332;color:#D8F3DC}.dark .bg-am{background:#3D2E05;color:#FDE68A}.dark .bg-bl{background:#0E3B4F;color:#76C8D0}.dark .bg-rd{background:#3B0D0D;color:#FCA5A5}
+  ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#52B788;border-radius:3px}
+  @media(max-width:768px){.tbl{font-size:.7rem}.tbl thead th,.tbl tbody td{padding:.35rem .45rem}}
+</style>
+</head>
+<body class="font-p">
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 right-0 z-50" style="background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)">
+    <div class="max-w-6xl mx-auto px-4"><div class="flex items-center justify-between h-14">
+      <a href="#top" class="flex items-center gap-2 text-lg font-bold" style="color:var(--ac)"><i class="fas fa-pepper-hot text-xl"></i>CabaiKu</a>
+      <div class="hidden md:flex items-center gap-5 text-xs font-medium">
+        <a href="CABAI_START_UP.html" class="hover:opacity-70 transition">Beranda</a>
+        <a href="TENTANG CABAI.html" class="hover:opacity-70 transition" style="color:var(--ac);font-weight:700">Tentang</a>
+        <a href="CABAI_START_UP.html#visimisi" class="hover:opacity-70 transition">Visi & Misi</a>
+        <a href="musim hujan.html" class="hover:opacity-70 transition">Musim Kemarau</a>
+        <a href="musim hujan.html" class="hover:opacity-70 transition">Musim Hujan</a>
+        <a href="pupuk cabai.html" class="hover:opacity-70 transition">Pupuk</a>
+        <a href="hama cabai.html" class="hover:opacity-70 transition">Hama</a>
+        <a href="penyakit cabai.html" class="hover:opacity-70 transition">Penyakit</a>
+        <a href="jadwal cabai.html" class="hover:opacity-70 transition">Jadwal</a>
+        <a href="CABAI_START_UP.html#faq" class="hover:opacity-70 transition">FAQ</a>
+        <a href="BLOG CABAIKU.html" class="hover:opacity-70 transition">Blog</a>
+        <a href="CABAI_START_UP.html#kontak" class="hover:opacity-70 transition">Kontak</a>
+      </div>
+    <div class="flex items-center gap-2">
+  <button onclick="document.documentElement.classList.toggle('dark')" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-label="Dark mode"><i class="fas fa-moon text-sm" style="color:var(--fg)"></i></button>
+    <button onclick="document.getElementById('mobNav').classList.toggle('hidden')" class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"><i class="fas fa-bars text-sm" style="color:var(--fg)"></i></button>
+</div>
+    </div>
+      </div>
+       <div id="mobNav" class="hidden md:hidden border-t" style="border-color:var(--bd);background:var(--cd)"><div class="px-4 py-2 space-y-0.5 text-xs font-medium">
+        <a href="CABAI_START_UP.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Beranda</a>
+        <a href="TENTANG CABAI.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" style="color:var(--ac);font-weight:700">Tentang</a>
+        <a href="CABAI_START_UP.html#visimisi" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Visi & Misi</a>
+        <a href="musim hujan.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Musim Kemarau</a>
+        <a href="musim hujan.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Musim Hujan</a>
+        <a href="pupuk cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Pupuk</a>
+        <a href="hama cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Hama</a>
+        <a href="penyakit cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Penyakit</a>
+        <a href="jadwal cabai.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Jadwal</a>
+        <a href="CABAI_START_UP.html#faq" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">FAQ</a>
+        <a href="BLOG CABAIKU.html" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Blog</a>
+        <a href="CABAI_START_UP.html#kontak" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Kontak</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER GAMBAR CABAI -->
+<section id="top" class="relative" style="padding-top:3.5rem">
+<div class="w-full" style="height:340px;overflow:hidden">
+<img src="./FOTO/1 (tentang).jpg" alt="Ladang cabai hijau" class="w-full h-full object-cover">
+<div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(27,67,50,.3) 0%,var(--bg) 100%)"></div>
+<div class="absolute inset-0 flex items-end pb-8">
+<div class="max-w-6xl mx-auto px-4 w-full">
+<span class="badge bg-gn mb-2"><i class="fas fa-pepper-hot mr-1"></i>CabaiKu</span>
+<h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-2" style="text-shadow:0 2px 12px rgba(0,0,0,.4)">Tentang Panduan Ini</h1>
+<p class="text-sm text-green-100 max-w-lg" style="text-shadow:0 1px 6px rgba(0,0,0,.3)">Mengapa tanaman cabai memerlukan pendekatan perawatan yang berbeda di setiap musim, dan apa yang membuat panduan ini berbeda.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- KONTEN UTAMA -->
+<section id="tentang" class="py-14 px-4">
+<div class="max-w-6xl mx-auto">
+
+<!-- Row 1: Teks + Gambar -->
+  <div class="grid lg:grid-cols-2 gap-10 items-center mb-14">
+    <div class="sec">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-4">Mengapa Cabai Butuh Perawatan Berbeda di Setiap Musim?</h2>
+      <p class="text-sm mb-3 leading-relaxed" style="color:var(--mt)">Cabai (<em>Capsicum annuum</em>) merupakan tanaman yang sangat responsif terhadap perubahan lingkungan. Sistem perakarannya relatif dangkal — 60-70% akar tersebar di lapisan 0-20 cm tanah — membuatnya sangat rentan terhadap fluktuasi ketersediaan air.</p>
+      <p class="text-sm mb-3 leading-relaxed" style="color:var(--mt)">Di musim kemarau, cabai menghadapi stres kekeringan yang menyebabkan <strong>flower drop</strong> (gugurnya bunga sebelum menjadi buah), buah berukuran kecil, dan kerusakan akibat hama penghisap yang dominan saat kondisi kering.</p>
+      <p class="text-sm mb-3 leading-relaxed" style="color:var(--mt)">Di musim hujan, genangan dan kelembapan tinggi memicu ledakan penyakit jamur dan bakteri — terutama <em>Phytophthora capsici</em> yang bisa menghancurkan seluruh tanaman dalam hitungan hari. Pupuk yang diaplikasikan juga mudah tercuci oleh air hujan (leaching).</p>
+      <p class="text-sm leading-relaxed" style="color:var(--mt)">Panduan ini menyajikan strategi spesifik untuk kedua musim, mencakup 16+ jenis pupuk dengan dosis tepat berdasarkan fase pertumbuhan, teknik penyiraman, pencegahan leaching, dan penerapan pupuk hayati.</p>
+</div>
+  <div class="sec">
+    <img src="./FOTO/2 (tentang).jpg" alt="Buah cabai merah matang di pohon" class="rounded-2xl shadow-lg w-full object-cover" style="height:380px" loading="lazy">
+    </div>
+  </div>
+  
+<!-- Row 2: Syarat Tumbuh -->
+<div class="sec mb-14">
+<h3 class="text-xl font-bold mb-2 text-center">Syarat Tumbuh Optimal Cabai</h3>
+<p class="text-xs text-center mb-6" style="color:var(--mt)">Memenuhi parameter ini adalah fondasi keberhasilan budidaya cabai di musim apapun.</p>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+<div class="ch text-center rounded-xl p-4" style="background:var(--cd);border:1px solid var(--bd)">
+<i class="fas fa-temperature-half text-2xl mb-2" style="color:#DC2626"></i>
+<div class="text-xs font-bold">Suhu Udara</div>
+<div class="text-sm font-extrabold" style="color:var(--ac)">25-30°C</div>
+<div class="text-[.65rem]" style="color:var(--mt)">Optimal pertumbuhan</div>
+</div>
+  <div class="ch text-center rounded-xl p-4" style="background:var(--cd);border:1px solid var(--bd)">
+  <i class="fas fa-droplet text-2xl mb-2" style="color:#168AAD"></i>
+  <div class="text-xs font-bold">Kelembapan</div>
+  <div class="text-sm font-extrabold" style="color:var(--ac)">60-80%</div>
+  <div class="text-[.65rem]" style="color:var(--mt)">Relatif udara</div>
+</div>
+  <div class="ch text-center rounded-xl p-4" style="background:var(--cd);border:1px solid var(--bd)">
+  <i class="fas fa-sun text-2xl mb-2" style="color:#D97706"></i>
+  <div class="text-xs font-bold">Cahaya Matahari</div>
+  <div class="text-sm font-extrabold" style="color:var(--ac)">8-12 jam</div>
+  <div class="text-[.65rem]" style="color:var(--mt)">Per hari</div>
+</div>
+  <div class="ch text-center rounded-xl p-4" style="background:var(--cd);border:1px solid var(--bd)">
+  <i class="fas fa-flask text-2xl mb-2" style="color:#2D6A4F"></i>
+  <div class="text-xs font-bold">pH Tanah</div>
+  <div class="text-sm font-extrabold" style="color:var(--ac)">5.5 - 6.5</div>
+  <div class="text-[.65rem]" style="color:var(--mt)">Sedikit asam</div>
+</div>
+  <div class="ch text-center rounded-xl p-4" style="background:var(--cd);border:1px solid var(--bd)">
+  <i class="fas fa-mountain text-2xl mb-2" style="color:#A0785A"></i>
+  <div class="text-xs font-bold">Ketinggian</div>
+  <div class="text-sm font-extrabold" style="color:var(--ac)">300-1500</div>
+  <div class="text-[.65rem]" style="color:var(--mt)">Meter di atas laut</div>
+</div>
+  <div class="ch text-center rounded-xl p-4" style="background:var(--cd);border:1px solid var(--bd)">
+  <i class="fas fa-water text-2xl mb-2" style="color:#0E6377"></i>
+  <div class="text-xs font-bold">Drainase</div>
+  <div class="text-sm font-extrabold" style="color:var(--ac)">Baik</div>
+  <div class="text-[.65rem]" style="color:var(--mt)">Hindari genangan</div>
+</div>
+</div>
+</div>
+
+<!-- Row 3: Gambar tengah -->
+<div class="sec mb-14 rounded-2xl overflow-hidden" style="border:1px solid var(--bd)">
+<img src="./FOTO/1.jpeg" alt="Barisan tanaman cabai di kebun" class="w-full object-cover" style="height:300px" loading="lazy">
+</div>
+
+<!-- Row 4: Fase Pertumbuhan -->
+<div class="sec mb-14">
+<h3 class="text-xl font-bold mb-2 text-center">Fase Pertumbuhan Cabai</h3>
+<p class="text-xs text-center mb-6" style="color:var(--mt)">Setiap fase memiliki kebutuhan air dan hara yang berbeda. Pemupukan yang tepat waktu menentukan hasil panen.</p>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<div class="ch rounded-xl overflow-hidden" style="background:var(--cd);border:1px solid var(--bd)">
+<div class="h-32 overflow-hidden"><img src="./FOTO/semai (tentang).jpg" alt="Semai cabai" class="w-full h-full object-cover" loading="lazy"></div>
+<div class="p-4">
+<span class="badge bg-gn mb-2">0-14 HST</span>
+<h4 class="font-bold text-sm mb-1">Semai & Vegetatif Awal</h4>
+<p class="text-xs" style="color:var(--mt)">Perakaran mulai terbentuk. Kebutuhan air rendah (0.1-0.5 L/tanaman/hari). Pupuk dasar SP-36 + organik di lubang tanam. Susulan pertama NPK di HST 14.</p>
+</div></div>
+<div class="ch rounded-xl overflow-hidden" style="background:var(--cd);border:1px solid var(--bd)">
+<div class="h-32 overflow-hidden"><img src="./FOTO/vegetatif (tentang).webp" alt="Cabai fase vegetatif" class="w-full h-full object-cover" loading="lazy"></div>
+<div class="p-4">
+<span class="badge bg-am mb-2">14-42 HST</span>
+<h4 class="font-bold text-sm mb-1">Vegetatif Aktif</h4>
+<p class="text-xs" style="color:var(--mt)">Pertumbuhan daun dan batang pesat. Kebutuhan air meningkat (0.5-2 L/tanaman/hari). NPK + KCl susulan setiap 14 hari. Mulsa penting di kemarau.</p>
+</div></div>
+<div class="ch rounded-xl overflow-hidden" style="background:var(--cd);border:1px solid var(--bd)">
+<div class="h-32 overflow-hidden"><img src="./FOTO/generatif (tentang).jpg" alt="Bunga cabai mekar" class="w-full h-full object-cover" loading="lazy"></div>
+<div class="p-4">
+<span class="badge bg-bl mb-2">42-56 HST</span>
+<h4 class="font-bold text-sm mb-1">Generatif (Berbunga)</h4>
+<p class="text-xs" style="color:var(--mt)">Bunga muncul, pembuahan dimulai. Kebutuhan air puncak (2-3 L/tanaman/hari). KCl/SOP tinggi untuk kualitas buah. CaNO₃ foliar cegah blossom-end rot.</p>
+</div></div>
+<div class="ch rounded-xl overflow-hidden" style="background:var(--cd);border:1px solid var(--bd)">
+<div class="h-32 overflow-hidden"><img src="./FOTO/panen (tentang).webp" alt="Panen cabai merah" class="w-full h-full object-cover" loading="lazy"></div>
+<div class="p-4">
+<span class="badge bg-rd mb-2">56-120 HST</span>
+<h4 class="font-bold text-sm mb-1">Panen</h4>
+<p class="text-xs" style="color:var(--mt)">Buah matang secara bertahap. Panen pertama sekitar HST 70-80. KCl susulan terakhir untuk kualitas. Air dikurangi menjelang akhir masa tanam.</p>
+</div></div>
+</div>
+</div>
+
+<!-- Row 5: Perbedaan Musim -->
+<div class="sec mb-14">
+<h3 class="text-xl font-bold mb-2 text-center">Perbandingan Tantangan: Kemarau vs Hujan</h3>
+<p class="text-xs text-center mb-6" style="color:var(--mt)">Memahami perbedaan mendasar membantu Anda menyiapkan strategi yang tepat sebelum musim berganti.</p>
+<div class="overflow-x-auto rounded-2xl" style="background:var(--cd);border:1px solid var(--bd)">
+<table class="tbl">
+<thead><tr><th>Aspek</th><th><i class="fas fa-sun mr-1"></i>Musim Kemarau</th><th><i class="fas fa-cloud-rain mr-1"></i>Musim Hujan</th></tr></thead>
+<tbody>
+<tr><td class="font-medium">Suhu</td><td>28-36°C (tinggi)</td><td>24-30°C (sedang)</td></tr>
+<tr><td class="font-medium">Kelembapan</td><td>40-65% (rendah)</td><td>80-95% (sangat tinggi)</td></tr>
+<tr><td class="font-medium">Curah Hujan</td><td>&lt;100 mm/bulan</td><td>200-400 mm/bulan</td></tr>
+<tr><td class="font-medium">Risiko Utama</td><td>Kekeringan, flower drop, stres panas</td><td>Genangan, busuk akar, antraknosa, leaching</td></tr>
+<tr><td class="font-medium">Penyiraman</td><td>2x sehari, 8-12 L/m²</td><td>Dikurangi/hentikan jika hujan >5mm</td></tr>
+<tr><td class="font-medium">Pupuk Prioritas</td><td>KCl/SOP, Kompos, Mikoriza, CaNO₃</td><td>Dolomit, Trichoderma, NPK 12-12-17, SP-36</td></tr>
+<tr><td class="font-medium">Teknik Kunci</td><td>Mulsa 5-8 cm, drip irrigation, shade net</td><td>Bedengan 25-30 cm, drainase, naungan UV</td></tr>
+<tr><td class="font-medium">Hama Dominan</td><td>Kutu daun, thrips, tungau merah, lalat buah</td><td>Keong mas, ulat grayak, kutu putih</td></tr>
+<tr><td class="font-medium">Penyakit Dominan</td><td>Embun tepung (minor)</td><td>Antraknosa, busuk akar, layu bakteri, bercak daun</td></tr>
+<tr><td class="font-medium">Aplikasi Pupuk</td><td>Sebelum/sesudah irigasi</td><td>Saat cuaca cerah diprediksi 2-3 hari</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- Row 6: Gambar + Sumber -->
+<div class="grid lg:grid-cols-2 gap-8 items-center sec mb-10">
+<div>
+<img src="./FOTO/badan litbang.jpg" alt="Tanah kering di sekitar tanaman cabai" class="rounded-2xl shadow-lg w-full object-cover" style="height:340px" loading="lazy">
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4">Sumber Informasi</h3>
+<p class="text-sm mb-3 leading-relaxed" style="color:var(--mt)">Seluruh informasi di panduan ini disusun berdasarkan literatur agronomi dari lembaga penelitian dan perguruan tinggi terpercaya di Indonesia dan internasional.</p>
+<div class="space-y-3">
+<div class="flex items-start gap-3 text-sm"><i class="fas fa-check-circle mt-0.5" style="color:var(--ac)"></i><div><strong>Balai Penelitian Tanaman (Balitbangtan)</strong> — Rekomendasi teknis budidaya cabai nasional</div></div>
+<div class="flex items-start gap-3 text-sm"><i class="fas fa-check-circle mt-0.5" style="color:var(--ac)"></i><div><strong>Badan Litbang Pertanian</strong> — Paket teknologi pemupukan berbasis musim</div></div>
+<div class="flex items-start gap-3 text-sm"><i class="fas fa-check-circle mt-0.5" style="color:var(--ac)"></i><div><strong>FAO (Food & Agriculture Organization)</strong> — Pedoman irigasi dan konservasi air</div></div>
+<div class="flex items-start gap-3 text-sm"><i class="fas fa-check-circle mt-0.5" style="color:var(--ac)"></i><div><strong>IPB University & UGM</strong> — Jurnal penelitian hama & penyakit cabai Indonesia</div></div>
+<div class="flex items-start gap-3 text-sm"><i class="fas fa-check-circle mt-0.5" style="color:var(--ac)"></i><div><strong>Jurnal Agronomi Indonesia</strong> — Data dosis pupuk dan respons tanaman</div></div>
+</div>
+</div>
+</div>
+
+<!-- Disclaimer -->
+<div class="rounded-xl p-4 text-xs flex items-start gap-3 sec" style="background:var(--cd);border:1px solid var(--bd);color:var(--mt)">
+<i class="fas fa-exclamation-triangle text-amber-500 mt-0.5 flex-shrink-0"></i>
+<span><strong>Disclaimer:</strong> Seluruh dosis pupuk dan rekomendasi dalam panduan ini bersifat umum. Dosis akhir harus disesuaikan dengan hasil analisis tanah, kondisi lahan spesifik, varietas cabai yang ditanam, dan rekomendasi penyuluh pertanian setempat. Overdosis pupuk dapat merusak tanaman dan mencemari lingkungan.</span>
+</div>
+
+<!-- CTA -->
+<div class="text-center mt-12 sec">
+<h3 class="text-xl font-bold mb-3">Siap Memulai?</h3>
+<p class="text-sm mb-6" style="color:var(--mt)">Pilih strategi perawatan sesuai musim saat ini.</p>
+<div class="flex flex-wrap gap-3 justify-center">
+<a href="musim hujan.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm text-white transition hover:scale-105" style="background:linear-gradient(135deg,#D97706,#F59E0B)"><i class="fas fa-sun"></i>Strategi Kemarau</a>
+<a href="musim hujan.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm text-white transition hover:scale-105" style="background:linear-gradient(135deg,#168AAD,#34D1BF)"><i class="fas fa-cloud-rain"></i>Strategi Hujan</a>
+<a href="pupuk cabai.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm border-2 transition hover:scale-105" style="color:var(--ac);border-color:var(--ac)"><i class="fas fa-flask"></i>Lihat Semua Pupuk</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#1B4332;color:#D8F3DC">
+<div class="max-w-6xl mx-auto px-4 py-8">
+<div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-green-300">
+<div class="flex items-center gap-2"><i class="fas fa-pepper-hot text-red-400"></i><span class="font-bold text-white">CabaiKu</span> — Panduan edukasi tanaman cabai</div>
+<div class="flex gap-4"><a href="#top" class="hover:text-white transition">Kembali ke Atas</a></div>
+</div>
+</div>
+</footer>
+
+<script>
+// Intersection Observer untuk animasi scroll
+function initObs() {
+  var els = document.querySelectorAll('.sec:not(.v)');
+  var obs = new IntersectionObserver(function(entries) {
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].isIntersecting) {
+        entries[i].target.classList.add('v');
+        obs.unobserve(entries[i].target);
+      }
+    }
+  }, { threshold: 0.08 });
+  for (var j = 0; j < els.length; j++) obs.observe(els[j]);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  initObs();
+  // Navbar shadow on scroll
+  window.addEventListener('scroll', function() {
+    var nav = document.querySelector('nav');
+    nav.style.boxShadow = window.scrollY > 30 ? '0 2px 20px rgba(0,0,0,.08)' : 'none';
+  });
+});
+</script>
+</body>
+</html>
